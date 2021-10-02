@@ -231,4 +231,4 @@ curseforge {
 
 idea { module { inheritOutputDirs = true } }
 
-tasks.compileJava.dependsOn setupDecompWorkspace
+//tasks.compileJava.dependsOn setupDecompWorkspace
