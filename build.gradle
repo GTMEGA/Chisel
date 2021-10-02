@@ -77,13 +77,13 @@ repositories {
     }
 
     maven {
-        name = "jitpack"
-        url = "https://jitpack.io"
+        name "jitpack"
+        url "https://jitpack.io"
     }
 }
 
 dependencies {
-    shade ("team.chisel.ctmlib:CTMLib:${ctmlib_version}") {
+    shade ("com.github.GTMEGA:CTMLib:${ctmlib_version}") {
         transitive = false
     }
 
