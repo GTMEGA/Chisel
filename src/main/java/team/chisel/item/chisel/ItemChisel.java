@@ -30,7 +30,8 @@ public class ItemChisel extends Item implements IChiselItem {
 	public enum ChiselType {
 		IRON(Configurations.ironChiselMaxDamage, Configurations.ironChiselAttackDamage),
 		DIAMOND(Configurations.diamondChiselMaxDamage, Configurations.diamondChiselAttackDamage),
-		OBSIDIAN(Configurations.obsidianChiselMaxDamage, Configurations.obsidianChiselAttackDamage);
+		OBSIDIAN(Configurations.obsidianChiselMaxDamage, Configurations.obsidianChiselAttackDamage),
+		NETHERSTAR(Configurations.netherStarChiselMaxDamage, Configurations.netherStarChiselAttackDamage);
 
 		final int maxDamage;
 		final int attackDamage;
@@ -74,6 +75,8 @@ public class ItemChisel extends Item implements IChiselItem {
 			return repairMaterial.getItem().equals(Items.iron_ingot);
 		case OBSIDIAN:
 			return repairMaterial.getItem().equals(Item.getItemFromBlock(Blocks.obsidian));
+		case NETHERSTAR:
+			return repairMaterial.getItem().equals(Items.nether_star);
 		}
 
 		return false;
@@ -93,7 +96,7 @@ public class ItemChisel extends Item implements IChiselItem {
 		String lc2 = I18n.format(base + "lc2");
 		String modes = I18n.format(base + "modes");
 		list.add(gui);
-		if (type == ChiselType.DIAMOND || type == ChiselType.OBSIDIAN || Configurations.ironChiselCanLeftClick) {
+		if (type == ChiselType.DIAMOND || type == ChiselType.OBSIDIAN || type == ChiselType.NETHERSTAR || Configurations.ironChiselCanLeftClick) {
 			list.add(lc1);
 			list.add(lc2);
 		}
@@ -139,11 +142,11 @@ public class ItemChisel extends Item implements IChiselItem {
 
 	@Override
 	public boolean canChiselBlock(World world, EntityPlayer player, int x, int y, int z, Block block, int metadata) {
-		return type == ChiselType.DIAMOND || type == ChiselType.OBSIDIAN || Configurations.ironChiselCanLeftClick;
+		return type == ChiselType.DIAMOND || type == ChiselType.OBSIDIAN || type == ChiselType.NETHERSTAR || Configurations.ironChiselCanLeftClick;
 	}
 
 	@Override
 	public boolean hasModes(EntityPlayer player, ItemStack chisel) {
-		return type == ChiselType.DIAMOND || type == ChiselType.OBSIDIAN || Configurations.ironChiselHasModes;
+		return type == ChiselType.DIAMOND || type == ChiselType.OBSIDIAN || type == ChiselType.NETHERSTAR || Configurations.ironChiselHasModes;
 	}
 }

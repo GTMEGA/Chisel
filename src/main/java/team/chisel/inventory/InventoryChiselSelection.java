@@ -14,17 +14,33 @@ import net.minecraft.item.ItemTool;
 
 public class InventoryChiselSelection implements IInventory {
 
-	ItemStack chisel = null;
+	ItemStack chisel;
 	public final static int normalSlots = 60;
-	public int activeVariations = 0;
 	ContainerChisel container;
 	ItemStack[] inventory;
+	private int currentScroll = 0;
+	private int maxScroll = 0;
 
 	public InventoryChiselSelection(ItemStack c) {
 		super();
 
 		inventory = new ItemStack[normalSlots + 1];
 		chisel = c;
+	}
+
+	public void setCurrentScroll(int currentScroll) {
+		if (this.currentScroll != currentScroll) {
+			this.currentScroll = currentScroll;
+			updateItems();
+		}
+	}
+
+	public int getCurrentScroll() {
+		return currentScroll;
+	}
+
+	public int getMaxScroll() {
+		return maxScroll;
 	}
 
 	public void onInventoryUpdate(int slot) {
@@ -94,10 +110,10 @@ public class InventoryChiselSelection implements IInventory {
 	}
 
 	public void clearItems() {
-		activeVariations = 0;
 		for (int i = 0; i < normalSlots; i++) {
 			inventory[i] = null;
 		}
+		maxScroll = 0;
 	}
 
 	public ItemStack getStackInSpecialSlot() {
@@ -124,11 +140,11 @@ public class InventoryChiselSelection implements IInventory {
 			return;
 
 		List<ItemStack> list = container.carving.getItemsForChiseling(chiseledItem);
-
-		activeVariations = 0;
-		while (activeVariations < normalSlots && activeVariations < list.size()) {
-			if (Block.blockRegistry.getNameForObject(Block.getBlockFromItem(list.get(activeVariations).getItem())) != null) {
-				inventory[activeVariations] = list.get(activeVariations);
+		maxScroll = list.size();
+		int activeVariations = 0;
+		while (activeVariations < normalSlots && activeVariations + currentScroll < list.size()) {
+			if (Block.blockRegistry.getNameForObject(Block.getBlockFromItem(list.get(activeVariations + currentScroll).getItem())) != null) {
+				inventory[activeVariations] = list.get(activeVariations + currentScroll);
 				activeVariations++;
 			}
 		}
@@ -150,8 +166,11 @@ public class InventoryChiselSelection implements IInventory {
 
 	@Override
 	public void setInventorySlotContents(int slot, ItemStack stack) {
-		inventory[slot] = stack;
-		updateInventoryState(slot);
+		// we do not want external chisel variant updates
+		if (slot == normalSlots) {
+			inventory[slot] = stack;
+			updateInventoryState(slot);
+		}
 	}
 
 	@Override
@@ -171,5 +190,4 @@ public class InventoryChiselSelection implements IInventory {
 
 		return !(stack != null && (stack.getItem() instanceof ItemChisel)) && i == normalSlots;
 	}
-
 }

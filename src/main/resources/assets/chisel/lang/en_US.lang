@@ -16,6 +16,7 @@ item.chisel.chisel.desc.modes=Has multiple modes for chiseling.
 
 item.chisel.chisel_diamond.name=Diamond Chisel
 item.chisel.chisel_obsidian.name=Obsidian Chisel
+item.chisel.chisel_netherstar.name=Nether Star Chisel
 
 item.chisel.offsettool.name=Ender Offset Wand
 
@@ -61,6 +62,14 @@ tile.shingles.5.desc=Black Big Squares
 tile.chisel.valentines.name=Valentines Block
 tile.valentines.0.desc=Valentines Bricks
 tile.valentines.1.desc=If it speaks, I wouldn't touch it
+tile.valentines.2.desc=
+tile.valentines.3.desc=
+tile.valentines.4.desc=
+tile.valentines.5.desc=
+tile.valentines.6.desc=
+tile.valentines.7.desc=
+tile.valentines.8.desc=
+tile.valentines.9.desc=
 
 #AntiBlocks
 tile.chisel.antiBlock.name=Anti Block
@@ -118,10 +127,10 @@ tile.granite.7.desc=Diagonal Bricks
 tile.chisel.autoChisel.name=Auto Chisel
 autochisel.slot.chisel.tooltip=Chisel Slot
 autochisel.slot.target.tooltip=Target Slot
-autochisel.slot.speed.tooltip=Speed Upgrade
-autochisel.slot.automation.tooltip=Automation Upgrade
-autochisel.slot.stack.tooltip=Stack Upgrade
-autochisel.slot.reversion.tooltip=Reversion Upgrade
+autochisel.slot.speed.tooltip=Speed Upgrade Slot
+autochisel.slot.automation.tooltip=Automation Upgrade Slot
+autochisel.slot.stack.tooltip=Stack Upgrade Slot
+autochisel.slot.reversion.tooltip=Reversion Upgrade Slot
 chisel.autochisel.upgrade.disabled=Upgrades Disabled
 
 #Beacon
@@ -131,7 +140,7 @@ tile.beacon.blue.desc=Blue Beamed Beacon
 tile.beacon.brown.desc=Brown Beamed Beacon
 tile.beacon.cyan.desc=Cyan Beamed Beacon
 tile.beacon.green.desc=Green Beamed Beacon
-tile.beacon.lightBlue.desc=Light Blue Beamed Beacon
+tile.beacon.lightblue.desc=Light Blue Beamed Beacon
 tile.beacon.silver.desc=Light Gray Beamed Beacon
 tile.beacon.lime.desc=Lime Beamed Beacon
 tile.beacon.magenta.desc=Magenta Beamed Beacon
@@ -419,6 +428,11 @@ tile.metalOre.3.desc=An Old Relic from the land of Oneteufyv
 tile.metalOre.4.desc=Egregiously Bordered Block
 tile.metalOre.5.desc=Fancy Bolted Plating
 
+#Stairs
+tile.chisel.aluminum_stairs.0.name=Aluminum Stairs
+tile.chisel.aluminum_stairs.1.name=Aluminum Stairs
+tile.chisel.aluminum_stairs.2.name=Aluminum Stairs
+
 #Present Chest
 tile.chisel.present.name=Present
 tile.chisel.present.desc=A pretty present chest
@@ -470,9 +484,6 @@ tile.cobblestone.11.desc=Cobblestone with Dent
 tile.cobblestone.12.desc=Cobblestone with Panel
 tile.cobblestone.13.desc=Cobblestone with Light Panel
 tile.cobblestone.14.desc=Cobblestone with Dark Panel
-
-#Sandstone Blocks
-tile.chisel.sandstone.name=Sandstone
 
 #Marble Blocks
 tile.chisel.marble.name=Marble
@@ -755,6 +766,7 @@ tile.glass2.0.desc=Asymmetrical Leaded Glass
 
 #Sandstone
 tile.chisel.sandstone.name=Sandstone
+tile.chisel.sandstone2.name=Sandstone
 
 tile.sandstone.0.desc=Sandstone Glyphs
 tile.sandstone.1.desc=Sandcobble
@@ -773,6 +785,8 @@ tile.sandstone.12.desc=Sandstone Block
 tile.sandstone.13.desc=Small Sandstone Blocks
 tile.sandstone.14.desc=Sandstone Mosaic
 tile.sandstone.15.desc=Stacked Sandstone Tiles
+tile.sandstone.16.desc=Sandstone Bricks
+tile.sandstone.17.desc=
 
 #Sandstone scribbles
 tile.chisel.sandstone_scribbles.name=Sandstone Scribbles
@@ -1289,7 +1303,7 @@ tile.cloud.4.desc=Gridded Cloud Bricks
 tile.chisel.stained_glass_white.name=Stained Glass
 tile.chisel.stained_glass_orange.name=Stained Glass
 tile.chisel.stained_glass_magenta.name=Stained Glass
-tile.chisel.stained_glass_lightBlue.name=Stained Glass
+tile.chisel.stained_glass_lightblue.name=Stained Glass
 tile.chisel.stained_glass_yellow.name=Stained Glass
 tile.chisel.stained_glass_lime.name=Stained Glass
 tile.chisel.stained_glass_pink.name=Stained Glass

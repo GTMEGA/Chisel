@@ -6,6 +6,7 @@ import java.util.Queue;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -68,6 +69,11 @@ public final class ChiselController {
 		ItemStack held = event.entityPlayer.getCurrentEquippedItem();
 		int slot = event.entityPlayer.inventory.currentItem;
 
+		//Prevents a crash when activated from a Battlegear slot.
+		if(slot > 8 || slot < 0) {
+			return;
+		}
+		
 		if (held == null || !(held.getItem() instanceof IChiselItem)) {
 			return;
 		}
@@ -85,6 +91,12 @@ public final class ChiselController {
 			ICarvingGroup group = Carving.chisel.getGroup(block, metadata);
 
 			if (group == null) {
+				return;
+			}
+
+			TileEntity te = event.world.getTileEntity(x, y, z);
+			if ( te != null) {
+				// Don't support chiseling tile entities
 				return;
 			}
 

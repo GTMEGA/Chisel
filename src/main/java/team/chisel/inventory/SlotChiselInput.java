@@ -14,16 +14,14 @@ public class SlotChiselInput extends Slot {
 
 	@Override
 	public boolean isItemValid(ItemStack itemstack) {
-		if (container.finished)
-			return false;
-
-		return super.isItemValid(itemstack);
+		return !container.finished
+				&& !container.carving.getItemsForChiseling(itemstack).isEmpty()
+				&& super.isItemValid(itemstack);
 	}
 
 	@Override
 	public boolean canTakeStack(EntityPlayer par1EntityPlayer) {
 		return !container.finished && super.canTakeStack(par1EntityPlayer);
-
 	}
 
 	@Override
@@ -32,6 +30,7 @@ public class SlotChiselInput extends Slot {
 			return;
 
 		super.onSlotChanged();
+		selInventory.setCurrentScroll(0);
 		selInventory.updateItems();
 	}
 

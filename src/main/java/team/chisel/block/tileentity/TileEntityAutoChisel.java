@@ -42,13 +42,13 @@ public class TileEntityAutoChisel extends TileEntity implements ISidedInventory 
 
 		public String getUnlocalizedName() {
 			if (Features.AUTO_CHISEL_UPGRADES.enabled()) {
-				return ChiselItems.upgrade.getUnlocalizedName() + "_" + this.name().toLowerCase() + ".name";
+				return "item.upgrade_" + this.name().toLowerCase();
 			}
 			return "chisel.autochisel.upgrade.disabled";
 		}
 
 		public String getLocalizedName() {
-			String ret = StatCollector.translateToLocal(getUnlocalizedName());
+			String ret = StatCollector.translateToLocal("autochisel.slot." + this.name().toLowerCase() + ".tooltip");
 			if (!Features.AUTO_CHISEL_UPGRADES.enabled()) {
 				ret = EnumChatFormatting.RED.toString().concat(ret);
 			}

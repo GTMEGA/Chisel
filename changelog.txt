@@ -1,4 +1,4 @@
-2.9.5:
+2.9.8-GTMEGA:
 Changes
 - Added a Submap multi manager for quick and dirty rendering of multiple layers
 - Added emissive glow to all Futura blocks
@@ -7,6 +7,43 @@ Changes
 Fixes
 - Project now loads in Intellij
 - Fix Yellow Antiblock texture being too green
+
+2.9.7-GTNH:
+Fixes
+- refactor(carving): efficiency and modernize
+- feat(input slot): add item validation
+  Add Item validation to input slot, so that only chisellable items can be inserted.
+  Prevents insertion of random items and abuse of Chisels as a single-slot backpack.
+- fix(i18n): autochisel upgrades names
+  Fix code handling slots and upgrade localized names Sync locale files
+- fix(i18n): aluminum stairs
+  add missing aluminum stairs translations keys
+- fix(blocks): remove extraneous aluminum stairs
+  Note world will backup due to removed ItemIDs and BlockIDs
+```none
+chisel:aluminum_stairs.3
+chisel:aluminum_stairs.4
+chisel:aluminum_stairs.5
+chisel:aluminum_stairs.6
+chisel:aluminum_stairs.7
+```
+- fix(slabs): hide top slab items
+  Registering the top slab block to the `ItemBlock.class` rather than the `ItemCarvableSlab.class`,
+  prevents the top slab items to show-up in NEI while maintaining compatibility with existing worlds.
+- fix(texture): framed endstone
+  Fixed resource assets of framed endstone that caused error loading texture
+
+2.9.6-GTNH:
+Changes
+- Improve mode selection button with visual layout
+    - Replace mode selection button's text, with layout pictures.
+    - Refactor some GUI implementations.
+    - Prepare GUI layout for a future TODO scrollbar.
+
+
+2.9.5-GTNH:
+Fixes
+- Don't allow chiseling of TileEntity
 
 2.9.4:
 Changes
@@ -34,7 +71,7 @@ Changes
 - In-world chiseling is now possible in creative
 - Update changelog looks, and some improvements to gradle script
 Fixes
-- #22 Fix crash when using shift while in-world chiseling
+- #22 Fix crash when using shift while in-world chiseling 
 - #13 Fix buggy text rendering in chisel GUI without NEI present
 - #25 Fix gradle script for relative directories
 

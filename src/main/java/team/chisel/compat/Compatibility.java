@@ -5,11 +5,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import codechicken.nei.api.GuiInfo;
+import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import team.chisel.api.carving.ICarvingGroup;
 import team.chisel.api.carving.ICarvingVariation;
 import team.chisel.carving.Carving;
+import team.chisel.client.gui.GuiChisel;
 import team.chisel.utils.RecipeUtil;
 
 import com.google.common.collect.Maps;
@@ -157,6 +160,10 @@ public class Compatibility {
 
 		if (Loader.isModLoaded("EE3")) {
 			loadEE3Values();
+		}
+		if (Loader.isModLoaded("NotEnoughItems") && event.getSide() == Side.CLIENT) {
+			// disable chiseling by scrolling over itemstack
+			GuiInfo.customSlotGuis.add(GuiChisel.class);
 		}
 	}
 

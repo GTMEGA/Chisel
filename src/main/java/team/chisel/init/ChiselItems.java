@@ -15,6 +15,7 @@ public final class ChiselItems {
 	public static final ItemChisel chisel = null;
 	public static final ItemChisel diamondChisel = null;
 	public static final ItemChisel obsidianChisel = null;
+	public static final ItemChisel netherStarChisel = null;
 	public static final ItemCloudInABottle cloudinabottle = null;
 	public static final ItemBallOMoss ballomoss = null;
 	public static final ItemSmashingRock smashingrock = null;

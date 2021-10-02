@@ -1,4 +1,3 @@
-# 핵심 한글화 (Key localizations)
 
 # 상태 한글화 (Stat localizations)
 stat.blockChiseled=가공된 블록
@@ -33,10 +32,7 @@ item.upgrade_automation.desc=블록들을 자동으로 넣고 뺄 수 있게 합
 item.upgrade_stack.desc=한 번에 작업하는 블록 양을 늘립니다.
 item.upgrade_reversion.desc=슬롯에 있는 블록을 기본이 되는 블록으로 변환합니다.
 
-# 블록 한글화 (Block localizations)
-# Have fun! ~zombiepig333
 
-#Chisel 2
 
 # 국가 블록 (Nation)
 tile.chisel.nation.name=제국 블록
@@ -118,6 +114,26 @@ autochisel.slot.speed.tooltip=속도 업그레이드
 autochisel.slot.automation.tooltip=자동화 업그레이드
 autochisel.slot.stack.tooltip=중첩 업그레이드
 autochisel.slot.reversion.tooltip=복원 업그레이드
+chisel.autochisel.upgrade.disabled=Upgrades Disabled
+
+# Beacon
+tile.chisel.beacon.name=Beacon
+tile.beacon.black.desc=Black Beamed Beacon
+tile.beacon.blue.desc=Blue Beamed Beacon
+tile.beacon.brown.desc=Brown Beamed Beacon
+tile.beacon.cyan.desc=Cyan Beamed Beacon
+tile.beacon.green.desc=Green Beamed Beacon
+tile.beacon.lightblue.desc=Light Blue Beamed Beacon
+tile.beacon.silver.desc=Light Gray Beamed Beacon
+tile.beacon.lime.desc=Lime Beamed Beacon
+tile.beacon.magenta.desc=Magenta Beamed Beacon
+tile.beacon.orange.desc=Orange Beamed Beacon
+tile.beacon.pink.desc=Pink Beamed Beacon
+tile.beacon.purple.desc=Purple Beamed Beacon
+tile.beacon.red.desc=Red Beamed Beacon
+tile.beacon.white.desc=Rainbow Beamed Beacon
+tile.beacon.yellow.desc=Yellow Beamed Beacon
+tile.beacon.gray.desc=Gray Beamed Beacon
 
 # 나뭇잎 (Leaves)
 tile.chisel.leaves.name=나뭇잎
@@ -239,7 +255,9 @@ tile.futura.0.desc=빛나는 화면과 금속 테두리
 tile.futura.1.desc=빛나는 화면과 청록색 테두리
 tile.futura.2.desc=응용 에너지학 네온 회선
 tile.futura.3.desc=팝타르 무지개
-#tile.futura.4.desc=Purple Applie Labyrinthic Neon Lines
+tile.futura.4.desc=Purple Applied Labyrinthic Neon Lines
+tile.futura.5.desc=Psychedelic Poptart Rainbow.v02
+# tile.futura.4.desc=Purple Applie Labyrinthic Neon Lines
 tile.futuraCircuit.black.desc=검은색
 tile.futuraCircuit.blue.desc=파란색
 tile.futuraCircuit.brown.desc=갈색
@@ -311,9 +329,11 @@ tile.grimstone.14.desc=벗겨진 음산한 돌
 tile.chisel.technical.name=기술 블록
 tile.chisel.technical2.name=투명 기술 블록
 tile.chisel.technical3.name=산업 기술 블록
+tile.chisel.technical4.name=Technical Block
 tile.technical.0.desc=비계
 tile.technical.1.desc=경고 테두리 패널
-#tile.technical.2.desc=An Old Relic from the land of Oneteufyv
+tile.technical.2.desc=An Old Relic from the land of Oneteufyv
+# tile.technical.2.desc=An Old Relic from the land of Oneteufyv
 tile.technical.3.desc=내부 파이프 (대형)
 tile.technical.4.desc=환풍기 (빠름)
 tile.technical.5.desc=내부 파이프 (소형)
@@ -329,6 +349,46 @@ tile.technical.14.desc=환풍기 (불량)
 tile.technical.15.desc=녹슨 창살
 tile.technical3.0.desc=나는 거대한 팬의 광팬이에요!
 tile.technical3.1.desc=산업 강화판
+tile.technical4.0.desc=Corroded Metal Chunks
+tile.technical4.1.desc=Rusted Metal Chunks
+tile.technical4.2.desc=Sturdy
+tile.technical4.3.desc=MegaCell™ Battery
+tile.technical4.4.desc=Thermal Exhaust Plating
+tile.technical4.5.desc=Makeshift Plating
+tile.technical4.6.desc=Pipe Dream
+tile.technical4.7.desc=Worn Concrete
+tile.technical4.16.desc=Tape Drive? (I'm too young for this.)
+
+# End Stone
+tile.chisel.end_Stone.name=End Stone
+tile.end_Stone.0.desc=End Stone Bricks
+tile.end_Stone.1.desc=End Chaotic Bricks
+tile.end_Stone.2.desc=Checkered Tiles
+tile.end_Stone.3.desc=Ender Circuit
+tile.end_Stone.4.desc=Fancy Bricks
+tile.end_Stone.5.desc=End Stone Pillar
+tile.end_Stone.6.desc=Etched End Stone
+tile.end_Stone.7.desc=Prismatic End Stone
+tile.end_Stone.8.desc=End Stone Chunk
+tile.end_Stone.9.desc=Framed End Stone Chunk
+tile.end_Stone.10.desc=Arcane Block of End Stone
+tile.end_Stone.11.desc=Framed End Stone
+tile.end_Stone.12.desc=Ornate End Stone
+tile.end_Stone.13.desc=End Stone Large Tile
+
+# Purpur
+tile.chisel.purpur.name=Purpur Block
+tile.purpur.0.desc=Medium Tiles
+tile.purpur.1.desc=Pillar
+tile.purpur.2.desc=Not Shulker
+tile.purpur.3.desc=Small Tiles
+tile.purpur.4.desc=Broken Small Tiles
+tile.purpur.5.desc=Prismatic Purpur
+tile.purpur.6.desc=Rough Bricks
+tile.purpur.7.desc=Cracked Surface
+tile.purpur.8.desc=Arcane Block of Purpur
+tile.purpur.9.desc=Purpur Large Tile
+tile.purpur.10.desc=Ornate Purpur
 
 # 금속 블록 (Metal Blocks)
 tile.chisel.aluminumblock.name=알루미늄 블록
@@ -344,9 +404,15 @@ tile.chisel.uraniumblock.name=우라늄 블록
 tile.metalOre.0.desc=경고 줄무늬
 tile.metalOre.1.desc=선박 화물
 tile.metalOre.2.desc=써멀 익스펜션
-#tile.metalOre.3.desc=An Old Relic from the land of Oneteufyv
+tile.metalOre.3.desc=An Old Relic from the land of Oneteufyv
+# tile.metalOre.3.desc=An Old Relic from the land of Oneteufyv
 tile.metalOre.4.desc=테두리를 두른 블록
 tile.metalOre.5.desc=화려한 볼트 판
+
+# Stairs
+tile.chisel.aluminum_stairs.0.name=Aluminum Stairs
+tile.chisel.aluminum_stairs.1.name=Aluminum Stairs
+tile.chisel.aluminum_stairs.2.name=Aluminum Stairs
 
 # 선물 상자 (Present Chest)
 tile.chisel.present.name=선물 상자
@@ -360,7 +426,6 @@ tile.brickCustom.3.desc=다양한 벽돌
 tile.brickCustom.5.desc=오래된 벽돌
 tile.brickCustom.6.desc=노란 벽돌
 
-#Chisel 1
 
 # 조약돌 (Cobblestone Blocks)
 tile.chisel.cobblestone.name=조약돌
@@ -379,9 +444,6 @@ tile.cobblestone.11.desc=오목한 조약돌
 tile.cobblestone.12.desc=조약돌 패널
 tile.cobblestone.13.desc=밝은 조약돌 패널
 tile.cobblestone.14.desc=어두운 조약돌 패널
-
-# 사암 (Sandstone Blocks)
-tile.chisel.sandstone.name=사암
 
 # 대리석 (Marble Blocks)
 tile.chisel.marble.name=대리석
@@ -496,8 +558,8 @@ tile.marblePillarSlab.14.desc=조각된 갓돌 반 블록
 tile.marblePillarSlab.15.desc=장식용 갓돌 반 블록
 
 # 대리석 계단 (Marble Stairs)
-#The same name goes here 8 different times since stairs take up 8 block positions.
-#Sorry!  It was the only way!
+# The same name goes here 8 different times since stairs take up 8 block positions.
+# Sorry!  It was the only way!
 tile.chisel.marble_stairs.0.name=대리석 계단
 tile.chisel.marble_stairs.1.name=대리석 계단
 tile.chisel.marble_stairs.2.name=대리석 계단
@@ -507,7 +569,7 @@ tile.chisel.marble_stairs.5.name=대리석 계단
 tile.chisel.marble_stairs.6.name=대리석 계단
 tile.chisel.marble_stairs.7.name=대리석 계단
 
-#These are bugged.... so sad :,(
+# These are bugged.... so sad :,(
 tile.marbleStairs.0.desc=가공 안된 대리석 계단
 tile.marbleStairs.1.desc=대리석 벽돌 계단
 tile.marbleStairs.2.desc=고전적인 대리석 패널 계단
@@ -564,8 +626,8 @@ tile.limestoneSlab.14.desc=밝은 석회석 패널 반 블록
 tile.limestoneSlab.15.desc=어두운 석회석 패널 반 블록
 
 # 석회석 계단 (Limestone Stairs)
-#The same name goes here 8 different times since stairs take up 8 block positions.
-#Sorry!  It was the only way!
+# The same name goes here 8 different times since stairs take up 8 block positions.
+# Sorry!  It was the only way!
 tile.chisel.limestone_stairs.0.name=석회석 계단
 tile.chisel.limestone_stairs.1.name=석회석 계단
 tile.chisel.limestone_stairs.2.name=석회석 계단
@@ -575,7 +637,7 @@ tile.chisel.limestone_stairs.5.name=석회석 계단
 tile.chisel.limestone_stairs.6.name=석회석 계단
 tile.chisel.limestone_stairs.7.name=석회석 계단
 
-#These are bugged.... so sad :,(
+# These are bugged.... so sad :,(
 tile.limestoneStairs.0.desc=석회석 계단
 tile.limestoneStairs.1.desc=작은 석회석 타일 계단
 tile.limestoneStairs.2.desc=프랑스풍 석회석 타일 계단
@@ -659,7 +721,7 @@ tile.glass.15.desc=현대적인 철 울타리
 tile.chisel.glass2.name=유리
 tile.glass2.0.desc=비대칭의 납이 섞인 유리
 
-# 사암 (Sandstone)
+# 사암 (Sandstone Blocks)
 tile.chisel.sandstone.name=사암
 
 tile.sandstone.0.desc=문양있는 사암
@@ -698,8 +760,8 @@ tile.concrete.8.desc=부분적으로 풍화된 콘크리트
 tile.concrete.9.desc=부분적으로 풍화된 콘크리트 블록
 tile.concrete.10.desc=아스팔트
 
-# 도로선 (Road Line)
-tile.chisel.roadLine.name=도로선
+# Road Line
+tile.chisel.road_line.name=Road Lines
 tile.roadLine.0.desc=단일 (하얀색)
 tile.roadLine.1.desc=단일 (노란색)
 tile.roadLine.2.desc=이중 (하얀색)
@@ -1007,8 +1069,6 @@ tile.chisel.jungle_planks.name=정글 나무 목재
 tile.chisel.dark_oak_planks.name=짙은 참나무 목재
 tile.chisel.acacia_planks.name=아카시아 나무 목재
 
-#Remember to do the descriptions.
-
 # 철창 (Iron Fence)
 tile.chisel.iron_bars.name=철창
 tile.iron_bars.1.desc=테두리 없는 철창
@@ -1196,7 +1256,7 @@ tile.cloud.4.desc=격자무늬 구름 벽돌
 tile.chisel.stained_glass_white.name=스테인드 글라스
 tile.chisel.stained_glass_orange.name=스테인드 글라스
 tile.chisel.stained_glass_magenta.name=스테인드 글라스
-tile.chisel.stained_glass_lightBlue.name=스테인드 글라스
+tile.chisel.stained_glass_lightblue.name=Stained Glass
 tile.chisel.stained_glass_yellow.name=스테인드 글라스
 tile.chisel.stained_glass_lime.name=스테인드 글라스
 tile.chisel.stained_glass_pink.name=스테인드 글라스
@@ -1209,6 +1269,7 @@ tile.chisel.stained_glass_brown.name=스테인드 글라스
 tile.chisel.stained_glass_green.name=스테인드 글라스
 tile.chisel.stained_glass_red.name=스테인드 글라스
 tile.chisel.stained_glass_black.name=스테인드 글라스
+tile.chisel.stained_glass_forestry.name=Stained Glass
 
 # 스테인드 글라스판 (Stained GlassPane)
 tile.chisel.stained_glass_pane_white.name=스테인드 글라스판
@@ -1336,12 +1397,326 @@ tile.laboratory.13.desc=오른쪽 방향 콘솔
 tile.laboratory.14.desc=왼쪽 방향 콘솔
 tile.laboratory.15.desc=정보 콘솔
 
+# Planks (They go in order of creative tab appearance if that helps)
+# Oak
+tile.oak.planks.1.desc=Smooth Oak Wood Planks
+tile.oak.planks.2.desc=Short Oak Wood Planks
+tile.oak.planks.6.desc=Fancy Oak Wood Plank Arrangement
+tile.oak.planks.8.desc=Oak Wood Panel
+tile.oak.planks.9.desc=Oak Wood Double Slab
+tile.oak.planks.10.desc=Oak Wood Crate
+tile.oak.planks.11.desc=Fancy Oak Wood Crate
+tile.oak.planks.13.desc=Large Long Oak Wood Planks
+tile.oak.planks.3.desc=Vertical Oak Wood Planks
+tile.oak.planks.4.desc=Vertical Uneven Oak Wood Planks
+tile.oak.planks.5.desc=Oak Wood Parquet
+tile.oak.planks.7.desc=Oak Wood Plank Blinds
+tile.oak.planks.12.desc=Oak Wood Scaffold
+tile.oak.planks.14.desc=Oak Wood Planks in Disarray
+tile.oak.planks.15.desc=Vertical Oak Wood Planks in Disarray
+
+# Spruce
+tile.spruce.planks.1.desc=Smooth Spruce Wood Planks
+tile.spruce.planks.2.desc=Short Spruce Wood Planks
+tile.spruce.planks.6.desc=Fancy Spruce Wood Plank Arrangement
+tile.spruce.planks.8.desc=Spruce Wood Panel
+tile.spruce.planks.9.desc=Spruce Wood Double Slab
+tile.spruce.planks.10.desc=Spruce Wood Crate
+tile.spruce.planks.11.desc=Fancy Spruce Wood Crate
+tile.spruce.planks.13.desc=Large Long Spruce Wood Planks
+tile.spruce.planks.3.desc=Vertical Spruce Wood Planks
+tile.spruce.planks.4.desc=Vertical Uneven Spruce Wood Planks
+tile.spruce.planks.5.desc=Spruce Wood Parquet
+tile.spruce.planks.7.desc=Spruce Wood Plank Blinds
+tile.spruce.planks.12.desc=Spruce Wood Scaffold
+tile.spruce.planks.14.desc=Spruce Wood Planks in Disarray
+tile.spruce.planks.15.desc=Vertical Spruce Wood Planks in Disarray
+
+# Birch
+tile.birch.planks.1.desc=Smooth Birch Wood Planks
+tile.birch.planks.2.desc=Short Birch Wood Planks
+tile.birch.planks.6.desc=Fancy Birch Wood Plank Arrangement
+tile.birch.planks.8.desc=Birch Wood Panel
+tile.birch.planks.9.desc=Birch Wood Double Slab
+tile.birch.planks.10.desc=Birch Wood Crate
+tile.birch.planks.11.desc=Fancy Birch Wood Crate
+tile.birch.planks.13.desc=Large Long Birch Wood Planks
+tile.birch.planks.3.desc=Vertical Birch Wood Planks
+tile.birch.planks.4.desc=Vertical Uneven Birch Wood Planks
+tile.birch.planks.5.desc=Birch Wood Parquet
+tile.birch.planks.7.desc=Birch Wood Plank Blinds
+tile.birch.planks.12.desc=Birch Wood Scaffold
+tile.birch.planks.14.desc=Birch Wood Planks in Disarray
+tile.birch.planks.15.desc=Vertical Birch Wood Planks in Disarray
+
+# Jungle
+tile.jungle.planks.1.desc=Smooth Jungle Wood Planks
+tile.jungle.planks.2.desc=Short Jungle Wood Planks
+tile.jungle.planks.6.desc=Fancy Jungle Wood Plank Arrangement
+tile.jungle.planks.8.desc=Jungle Wood Panel
+tile.jungle.planks.9.desc=Jungle Wood Double Slab
+tile.jungle.planks.10.desc=Oak Wood Crate
+tile.jungle.planks.11.desc=Fancy jungle Wood Crate
+tile.jungle.planks.13.desc=Large Long Jungle Wood Planks
+tile.jungle.planks.3.desc=Vertical Jungle Wood Planks
+tile.jungle.planks.4.desc=Vertical Uneven Jungle Wood Planks
+tile.jungle.planks.5.desc=Jungle Wood Parquet
+tile.jungle.planks.7.desc=Jungle Wood Plank Blinds
+tile.jungle.planks.12.desc=Jungle Wood Scaffold
+tile.jungle.planks.14.desc=Jungle Wood Planks in Disarray
+tile.jungle.planks.15.desc=Vertical Jungle Wood Planks in Disarray
+
+# Acacia
+tile.acacia.planks.1.desc=Smooth Acacia Wood Planks
+tile.acacia.planks.2.desc=Short Acacia Wood Planks
+tile.acacia.planks.6.desc=Fancy Acacia Wood Plank Arrangement
+tile.acacia.planks.8.desc=Acacia Wood Panel
+tile.acacia.planks.9.desc=Acacia Wood Double Slab
+tile.acacia.planks.10.desc=Acacia Wood Crate
+tile.acacia.planks.11.desc=Fancy Acacia Wood Crate
+tile.acacia.planks.13.desc=Large Long Acacia Wood Planks
+tile.acacia.planks.3.desc=Vertical Acacia Wood Planks
+tile.acacia.planks.4.desc=Vertical Uneven Acacia Wood Planks
+tile.acacia.planks.5.desc=Acacia Wood Parquet
+tile.acacia.planks.7.desc=Acacia Wood Plank Blinds
+tile.acacia.planks.12.desc=Acacia Wood Scaffold
+tile.acacia.planks.14.desc=Acacia Wood Planks in Disarray
+tile.acacia.planks.15.desc=Vertical Acacia Wood Planks in Disarray
+
+# Dark Oak
+tile.dark-oak.planks.1.desc=Smooth Dark Oak Wood Planks
+tile.dark-oak.planks.2.desc=Short Dark Oak Wood Planks
+tile.dark-oak.planks.6.desc=Fancy Dark Oak Wood Plank Arrangement
+tile.dark-oak.planks.8.desc=Dark Oak Wood Panel
+tile.dark-oak.planks.9.desc=Dark Oak Wood Double Slab
+tile.dark-oak.planks.10.desc=Dark Oak Wood Crate
+tile.dark-oak.planks.11.desc=Fancy Dark Oak Wood Crate
+tile.dark-oak.planks.13.desc=Large Long Dark Oak Wood Planks
+tile.dark-oak.planks.3.desc=Vertical Dark Oak Wood Planks
+tile.dark-oak.planks.4.desc=Vertical Uneven Dark Oak Wood Planks
+tile.dark-oak.planks.5.desc=Dark Oak Wood Parquet
+tile.dark-oak.planks.7.desc=Dark Oak Wood Plank Blinds
+tile.dark-oak.planks.12.desc=Dark Oak Wood Scaffold
+tile.dark-oak.planks.14.desc=Dark Oak Wood Planks in Disarray
+tile.dark-oak.planks.15.desc=Vertical Dark Oak Wood Planks in Disarray
+
+# Stained Glass
+white.bubble.desc=White Bubble Glass
+white.glass.desc=White Glass Panel
+white.glass.fancy.desc=White Fancy Glass Panel
+white.glass.noborder.desc=White Borderless Glass
+white.glass.forestry.desc=White Forestry Glass
+
+orange.bubble.desc=Orange Bubble Glass
+orange.glass.desc=Orange Glass Panel
+orange.glass.fancy.desc=Orange Fancy Glass Panel
+orange.glass.noborder.desc=Orange Borderless Glass
+orange.glass.forestry.desc=Orange Forestry Glass
+
+magenta.bubble.desc=Magenta Bubble Glass
+magenta.glass.desc=Magenta Glass Panel
+magenta.glass.fancy.desc=Magenta Fancy Glass Panel
+magenta.glass.noborder.desc=Magenta Borderless Glass
+magenta.glass.forestry.desc=Magenta Forestry Glass
+
+lightblue.bubble.desc=Light Blue Bubble Glass
+lightblue.glass.desc=Light Blue Glass Panel
+lightblue.glass.fancy.desc=Light Blue Fancy Glass Panel
+lightblue.glass.noborder.desc=Light Blue Borderless Glass
+lightblue.glass.forestry.desc=Light Blue Forestry Glass
+
+yellow.bubble.desc=Yellow Bubble Glass
+yellow.glass.desc=Yellow Glass Panel
+yellow.glass.fancy.desc=Yellow Fancy Glass Panel
+yellow.glass.noborder.desc=Yellow Borderless Glass
+yellow.glass.forestry.desc=Yellow Forestry Glass
+
+lime.bubble.desc=Lime Bubble Glass
+lime.glass.desc=Lime Glass Panel
+lime.glass.fancy.desc=Lime Fancy Glass Panel
+lime.glass.noborder.desc=Lime Borderless Glass
+lime.glass.forestry.desc=Lime Forestry Glass
+
+pink.bubble.desc=Pink Bubble Glass
+pink.glass.desc=Pink Glass Panel
+pink.glass.fancy.desc=Pink Fancy Glass Panel
+pink.glass.noborder.desc=Pink Borderless Glass
+pink.glass.forestry.desc=Pink Forestry Glass
+
+darkgray.bubble.desc=Gray Bubble Glass
+darkgray.glass.desc=Gray Glass Panel
+darkgray.glass.fancy.desc=Gray Fancy Glass Panel
+darkgray.glass.noborder.desc=Gray Borderless Glass
+darkgray.glass.forestry.desc=Gray Forestry Glass
+
+lightgray.bubble.desc=Light Gray Bubble Glass
+lightgray.glass.desc=Light Gray Glass Panel
+lightgray.glass.fancy.desc=Light Gray Fancy Glass Panel
+lightgray.glass.noborder.desc=Light Gray Borderless Glass
+lightgray.glass.forestry.desc=Light Gray Forestry Glass
+
+cyan.bubble.desc=Cyan Bubble Glass
+cyan.glass.desc=Cyan Glass Panel
+cyan.glass.fancy.desc=Cyan Fancy Glass Panel
+cyan.glass.noborder.desc=Cyan Borderless Glass
+cyan.glass.forestry.desc=Cyan Forestry Glass
+
+purple.bubble.desc=Purple Bubble Glass
+purple.glass.desc=Purple Glass Panel
+purple.glass.fancy.desc=Purple Fancy Glass Panel
+purple.glass.noborder.desc=Purple Borderless Glass
+purple.glass.forestry.desc=Purple Forestry Glass
+
+blue.bubble.desc=Blue Bubble Glass
+blue.glass.desc=Blue Glass Panel
+blue.glass.fancy.desc=Blue Fancy Glass Panel
+blue.glass.noborder.desc=Blue Borderless Glass
+blue.glass.forestry.desc=Blue Forestry Glass
+
+brown.bubble.desc=Brown Bubble Glass
+brown.glass.desc=Brown Glass Panel
+brown.glass.fancy.desc=Brown Fancy Glass Panel
+brown.glass.noborder.desc=Brown Borderless Glass
+brown.glass.forestry.desc=Brown Forestry Glass
+
+green.bubble.desc=Green Bubble Glass
+green.glass.desc=Green Glass Panel
+green.glass.fancy.desc=Green Fancy Glass Panel
+green.glass.noborder.desc=Green Borderless Glass
+green.glass.forestry.desc=Green Forestry Glass
+
+red.bubble.desc=Red Bubble Glass
+red.glass.desc=Red Glass Panel
+red.glass.fancy.desc=Red Fancy Glass Panel
+red.glass.noborder.desc=Red Borderless Glass
+red.glass.forestry.desc=Red Forestry Glass
+
+black.bubble.desc=Black Bubble Glass
+black.glass.desc=Black Glass Panel
+black.glass.fancy.desc=Black Fancy Glass Panel
+black.glass.noborder.desc=Black Borderless Glass
+black.glass.forestry.desc=Black Forestry Glass
+
+# Stained Glass Pane
+white.pane.bubble.desc=White Bubble Glass
+white.pane.glass.desc=White Glass Panel
+white.pane.glass.fancy.desc=White Fancy Glass Panel
+white.pane.glass.noborder.desc=White Borderless Glass
+white.pane.glass.quadrant.desc=White Quadrant Glass
+white.pane.glass.fancyquadrant.desc=White Fancy Quadrant Glass
+
+orange.pane.bubble.desc=Orange Bubble Glass
+orange.pane.glass.desc=Orange Glass Panel
+orange.pane.glass.fancy.desc=Orange Fancy Glass Panel
+orange.pane.glass.noborder.desc=Orange Borderless Glass
+orange.pane.glass.quadrant.desc=Orange Quadrant Glass
+orange.pane.glass.fancyquadrant.desc=Orange Fancy Quadrant Glass
+
+magenta.pane.bubble.desc=Magenta Bubble Glass
+magenta.pane.glass.desc=Magenta Glass Panel
+magenta.pane.glass.fancy.desc=Magenta Fancy Glass Panel
+magenta.pane.glass.noborder.desc=Magenta Borderless Glass
+magenta.pane.glass.quadrant.desc=Magenta Quadrant Glass
+magenta.pane.glass.fancyquadrant.desc=Magenta Fancy Quadrant Glass
+
+lightblue.pane.bubble.desc=Light Blue Bubble Glass
+lightblue.pane.glass.desc=Light Blue Glass Panel
+lightblue.pane.glass.fancy.desc=Light Blue Fancy Glass Panel
+lightblue.pane.glass.noborder.desc=Light Blue Borderless Glass
+lightblue.pane.glass.quadrant.desc=Light Blue Quadrant Glass
+lightblue.pane.glass.fancyquadrant.desc=Light Blue Fancy Quadrant Glass
+
+yellow.pane.bubble.desc=Yellow Bubble Glass
+yellow.pane.glass.desc=Yellow Glass Panel
+yellow.pane.glass.fancy.desc=Yellow Fancy Glass Panel
+yellow.pane.glass.noborder.desc=Yellow Borderless Glass
+yellow.pane.glass.quadrant.desc=Yellow Quadrant Glass
+yellow.pane.glass.fancyquadrant.desc=Yellow Fancy Quadrant Glass
+
+lime.pane.bubble.desc=Lime Bubble Glass
+lime.pane.glass.desc=Lime Glass Panel
+lime.pane.glass.fancy.desc=Lime Fancy Glass Panel
+lime.pane.glass.noborder.desc=Lime Borderless Glass
+lime.pane.glass.quadrant.desc=Lime Quadrant Glass
+lime.pane.glass.fancyquadrant.desc=Lime Fancy Quadrant Glass
+
+pink.pane.bubble.desc=Pink Bubble Glass
+pink.pane.glass.desc=Pink Glass Panel
+pink.pane.glass.fancy.desc=Pink Fancy Glass Panel
+pink.pane.glass.noborder.desc=Pink Borderless Glass
+pink.pane.glass.quadrant.desc=Pink Quadrant Glass
+pink.pane.glass.fancyquadrant.desc=Pink Fancy Quadrant Glass
+
+darkgray.pane.bubble.desc=Gray Bubble Glass
+darkgray.pane.glass.desc=Gray Glass Panel
+darkgray.pane.glass.fancy.desc=Gray Fancy Glass Panel
+darkgray.pane.glass.noborder.desc=Gray Borderless Glass
+darkgray.pane.glass.quadrant.desc=Gray Quadrant Glass
+darkgray.pane.glass.fancyquadrant.desc=Gray Fancy Quadrant Glass
+
+lightgray.pane.bubble.desc=Light Gray Bubble Glass
+lightgray.pane.glass.desc=Light Gray Glass Panel
+lightgray.pane.glass.fancy.desc=Light Gray Fancy Glass Panel
+lightgray.pane.glass.noborder.desc=Light Gray Borderless Glass
+lightgray.pane.glass.quadrant.desc=Light Gray Quadrant Glass
+lightgray.pane.glass.fancyquadrant.desc=Light Gray Fancy Quadrant Glass
+
+cyan.pane.bubble.desc=Cyan Bubble Glass
+cyan.pane.glass.desc=Cyan Glass Panel
+cyan.pane.glass.fancy.desc=Cyan Fancy Glass Panel
+cyan.pane.glass.noborder.desc=Cyan Borderless Glass
+cyan.pane.glass.quadrant.desc=Cyan Quadrant Glass
+cyan.pane.glass.fancyquadrant.desc=Cyan Fancy Quadrant Glass
+
+purple.pane.bubble.desc=Purple Bubble Glass
+purple.pane.glass.desc=Purple Glass Panel
+purple.pane.glass.fancy.desc=Purple Fancy Glass Panel
+purple.pane.glass.noborder.desc=Purple Borderless Glass
+purple.pane.glass.quadrant.desc=Purple Quadrant Glass
+purple.pane.glass.fancyquadrant.desc=Purple Fancy Quadrant Glass
+
+blue.pane.bubble.desc=Blue Bubble Glass
+blue.pane.glass.desc=Blue Glass Panel
+blue.pane.glass.fancy.desc=Blue Fancy Glass Panel
+blue.pane.glass.noborder.desc=Blue Borderless Glass
+blue.pane.glass.quadrant.desc=Blue Quadrant Glass
+blue.pane.glass.fancyquadrant.desc=Blue Fancy Quadrant Glass
+
+brown.pane.bubble.desc=Brown Bubble Glass
+brown.pane.glass.desc=Brown Glass Panel
+brown.pane.glass.fancy.desc=Brown Fancy Glass Panel
+brown.pane.glass.noborder.desc=Brown Borderless Glass
+brown.pane.glass.quadrant.desc=Brown Quadrant Glass
+brown.pane.glass.fancyquadrant.desc=Brown Fancy Quadrant Glass
+
+green.pane.bubble.desc=Green Bubble Glass
+green.pane.glass.desc=Green Glass Panel
+green.pane.glass.fancy.desc=Green Fancy Glass Panel
+green.pane.glass.noborder.desc=Green Borderless Glass
+green.pane.glass.quadrant.desc=Green Quadrant Glass
+green.pane.glass.fancyquadrant.desc=Green Fancy Quadrant Glass
+
+red.pane.bubble.desc=Red Bubble Glass
+red.pane.glass.desc=Red Glass Panel
+red.pane.glass.fancy.desc=Red Fancy Glass Panel
+red.pane.glass.noborder.desc=Red Borderless Glass
+red.pane.glass.quadrant.desc=Red Quadrant Glass
+red.pane.glass.fancyquadrant.desc=Red Fancy Quadrant Glass
+
+black.pane.bubble.desc=Black Bubble Glass
+black.pane.glass.desc=Black Glass Panel
+black.pane.glass.fancy.desc=Black Fancy Glass Panel
+black.pane.glass.noborder.desc=Black Borderless Glass
+black.pane.glass.quadrant.desc=Black Quadrant Glass
+black.pane.glass.fancyquadrant.desc=Black Fancy Quadrant Glass
+
 # 크리에이티브 탭 한글화 (Creative Tab localizations)
 itemGroup.tabOtherChiselBlocks=기타 치슬 블록
 itemGroup.tabStoneChiselBlocks=돌 치슬 블록
 itemGroup.tabWoodChiselBlocks=나무 치슬 블록
 itemGroup.tabMetalChiselBlocks=금속 치슬 블록
 itemGroup.tabModdedChiselBlocks=모드 치슬 블록
+itemGroup.tabStairChiselBlocks=Chisel Stairs
 itemGroup.tabChisel=치슬 아이템
 
 # GUI 창 (Container)

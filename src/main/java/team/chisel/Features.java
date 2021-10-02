@@ -204,7 +204,7 @@ public enum Features {
 		void addBlocks() {
 			BlockCarvable arcane = (BlockCarvable) new BlockCarvable(Material.rock).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setStepSound(Block.soundTypeStone);
 			Carving.chisel.addVariation("arcane", GameRegistry.findBlock("Thaumcraft", "blockCosmeticSolid"), 6, -5);
-			Carving.chisel.addVariation("arcane", GameRegistry.findBlock("Thaumcraft", "blockCosmeticSolid"), 7, -4);
+		//	Carving.chisel.addVariation("arcane", GameRegistry.findBlock("Thaumcraft", "blockCosmeticSolid"), 7, -4);
 			arcane.carverHelper.addVariation("tile.arcane.0.desc", 0, "arcane/moonEngrave");
 			arcane.carverHelper.addVariation("tile.arcane.1.desc", 1, "arcane/moonGlowAnim");
 			arcane.carverHelper.addVariation("tile.arcane.2.desc", 2, "arcane/arcaneTile");
@@ -457,9 +457,11 @@ public enum Features {
 			ItemChisel chisel = (ItemChisel) new ItemChisel(ItemChisel.ChiselType.IRON).setCreativeTab(ChiselTabs.tabChisel);
 			ItemChisel diamondChisel = (ItemChisel) new ItemChisel(ItemChisel.ChiselType.DIAMOND).setCreativeTab(ChiselTabs.tabChisel);
 			ItemChisel obsidianChisel = (ItemChisel) new ItemChisel(ItemChisel.ChiselType.OBSIDIAN).setCreativeTab(ChiselTabs.tabChisel);
+			ItemChisel netherStarChisel = (ItemChisel) new ItemChisel(ItemChisel.ChiselType.NETHERSTAR).setCreativeTab(ChiselTabs.tabChisel);
 			GameRegistry.registerItem(chisel, "chisel");
 			GameRegistry.registerItem(diamondChisel, "diamondChisel");
 			GameRegistry.registerItem(obsidianChisel, "obsidianChisel");
+			GameRegistry.registerItem(netherStarChisel, "netherStarChisel");
 		}
 
 		@Override
@@ -468,11 +470,12 @@ public enum Features {
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselItems.chisel), " YY", " YY", "X  ", 'X', "stickWood", 'Y', "ingotIron"));
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselItems.diamondChisel), " YY", " YY", "x  ", 'x', "stickWood", 'Y', "gemDiamond"));
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselItems.obsidianChisel), " YY", " YY", "x  ", 'x', "stickWood", 'Y', Blocks.obsidian));
-			}
-			else {
+				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselItems.netherStarChisel), " YY", " YY", "x  ", 'x', "stickWood", 'Y', "netherStar"));
+			} else {
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselItems.chisel), " Y", "X ", 'X', "stickWood", 'Y', "ingotIron"));
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselItems.diamondChisel), " Y", "X ", 'X', "stickWood", 'Y', "gemDiamond"));
 				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselItems.obsidianChisel), " Y", "X ", 'X', "stickWood", 'Y', Blocks.obsidian));
+				GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselItems.netherStarChisel), " YY", " YY", "x  ", 'x', "stickWood", 'Y', "netherStar"));
 			}
 		}
 	},
@@ -784,7 +787,7 @@ public enum Features {
 			end_Stone.carverHelper.addVariation("tile.end_Stone.6.desc", 6, "endstone/endStoneEtched");
 			end_Stone.carverHelper.addVariation("tile.end_Stone.7.desc", 7, "endstone/endPrismatic");
 			end_Stone.carverHelper.addVariation("tile.end_Stone.8.desc", 8, "endstone/endStoneChunk");
-			end_Stone.carverHelper.addVariation("tile.end_Stone.9.desc", 9, "endstone/EnderFrame", new SubmapManagerCombinedCTM(9, "endstone/EnderFrame", TextureType.V9));
+			end_Stone.carverHelper.addVariation("tile.end_Stone.9.desc", 9, "endstone/EnderFrame");
 			end_Stone.carverHelper.addVariation("tile.end_Stone.10.desc", 10, "endstone/arcaneEndStone");
 			end_Stone.carverHelper.addVariation("tile.end_Stone.11.desc", 11, "endstone/framedEndStone");
 			end_Stone.carverHelper.addVariation("tile.end_Stone.12.desc", 12, "endstone/endStoneOrnate");
@@ -3285,6 +3288,6 @@ public enum Features {
 	private static void registerSlabTop(Block bottom, Block top) {
 		String name = Block.blockRegistry.getNameForObject(bottom);
 		name = name.substring(name.indexOf(':') + 1) + "_top";
-		GameRegistry.registerBlock(top, ItemCarvableSlab.class, name);
+		GameRegistry.registerBlock(top, name);
 	}
 }

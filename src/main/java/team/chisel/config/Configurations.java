@@ -44,11 +44,13 @@ public class Configurations {
 	public static int ironChiselMaxDamage;
 	public static int diamondChiselMaxDamage;
 	public static int obsidianChiselMaxDamage;
+	public static int netherStarChiselMaxDamage;
 	public static boolean ironChiselCanLeftClick;
 	public static boolean ironChiselHasModes;
 	public static int ironChiselAttackDamage;
 	public static int diamondChiselAttackDamage;
 	public static int obsidianChiselAttackDamage;
+	public static int netherStarChiselAttackDamage;
 	public static boolean allowChiselCrossColors;
 
 	public static boolean useRoadLineTool;
@@ -102,6 +104,7 @@ public class Configurations {
 		ironChiselMaxDamage = config.getInt("ironChiselMaxDamage", category, 500, 1, Short.MAX_VALUE, "The max damage of the standard iron chisel.");
 		diamondChiselMaxDamage = config.getInt("diamondChiselMaxDamage", category, 5000, 1, Short.MAX_VALUE, "The max damage of the diamond chisel.");
 		obsidianChiselMaxDamage = config.getInt("obsidianChiselMaxDamage", category, 2500, 1, Short.MAX_VALUE, "The max damage of the obsidian chisel.");
+		netherStarChiselMaxDamage = config.getInt("netherStarChiselMaxDamage", category, 32767, 1, Short.MAX_VALUE, "The max damage of the nether star chisel.");
 		ironChiselCanLeftClick = config.get(category, "ironChiselCanLeftClick", true, "If this is true, the iron chisel can left click chisel blocks. If false, it cannot.").getBoolean();
 		ironChiselHasModes = config.get(category, "ironChiselHasModes", false, "If this is true, the iron chisel can change its chisel mode just as the diamond chisel can.").getBoolean();
 		allowChiselCrossColors = config.get(category, "allowChiselCrossColors", true, "Should someone be able to chisel something into a different color.").getBoolean();
@@ -112,6 +115,8 @@ public class Configurations {
 				"The extra attack damage points (in half hearts) that the diamond chisel inflicts when it is used to attack an entity.").getInt();
 		obsidianChiselAttackDamage = config.get(category, "obsidianChiselAttackDamage", 4,
 				"The extra attack damage points (in half hearts) that the obsidian chisel inflicts when it is used to attack an entity.").getInt();
+		netherStarChiselAttackDamage = config.get(category, "netherStarChiselAttackDamage", 6,
+				"The extra attack damage points (in half hearts) that the nether star chisel inflicts when it is used to attack an entity.").getInt();
 
 		/* block */
 		category = "block";

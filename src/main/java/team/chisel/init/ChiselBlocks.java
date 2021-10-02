@@ -89,7 +89,7 @@ public final class ChiselBlocks {
 	public static final BlockCarvable copperblock = null;
 	public static final BlockCarvable bronzeblock = null;
 	public static final BlockCarvable aluminumblock = null;
-	public static BlockCarvableStairs[] aluminumStairs = new BlockCarvableStairs[8];
+	public static BlockCarvableStairs[] aluminumStairs = new BlockCarvableStairs[3];
 	public static final BlockCarvable leadblock = null;
 	public static final BlockCarvable silverblock = null;
 	public static final BlockCarvable steelblock = null;

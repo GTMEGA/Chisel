@@ -97,12 +97,10 @@ public class ContainerChisel extends Container {
 					return null;
 				}
 			} else {
-				if (slotIdx < InventoryChiselSelection.normalSlots + 1 && itemstack1 != null) {
-					entity.inventory.setItemStack(itemstack1.copy());
-					slot.onPickupFromSlot(entity, itemstack1);
-					itemstack1 = entity.inventory.getItemStack();
-					entity.inventory.setItemStack(null);
-				}
+				entity.inventory.setItemStack(itemstack1.copy());
+				slot.onPickupFromSlot(entity, itemstack1);
+				itemstack1 = entity.inventory.getItemStack();
+				entity.inventory.setItemStack(null);
 
 				if (!this.mergeItemStack(itemstack1, InventoryChiselSelection.normalSlots + 1, InventoryChiselSelection.normalSlots + 1 + 36, false)) {
 					return null;
@@ -111,7 +109,7 @@ public class ContainerChisel extends Container {
 			slot.onSlotChange(itemstack1, itemstack);
 
 			if (itemstack1.stackSize == 0) {
-				slot.putStack((ItemStack) null);
+				slot.putStack(null);
 			} else {
 				slot.putStack(itemstack1);
 				slot.onSlotChanged();
@@ -128,6 +126,18 @@ public class ContainerChisel extends Container {
 			}
 		}
 		return itemstack;
+	}
+
+	/**
+	 * Added validation of slot input
+	 * Only Chiselable allowed
+	 *
+	 * @author Léa Gris
+	 */
+	@Override
+	protected boolean mergeItemStack(ItemStack par1ItemStack, int fromIndex, int toIndex, boolean reversOrder) {
+		return ((Slot) this.inventorySlots.get(reversOrder ? toIndex - 1 : fromIndex)).isItemValid(par1ItemStack)
+				&& super.mergeItemStack(par1ItemStack, fromIndex, toIndex, reversOrder);
 	}
 
 	public void onChiselSlotChanged() {

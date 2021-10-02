@@ -1,10 +1,9 @@
 package team.chisel.carving;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import team.chisel.Chisel;
@@ -34,7 +33,7 @@ public class Carving implements ICarvingRegistry {
 			} else if (getClass() != obj.getClass()) {
 				return false;
 			}
-			
+
 			ItemStackWrapper other = (ItemStackWrapper) obj;
 			if (wrapped == null) {
 				if (other.wrapped != null) {
@@ -58,16 +57,18 @@ public class Carving implements ICarvingRegistry {
 	}
 
 	public static void construct() {
+		/* do nothing */
 	}
 
 	private Carving() {
+		/* do nothing */
 	}
 
 	@Override
 	public ICarvingVariation getVariation(Block block, int metadata) {
 		return getVariation(block, metadata, getGroup(block, metadata));
 	}
-	
+
 	@Override
 	public ICarvingVariation getVariation(ItemStack stack) {
 		return getVariation(stack, getGroup(stack));
@@ -94,12 +95,12 @@ public class Carving implements ICarvingRegistry {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public List<ICarvingVariation> getGroupVariations(Block block, int metadata) {
 		ICarvingGroup group = getGroup(block, metadata);
 		if (group == null)
-			return null;
+			return Collections.emptyList();
 
 		return group.getVariations();
 	}
@@ -115,11 +116,9 @@ public class Carving implements ICarvingRegistry {
 
 	@Override
 	public List<ItemStack> getItemsForChiseling(ItemStack chiseledItem) {
-		ArrayList<ItemStack> items = new ArrayList<ItemStack>();
+		ArrayList<ItemStack> items = new ArrayList<>();
 
-		ICarvingGroup group = null;
-		
-		group = getGroup(chiseledItem);
+		ICarvingGroup group = getGroup(chiseledItem);
 
 		if (group == null)
 			return items;
@@ -143,7 +142,7 @@ public class Carving implements ICarvingRegistry {
 
 		return items;
 	}
-	
+
 	private void addNewStackToList(ItemStack stack, List<ItemStack> list, List<ItemStackWrapper> found) {
 		ItemStackWrapper wrapper = new ItemStackWrapper(stack);
 		if (!found.contains(wrapper)) {
@@ -159,7 +158,7 @@ public class Carving implements ICarvingRegistry {
 		ICarvingGroup ore = getOreGroup(stack);
 		return ore == null ? groups.getGroup(block, metadata) : ore;
 	}
-	
+
 	@Override
 	public ICarvingGroup getGroup(ItemStack stack) {
 		ICarvingGroup ore = getOreGroup(stack);
@@ -272,8 +271,7 @@ public class Carving implements ICarvingRegistry {
 
 	@Override
 	public List<String> getSortedGroupNames() {
-		List<String> names = new ArrayList<String>();
-		names.addAll(groups.getNames());
+		List<String> names = new ArrayList<>(groups.getNames());
 		Collections.sort(names);
 		return names;
 	}
