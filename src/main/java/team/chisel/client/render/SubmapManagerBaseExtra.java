@@ -8,17 +8,16 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
+import team.chisel.ctmlib.CTM;
 import team.chisel.ctmlib.ISubmapManager;
 import team.chisel.ctmlib.RenderBlocksCTM;
 import team.chisel.ctmlib.TextureSubmap;
 
 //Base class for self-contained renderers and sub managers etc
 public class SubmapManagerBaseExtra implements ISubmapManager {
-    private final String texturePath;
-
+    protected final String texturePath;
     @SideOnly(Side.CLIENT)
     protected RenderBlocksCTM renderBlocks;
-    protected TextureSubmap submap;
     protected TextureSubmap submapSmall;
 
     public SubmapManagerBaseExtra(String texturePath) {
@@ -32,7 +31,6 @@ public class SubmapManagerBaseExtra implements ISubmapManager {
 
     @Override
     public void registerIcons(String modName, Block block, IIconRegister register) {
-        submap = new TextureSubmap(register.registerIcon(modName + ":" + texturePath + "-ctm"), 4, 4);
         submapSmall = new TextureSubmap(register.registerIcon(modName + ":" + texturePath), 2, 2);
     }
 
@@ -46,8 +44,8 @@ public class SubmapManagerBaseExtra implements ISubmapManager {
     public RenderBlocks createRenderContext(RenderBlocks rendererOld, Block block, IBlockAccess world) {
         initRenderContext();
         renderBlocks.setRenderBoundsFromBlock(block);
-        renderBlocks.submap = submap;
         renderBlocks.submapSmall = submapSmall;
+        renderBlocks.submap = submapSmall;// hacky work around to use the renderer i want
         return renderBlocks;
     }
 
@@ -58,7 +56,22 @@ public class SubmapManagerBaseExtra implements ISubmapManager {
     }
 
     protected RenderBlocksCTM getRenderBlocks() {
-        return new RenderBlocksCTM();
+        RenderBlocksCTM renderBlocks = new RenderBlocksCTM();
+        renderBlocks.ctm = CTMPlain.getInstance();
+        return renderBlocks;
+    }
+
+    public static class CTMPlain extends CTM {
+        public static CTMPlain getInstance() {
+            return new CTMPlain();
+        }
+
+        private final int[] submapIndices = new int[]{18, 19, 17, 16};
+
+        @Override
+        public int[] getSubmapIndices(IBlockAccess world, int x, int y, int z, int side) {
+            return submapIndices;
+        }
     }
 
     @Override

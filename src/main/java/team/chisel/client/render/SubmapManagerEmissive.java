@@ -1,6 +1,5 @@
 package team.chisel.client.render;
 
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -12,7 +11,9 @@ public class SubmapManagerEmissive extends SubmapManagerBaseExtra {
     }
 
     protected RenderBlocksCTM getRenderBlocks() {
-        return new RenderBlocksCTMFullbright();
+        RenderBlocksCTM renderBlocks = new RenderBlocksCTMFullbright();
+        renderBlocks.ctm = CTMPlain.getInstance();
+        return renderBlocks;
     }
 
     @SideOnly(Side.CLIENT)

@@ -20,15 +20,28 @@ public class SubmapMultiManager implements ISubmapManager {
 
     public SubmapMultiManager(ISubmapManager... managers) {
         this.managers = Arrays.asList(managers);
-
-        if (managers.length < 1)
+        if (managers.length < 1) {
             throw new IllegalArgumentException("SubmapMultiManager needs at least one ISubmapManager!");
+        }
+    }
+
+    public static SubmapMultiManager ofGlow(String texturePath) {
+        return new SubmapMultiManager(new SubmapManagerBaseExtra(texturePath), new SubmapManagerEmissive(texturePath));
+    }
+
+    public static SubmapMultiManager ofGlowCTM(String texturePath) {
+        return new SubmapMultiManager(new SubmapManagerBaseExtraCTM(texturePath), new SubmapManagerEmissiveCTM(texturePath));
+    }
+
+    public static SubmapMultiManager ofGlowFakeController(String texturePath) {
+        return new SubmapMultiManager(new SubmapManagerFakeControllerExtra(texturePath), new SubmapManagerFakeControllerEmissive(texturePath));
     }
 
     @Override
     public void registerIcons(String modName, Block block, IIconRegister register) {
-        for (ISubmapManager manager : managers)
+        for (ISubmapManager manager : managers) {
             manager.registerIcons(modName, block, register);
+        }
     }
 
     @Override

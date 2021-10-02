@@ -8,7 +8,7 @@ import team.chisel.init.ChiselBlocks;
 import static team.chisel.ctmlib.Dir.*;
 import static team.chisel.ctmlib.Dir.RIGHT;
 
-public class SubmapManagerFakeControllerExtra extends SubmapManagerBaseExtra {
+public class SubmapManagerFakeControllerExtra extends SubmapManagerBaseExtraCTM {
     public SubmapManagerFakeControllerExtra(String texturePath) {
         super(texturePath);
     }
@@ -21,6 +21,10 @@ public class SubmapManagerFakeControllerExtra extends SubmapManagerBaseExtra {
     }
 
     public static class CTMFakeController extends CTM {
+        public CTMFakeController() {
+            disableObscuredFaceCheckConfig = true;
+        }
+
         public static CTMFakeController getInstance() {
             return new CTMFakeController();
         }
