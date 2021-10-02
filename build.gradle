@@ -230,3 +230,5 @@ curseforge {
 }
 
 idea { module { inheritOutputDirs = true } }
+
+tasks.compileJava.dependsOn setupCIWorkspace
