@@ -3,6 +3,7 @@ package team.chisel;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFire;
 import net.minecraft.block.BlockNewLog;
 import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.material.Material;
@@ -19,7 +20,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import team.chisel.api.ChiselTabs;
 import team.chisel.api.carving.CarvableHelper;
-import team.chisel.api.carving.CarvingUtils.SimpleCarvingGroup;
+import team.chisel.api.carving.CarvingUtils;
 import team.chisel.api.carving.ICarvingVariation;
 import team.chisel.api.carving.IVariationInfo;
 import team.chisel.api.rendering.TextureType;
@@ -322,6 +323,7 @@ public enum Features {
 			bookshelf.carverHelper.registerAll(bookshelf, "bookshelf");
 			bookshelf.setHarvestLevel("axe", 0);
 			Carving.chisel.registerOre("bookshelf", "bookshelf");
+			Blocks.fire.setFireInfo(bookshelf, 5, 20);
 		}
 	},
 
@@ -1496,7 +1498,7 @@ public enum Features {
 		@Override
 		void addBlocks() {
 			BlockLeaf leaves = (BlockLeaf) new BlockLeaf(Material.leaves).setCreativeTab(ChiselTabs.tabOtherChiselBlocks).setHardness(0.2F).setStepSound(Block.soundTypeGrass);
-			Carving.chisel.addGroup(new SimpleCarvingGroup("leaves") {
+			Carving.chisel.addGroup(new CarvingUtils.SimpleCarvingGroup("leaves") {
 
 				@Override
 				public List<ICarvingVariation> getVariations() {
@@ -3100,6 +3102,7 @@ public enum Features {
 				planks[i].setHarvestLevel("axe", 0);
 				Carving.chisel.registerOre(name, "wood");
 				Carving.chisel.setVariationSound(name, Chisel.MOD_ID + ":chisel.wood");
+				Blocks.fire.setFireInfo(planks[i], 5, 20);
 			}
 		}
 	},

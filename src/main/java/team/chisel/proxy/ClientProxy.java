@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 import team.chisel.Features;
+import team.chisel.Features;
 import team.chisel.block.BlockCarvableBeacon;
 import team.chisel.block.tileentity.TileEntityAutoChisel;
 import team.chisel.block.tileentity.TileEntityCarvableBeacon;

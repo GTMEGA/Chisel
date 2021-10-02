@@ -122,6 +122,7 @@ public class Chisel {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		FMLCommonHandler.instance().registerCrashCallable(new ChiselCrashCallable());
 
 		File configFile = event.getSuggestedConfigurationFile();
 		Configurations.configExists = configFile.exists();

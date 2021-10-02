@@ -1,6 +1,40 @@
+2.9.4:
+Changes
+- Flammable stuff is now actually flammable, e.g. bookshelves, planks (Cricket)
+- Add some text to crash logs about those pesky "Unable to lookup" errors
+Fixes
+- #52 Fix not being able to chisel endstone
+- #69 Allow the Autochisel to function properly when upgrades are disabled. It will function as if it has all ugprades (except reversion).
+- Chisel-2#433 Fix andesite and granite recipes not checking for disabled diorite
+- #60 Fix crash when AE2 decorative quartz is disabled
+
+2.9.3:
+Changes
+- Beacon rendering has been improved to show the color of the beacon in the item
+- White beacon, which was identical to the vanilla one, is now the RAINBOW BEACON
+Fixes
+- #43 Top slabs are unnamed
+- Fix AT not running on new forge versions (caused things like the special item rendering in the chisel GUI to not work)
+- Fix all potential issues with the chisel GUI and blocks that take the item in your hand
+- Fix chisel not rendering correctly in caches, etc.
+- Fix chiseled beacon pick block, sub blocks, and drops
+
+2.9.2:
+Changes
+- In-world chiseling is now possible in creative
+- Update changelog looks, and some improvements to gradle script
+Fixes
+- #22 Fix crash when using shift while in-world chiseling
+- #13 Fix buggy text rendering in chisel GUI without NEI present
+- #25 Fix gradle script for relative directories
+
 2.9.1:
+Changes
+- While holding shift, left-click chiseling order will be reversed (Cricket)
+- Concrete now has a full bounding box, and the method of speeding up the player has been redone to be much less frustrating
 Fixes
 - Fix TOPBOTSIDE blocks (like the battery) being broken and showing the top texture on the bottom
+- Fix compatibility endstone blocks being in the wrong group (minecreatr)
 API
 - Fix ChiselTabs referencing internal classes in imports
 
