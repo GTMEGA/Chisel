@@ -2411,15 +2411,15 @@ public enum Features {
 		}
 	},
 
-	ROOFING {
-		@Override
-		void addBlocks() {
-			BlockRoofing roofing = (BlockRoofing) new BlockRoofing().setCreativeTab(ChiselTabs.tabOtherChiselBlocks).setHardness(1);
-			roofing.carverHelper.addVariation("tile.roofing.0.desc", 0, "roofing/shingles");
-			roofing.carverHelper.registerAll(roofing, "roofing");
-		}
-
-	},
+	// Unfinished block, messed up rendering and missing lang
+	//ROOFING {
+	//	@Override
+	//	void addBlocks() {
+	//		BlockRoofing roofing = (BlockRoofing) new BlockRoofing().setCreativeTab(ChiselTabs.tabOtherChiselBlocks).setHardness(1);
+	//		roofing.carverHelper.addVariation("tile.roofing.0.desc", 0, "roofing/shingles");
+	//		roofing.carverHelper.registerAll(roofing, "roofing");
+	//	}
+	//},
 
 	SANDSTONE {
 		@Override
