@@ -81,50 +81,51 @@ public class SubmapMultiManager implements ISubmapManager {
 
         @Override
         public void renderFaceXNeg(Block block, double x, double y, double z, IIcon icon) {
-            for (ISubmapManager manager : managers) {
-                RenderBlocks renderBlocks = manager.createRenderContext(rendererOld, block, blockAccess);
-                renderBlocks.renderFaceXNeg(block, x, y, z, manager.getIcon(ForgeDirection.WEST.ordinal(), 0));
-            }
+            for (ISubmapManager manager : managers)
+                getRenderBlocks(block, manager)
+                        .renderFaceXNeg(block, x, y, z, manager.getIcon(ForgeDirection.WEST.ordinal(), 0));
         }
 
         @Override
         public void renderFaceXPos(Block block, double x, double y, double z, IIcon icon) {
-            for (ISubmapManager manager : managers) {
-                RenderBlocks renderBlocks = manager.createRenderContext(rendererOld, block, blockAccess);
-                renderBlocks.renderFaceXPos(block, x, y, z, manager.getIcon(ForgeDirection.EAST.ordinal(), 0));
-            }
+            for (ISubmapManager manager : managers)
+                getRenderBlocks(block, manager)
+                        .renderFaceXPos(block, x, y, z, manager.getIcon(ForgeDirection.EAST.ordinal(), 0));
         }
 
         @Override
         public void renderFaceZNeg(Block block, double x, double y, double z, IIcon icon) {
-            for (ISubmapManager manager : managers) {
-                RenderBlocks renderBlocks = manager.createRenderContext(rendererOld, block, blockAccess);
-                renderBlocks.renderFaceZNeg(block, x, y, z, manager.getIcon(ForgeDirection.NORTH.ordinal(), 0));
-            }
+            for (ISubmapManager manager : managers)
+                getRenderBlocks(block, manager)
+                        .renderFaceZNeg(block, x, y, z, manager.getIcon(ForgeDirection.NORTH.ordinal(), 0));
         }
 
         @Override
         public void renderFaceZPos(Block block, double x, double y, double z, IIcon icon) {
-            for (ISubmapManager manager : managers) {
-                RenderBlocks renderBlocks = manager.createRenderContext(rendererOld, block, blockAccess);
-                renderBlocks.renderFaceZPos(block, x, y, z, manager.getIcon(ForgeDirection.SOUTH.ordinal(), 0));
-            }
+            for (ISubmapManager manager : managers)
+                getRenderBlocks(block, manager)
+                        .renderFaceZPos(block, x, y, z, manager.getIcon(ForgeDirection.SOUTH.ordinal(), 0));
         }
 
         @Override
         public void renderFaceYNeg(Block block, double x, double y, double z, IIcon icon) {
-            for (ISubmapManager manager : managers) {
-                RenderBlocks renderBlocks = manager.createRenderContext(rendererOld, block, blockAccess);
-                renderBlocks.renderFaceYNeg(block, x, y, z, manager.getIcon(ForgeDirection.DOWN.ordinal(), 0));
-            }
+            for (ISubmapManager manager : managers)
+                getRenderBlocks(block, manager)
+                        .renderFaceYNeg(block, x, y, z, manager.getIcon(ForgeDirection.DOWN.ordinal(), 0));
         }
 
         @Override
         public void renderFaceYPos(Block block, double x, double y, double z, IIcon icon) {
-            for (ISubmapManager manager : managers) {
-                RenderBlocks renderBlocks = manager.createRenderContext(rendererOld, block, blockAccess);
-                renderBlocks.renderFaceYPos(block, x, y, z, manager.getIcon(ForgeDirection.UP.ordinal(), 0));
-            }
+            for (ISubmapManager manager : managers)
+                getRenderBlocks(block, manager)
+                        .renderFaceYPos(block, x, y, z, manager.getIcon(ForgeDirection.UP.ordinal(), 0));
+        }
+
+        protected RenderBlocks getRenderBlocks(Block block, ISubmapManager manager) {
+            RenderBlocks renderBlocks = manager.createRenderContext(rendererOld, block, blockAccess);
+            if (renderBlocks instanceof RenderBlocksCTM)
+                ((RenderBlocksCTM) renderBlocks).manager = manager;
+            return renderBlocks;
         }
     }
 
