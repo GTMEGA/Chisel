@@ -1,3 +1,13 @@
+2.9.5:
+Changes
+- Added a Submap multi manager for quick and dirty rendering of multiple layers
+- Added emissive glow to all Futura blocks
+- Updated Gradle Wrapper to 5.6.4
+- Switched the ForgeGradle source
+Fixes
+- Project now loads in Intellij
+- Fix Yellow Antiblock texture being too green
+
 2.9.4:
 Changes
 - Flammable stuff is now actually flammable, e.g. bookshelves, planks (Cricket)
