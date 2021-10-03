@@ -1,3 +1,12 @@
+2.9.9-GTMEGA:
+Changes
+- Added back old concrete (old change was undocumented)
+- Removed roofing
+- Tweak default dev runtime mods
+Fixes
+- Fixed dependancy with CTMlib to use latest version
+- Fix Item Rendering with multi manager textures
+
 2.9.8-GTMEGA:
 Changes
 - Added a Submap multi manager for quick and dirty rendering of multiple layers
