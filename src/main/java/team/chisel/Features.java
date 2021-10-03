@@ -794,8 +794,10 @@ public enum Features {
 			end_Stone.carverHelper.addVariation("tile.end_Stone.13.desc", 13, "endstone/endStoneLargeTile");
 			end_Stone.carverHelper.addVariation("tile.end_Stone.14.desc", 14, "endstone/enderDiagonalBrick", new SubmapManagerCombinedCTM(4, "endstone/enderDiagonalBrick", TextureType.V4));
 			end_Stone.carverHelper.addVariation("tile.end_Stone.15.desc", 15, "endstone/masonryEnder");
-			end_Stone.carverHelper.registerAll(end_Stone, "end_stone");
-			Carving.chisel.registerOre("end_stone", "end_stone");
+			end_Stone.carverHelper.registerBlock(end_Stone, "end_Stone");
+			end_Stone.carverHelper.registerVariations("end_stone");
+			end_Stone.carverHelper.registerOre("blockEndstone");
+			Carving.chisel.registerOre("end_stone", "blockEndstone");
 		}
 	},
 
