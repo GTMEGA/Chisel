@@ -581,18 +581,34 @@ public enum Features {
 		@Override
 		void addBlocks() {
 			BlockCarvable concrete = (BlockConcrete) new BlockConcrete().setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabStoneChiselBlocks).setHardness(0.5F);
-			concrete.carverHelper.addVariation("tile.concrete.0.desc", 0, "concrete/concrete");
-			concrete.carverHelper.addVariation("tile.concrete.1.desc", 1, "concrete/concreteWeathered");
-			concrete.carverHelper.addVariation("tile.concrete.2.desc", 2, "concrete/concreteDmg");
-			concrete.carverHelper.addVariation("tile.concrete.3.desc", 3, "concrete/concreteVines");
-			concrete.carverHelper.addVariation("tile.concrete.4.desc", 4, "concrete/concreteCracked");
-			concrete.carverHelper.addVariation("tile.concrete.5.desc", 5, "concrete/concreteMoldy");
-			concrete.carverHelper.addVariation("tile.concrete.6.desc", 6, "concrete/concreteMoldyCracked");
-			concrete.carverHelper.addVariation("tile.concrete.7.desc", 7, "concrete/asphaltCracks");
-			concrete.carverHelper.addVariation("tile.concrete.8.desc", 8, "concrete/asphaltWeathered");
-			concrete.carverHelper.addVariation("tile.concrete.9.desc", 9, "concrete/asphaltCracksWeathered");
-			concrete.carverHelper.addVariation("tile.concrete.10.desc", 10, "concrete/asphaltV2");
+			concrete.carverHelper.addVariation("tile.concrete.0.desc", 0, "concrete/default");
+			concrete.carverHelper.addVariation("tile.concrete.1.desc", 1, "concrete/block");
+			concrete.carverHelper.addVariation("tile.concrete.2.desc", 2, "concrete/doubleslab");
+			concrete.carverHelper.addVariation("tile.concrete.3.desc", 3, "concrete/blocks");
+			concrete.carverHelper.addVariation("tile.concrete.4.desc", 4, "concrete/weathered");
+			concrete.carverHelper.addVariation("tile.concrete.5.desc", 5, "concrete/weathered-block");
+			concrete.carverHelper.addVariation("tile.concrete.6.desc", 6, "concrete/weathered-doubleslab");
+			concrete.carverHelper.addVariation("tile.concrete.7.desc", 7, "concrete/weathered-blocks");
+			concrete.carverHelper.addVariation("tile.concrete.8.desc", 8, "concrete/weathered-half");
+			concrete.carverHelper.addVariation("tile.concrete.9.desc", 9, "concrete/weathered-block-half");
+			concrete.carverHelper.addVariation("tile.concrete.10.desc", 10, "concrete/asphalt");
 			concrete.carverHelper.registerAll(concrete, "concrete");
+
+			BlockCarvable concrete2 = (BlockConcrete) new BlockConcrete().setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabStoneChiselBlocks).setHardness(0.5F);
+			concrete2.carverHelper.addVariation("tile.concrete2.0.desc", 0, "concrete/concrete");
+			concrete2.carverHelper.addVariation("tile.concrete2.1.desc", 1, "concrete/concreteWeathered");
+			concrete2.carverHelper.addVariation("tile.concrete2.2.desc", 2, "concrete/concreteDmg");
+			concrete2.carverHelper.addVariation("tile.concrete2.3.desc", 3, "concrete/concreteVines");
+			concrete2.carverHelper.addVariation("tile.concrete2.4.desc", 4, "concrete/concreteCracked");
+			concrete2.carverHelper.addVariation("tile.concrete2.5.desc", 5, "concrete/concreteMoldy");
+			concrete2.carverHelper.addVariation("tile.concrete2.6.desc", 6, "concrete/concreteMoldyCracked");
+			concrete2.carverHelper.addVariation("tile.concrete2.7.desc", 7, "concrete/asphaltCracks");
+			concrete2.carverHelper.addVariation("tile.concrete2.8.desc", 8, "concrete/asphaltWeathered");
+			concrete2.carverHelper.addVariation("tile.concrete2.9.desc", 9, "concrete/asphaltCracksWeathered");
+			concrete2.carverHelper.addVariation("tile.concrete2.10.desc", 10, "concrete/asphaltV2");
+			concrete2.carverHelper.registerBlock(concrete2, "concrete2");
+			concrete2.carverHelper.registerVariations("concrete");
+
 			OreDictionary.registerOre("concrete", concrete);
 			Carving.chisel.registerOre("concrete", "concrete");
 		}
