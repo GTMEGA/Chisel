@@ -83,7 +83,7 @@ repositories {
 }
 
 dependencies {
-    shade("com.github.GTMEGA:CTMLib:${ctmlib_version}") {
+    shade("com.github.GTMEGA:CTMLib:17cd6ebc23:deobf") {
         transitive = false
     }
 
