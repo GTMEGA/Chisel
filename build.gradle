@@ -132,6 +132,10 @@ jar {
 task deobfJar(type: Jar) {
     from sourceSets.main.output
     classifier = 'deobf'
+
+    manifest {
+        attributes 'FMLAT': 'chisel_compile_at.cfg'
+    }
 }
 
 // Create API jar with sources and compiled files
