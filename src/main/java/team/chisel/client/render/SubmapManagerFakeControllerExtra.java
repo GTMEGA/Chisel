@@ -1,5 +1,6 @@
 package team.chisel.client.render;
 
+import com.google.common.base.Optional;
 import net.minecraft.world.IBlockAccess;
 import team.chisel.ctmlib.CTM;
 import team.chisel.ctmlib.RenderBlocksCTM;
@@ -22,7 +23,7 @@ public class SubmapManagerFakeControllerExtra extends SubmapManagerBaseExtraCTM 
 
     public static class CTMFakeController extends CTM {
         public CTMFakeController() {
-            disableObscuredFaceCheckConfig = true;
+            disableObscuredFaceCheck = Optional.of(true);
         }
 
         public static CTMFakeController getInstance() {
