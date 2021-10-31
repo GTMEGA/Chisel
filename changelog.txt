@@ -1,3 +1,8 @@
+2.9.10-GTMEGA:
+Fixes
+- Fixed AT in deobf jar
+- Removed Client only class refs to fix dedicated server loading
+
 2.9.9-GTMEGA:
 Changes
 - Added back old concrete (old change was undocumented)
