@@ -277,6 +277,7 @@ public enum TextureType {
 		return getVIcon(map, x, y, z, side);
 	}
 
+	@SideOnly(Side.CLIENT)
 	public static IIcon getVIcon(ISubmap map, int x, int y, int z, int side) {
 		IOffsetData data = ChunkData.getOffsetForChunk(Minecraft.getMinecraft().theWorld, x, z);
 		if (data != null) {
@@ -351,10 +352,11 @@ public enum TextureType {
 		VALUES = ArrayUtils.subarray(values(), 0, values().length - 1);
 	}
 
-	private TextureType(String... suffixes) {
+	TextureType(String... suffixes) {
 		this.suffixes = suffixes.length == 0 ? new String[] { "" } : suffixes;
 	}
-	
+
+	@SideOnly(Side.CLIENT)
 	private static void initStatics() {
 		if (theRenderBlocksCTM == null) {
 			theRenderBlocksCTM = new RenderBlocksCTM();
@@ -407,6 +409,7 @@ public enum TextureType {
 	}
 	
 	// This is ugly, but faster than class.getResource
+	@SideOnly(Side.CLIENT)
 	private static boolean exists(String modid, String path, String postfix) {
 		ResourceLocation rl = new ResourceLocation(modid, "textures/blocks/" + path + postfix + ".png");
 		try {

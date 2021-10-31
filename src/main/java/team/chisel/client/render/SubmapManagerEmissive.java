@@ -10,6 +10,8 @@ public class SubmapManagerEmissive extends SubmapManagerBaseExtra {
         super(texturePath + "-glow");
     }
 
+    @Override
+    @SideOnly(Side.CLIENT)
     protected RenderBlocksCTM getRenderBlocks() {
         RenderBlocksCTM renderBlocks = new RenderBlocksCTMFullbright();
         renderBlocks.ctm = CTMPlain.getInstance();

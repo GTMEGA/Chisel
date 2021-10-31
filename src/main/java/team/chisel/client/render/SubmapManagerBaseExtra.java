@@ -18,6 +18,7 @@ public class SubmapManagerBaseExtra implements ISubmapManager {
     protected final String texturePath;
     @SideOnly(Side.CLIENT)
     protected RenderBlocksCTM renderBlocks;
+    @SideOnly(Side.CLIENT)
     protected TextureSubmap submapSmall;
 
     public SubmapManagerBaseExtra(String texturePath) {
@@ -25,16 +26,19 @@ public class SubmapManagerBaseExtra implements ISubmapManager {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
         return submapSmall.getBaseIcon();
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void registerIcons(String modName, Block block, IIconRegister register) {
         submapSmall = new TextureSubmap(register.registerIcon(modName + ":" + texturePath), 2, 2);
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
         return submapSmall.getBaseIcon();
     }
@@ -49,18 +53,21 @@ public class SubmapManagerBaseExtra implements ISubmapManager {
         return renderBlocks;
     }
 
+    @SideOnly(Side.CLIENT)
     protected void initRenderContext() {
         if (renderBlocks == null) {
             renderBlocks = getRenderBlocks();
         }
     }
 
+    @SideOnly(Side.CLIENT)
     protected RenderBlocksCTM getRenderBlocks() {
         RenderBlocksCTM renderBlocks = new RenderBlocksCTM();
         renderBlocks.ctm = CTMPlain.getInstance();
         return renderBlocks;
     }
 
+    @SideOnly(Side.CLIENT)
     public static class CTMPlain extends CTM {
         public static CTMPlain getInstance() {
             return new CTMPlain();

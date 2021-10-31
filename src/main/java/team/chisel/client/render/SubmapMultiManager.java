@@ -16,6 +16,7 @@ import java.util.List;
 
 public class SubmapMultiManager implements ISubmapManager {
     protected final List<ISubmapManager> managers;
+    @SideOnly(Side.CLIENT)
     protected RenderBlocksCTM rendererWrapper;
 
     public SubmapMultiManager(ISubmapManager... managers) {
@@ -38,6 +39,7 @@ public class SubmapMultiManager implements ISubmapManager {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void registerIcons(String modName, Block block, IIconRegister register) {
         for (ISubmapManager manager : managers) {
             manager.registerIcons(modName, block, register);
@@ -45,11 +47,13 @@ public class SubmapMultiManager implements ISubmapManager {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public RenderBlocks createRenderContext(RenderBlocks rendererOld, Block block, IBlockAccess world) {
         initRenderContext();
         return rendererWrapper;
     }
 
+    @SideOnly(Side.CLIENT)
     protected void initRenderContext() {
         if (rendererWrapper == null) {
             rendererWrapper = new RenderBlocksWrapper();

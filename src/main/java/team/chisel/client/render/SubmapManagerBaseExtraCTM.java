@@ -14,6 +14,7 @@ import team.chisel.ctmlib.TextureSubmap;
 
 //Base class for self-contained renderers and sub managers etc
 public class SubmapManagerBaseExtraCTM extends SubmapManagerBaseExtra {
+    @SideOnly(Side.CLIENT)
     protected TextureSubmap submap;
 
     public SubmapManagerBaseExtraCTM(String texturePath) {
@@ -21,6 +22,7 @@ public class SubmapManagerBaseExtraCTM extends SubmapManagerBaseExtra {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void registerIcons(String modName, Block block, IIconRegister register) {
         super.registerIcons(modName, block, register);
         submap = new TextureSubmap(register.registerIcon(modName + ":" + texturePath + "-ctm"), 4, 4);
@@ -35,6 +37,7 @@ public class SubmapManagerBaseExtraCTM extends SubmapManagerBaseExtra {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     protected RenderBlocksCTM getRenderBlocks() {
         return new RenderBlocksCTM();
     }
