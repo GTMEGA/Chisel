@@ -8,13 +8,14 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
+import team.chisel.api.rendering.IOffsetRendered;
 import team.chisel.ctmlib.ISubmapManager;
 import team.chisel.ctmlib.RenderBlocksCTM;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class SubmapMultiManager implements ISubmapManager {
+public class SubmapMultiManager implements ISubmapManager, IOffsetRendered {
     protected final List<ISubmapManager> managers;
     @SideOnly(Side.CLIENT)
     protected RenderBlocksCTM rendererWrapper;
@@ -58,6 +59,17 @@ public class SubmapMultiManager implements ISubmapManager {
         if (rendererWrapper == null) {
             rendererWrapper = new RenderBlocksWrapper();
         }
+    }
+
+    @Override
+    public boolean canOffset(IBlockAccess world, int x, int y, int z, int side) {
+        for (ISubmapManager manager : managers) {
+            if (manager instanceof IOffsetRendered) {
+                if (((IOffsetRendered) manager).canOffset(world, x, y, z, side))
+                    return true;
+            }
+        }
+        return false;
     }
 
     @SideOnly(Side.CLIENT)
