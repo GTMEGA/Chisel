@@ -232,12 +232,14 @@ public class ItemOffsetTool extends Item implements IShaderRenderItem {
 		if (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == this && block instanceof ICarvable) {
 			ICarvable carvable = (ICarvable) block;
 			IVariationInfo info = carvable.getManager(player.worldObj.getBlockMetadata(x, y, z));
-			if (info.getManager() instanceof IOffsetRendered) {
-				return ((IOffsetRendered) info.getManager()).canOffset(world, x, y, z, side);
-			} else if (carvable instanceof IOffsetRendered) {
-				return ((IOffsetRendered) carvable).canOffset(world, x, y, z, side);
+			if (info != null) {
+				if (info.getManager() instanceof IOffsetRendered) {
+					return ((IOffsetRendered) info.getManager()).canOffset(world, x, y, z, side);
+				} else if (carvable instanceof IOffsetRendered) {
+					return ((IOffsetRendered) carvable).canOffset(world, x, y, z, side);
+				}
+				return validTypes.contains(info.getType());
 			}
-			return validTypes.contains(info.getType());
 		}
 		return false;
 	}
