@@ -13,6 +13,7 @@ import team.chisel.ctmlib.ISubmapManager;
 import team.chisel.ctmlib.RenderBlocksCTM;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class SubmapMultiManager implements ISubmapManager, IOffsetRendered {
@@ -37,6 +38,11 @@ public class SubmapMultiManager implements ISubmapManager, IOffsetRendered {
 
     public static SubmapMultiManager ofGlowFakeController(String texturePath) {
         return new SubmapMultiManager(new SubmapManagerFakeControllerExtra(texturePath), new SubmapManagerFakeControllerEmissive(texturePath));
+    }
+
+    @SuppressWarnings("unused") // API code for Obama ;)
+    public Iterable<ISubmapManager> getManagers() {
+        return Collections.unmodifiableList(managers);
     }
 
     @Override
