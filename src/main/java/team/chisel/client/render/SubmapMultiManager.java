@@ -79,7 +79,7 @@ public class SubmapMultiManager implements ISubmapManager, IOffsetRendered {
     }
 
     @SideOnly(Side.CLIENT)
-    private class RenderBlocksWrapper extends RenderBlocksCTM {
+    protected class RenderBlocksWrapper extends RenderBlocksCTM {
         @Override
         public boolean renderStandardBlock(Block block, int x, int y, int z) {
             boolean ret = false;
