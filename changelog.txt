@@ -1,3 +1,6 @@
+2.9.14-GTMEGA:
+- Multi manager internal API tweaks
+
 2.9.10-GTMEGA:
 Fixes
 - Fixed AT in deobf jar
