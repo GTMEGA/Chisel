@@ -1,0 +1,18 @@
+// Add your dependencies here
+
+dependencies {
+    shadowImplementation("com.github.GTMEGA:CTMLib:17cd6ebc23") // Fix versioning
+
+    compile("com.github.GTNewHorizons:NotEnoughItems:master-SNAPSHOT:dev")
+
+    compileOnly("com.github.GTNewHorizons:waila:master-SNAPSHOT:dev") {
+        transitive = false
+    }
+    compileOnly("com.github.GTNewHorizons:ForgeMultipart:master-SNAPSHOT:dev") {
+        transitive = false
+    }
+
+    compileOnly("curse.maven:ee3-65509:2305023") {  // https://www.curseforge.com/minecraft/mc-mods/ee3/files/2305023
+        transitive = false
+    }
+}
