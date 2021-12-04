@@ -1,3 +1,6 @@
+2.9.15-GTMEGA:
+- Fixes crash with BiomesOPlenty by adding it as a proper soft dep
+
 2.9.14-GTMEGA:
 - Multi manager internal API tweaks
 
