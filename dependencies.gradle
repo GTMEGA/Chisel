@@ -1,7 +1,9 @@
 // Add your dependencies here
 
 dependencies {
-    shadowImplementation("com.github.GTMEGA:CTMLib:17cd6ebc23") // Fix versioning
+    shadowImplementation("com.github.GTMEGA:CTMLib:17cd6ebc23") {   // Fix versioning
+        transitive = false
+    }
 
     compile("com.github.GTNewHorizons:NotEnoughItems:master-SNAPSHOT:dev")
 

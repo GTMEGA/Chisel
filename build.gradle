@@ -1,4 +1,4 @@
-//version: ffe7b130f98fdfa1ac7c6ba4bd34722a55ab28d4
+//version: aa8aff90655e0509464d4a8dc42c38d3614c1260
 /*
 DO NOT CHANGE THIS FILE!
 
@@ -32,8 +32,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.github.GTNH2:ForgeGradle:FG_1.2-SNAPSHOT'
-        classpath 'org.ajoberstar:gradle-git:0.10.1'
+        classpath 'com.github.GTNewHorizons:ForgeGradle:1.2.4'
     }
 }
 
@@ -164,8 +163,14 @@ try {
 catch (Exception e) {
     throw new IllegalStateException("This mod must be version controlled by Git AND the repository must provide at least one tag!");
 }
+
 group = modGroup
-archivesBaseName = modId
+if(project.hasProperty("customArchiveBaseName") && customArchiveBaseName) {
+    archivesBaseName = customArchiveBaseName
+}
+else {
+    archivesBaseName = modId
+}
 
 minecraft {
     version = minecraftVersion + "-" + forgeVersion + "-" + minecraftVersion
@@ -300,14 +305,6 @@ afterEvaluate {
             ]
         }
     }
-
-    compile "codechicken:CodeChickenLib:${minecraft_version}-${ccl_version}:dev"
-    compile "codechicken:CodeChickenCore:${minecraft_version}-${ccc_version}:dev"
-    compile "codechicken:NotEnoughItems:${minecraft_version}-${nei_version}:dev"
-    compileOnly "com.pahimar.ee3:EquivalentExchange3:${minecraft_version}-${ee3_version}:dev"
-    compile "codechicken:ForgeMultipart:${minecraft_version}-${fmp_version}:dev"
-
-    runtimeOnly "mcp.mobius.waila:Waila:${waila_version}_${minecraft_version}:dev"
 }
 
 runClient {
@@ -447,11 +444,11 @@ task devJar(type: Jar) {
 
 task apiJar(type: Jar) {
     from (sourceSets.main.allJava) {
-        include modGroup.toString().replaceAll("\\.", "/") + "/" + apiPackage.toString() + '/**'
+        include modGroup.toString().replaceAll("\\.", "/") + "/" + apiPackage.toString().replaceAll("\\.", "/") + '/**'
     }
 
     from (sourceSets.main.output) {
-        include modGroup.toString().replaceAll("\\.", "/") + "/" + apiPackage.toString() + '/**'
+        include modGroup.toString().replaceAll("\\.", "/") + "/" + apiPackage.toString().replaceAll("\\.", "/") + '/**'
     }
 
     from (sourceSets.main.resources.srcDirs) {
