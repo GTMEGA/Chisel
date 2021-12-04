@@ -7,7 +7,7 @@ Originally created by AUTOMATIC_MAIDEN, it was ported to Minecraft 1.7.2 by asie
 This version of the mod contains loads of new blocks, new features like the Auto Chisel and chisel modes, and lots of bugfixes.
 
 
-It was previously maintained by [tterrag](http://github.com/tterrag1098), [Drullkus](http://github.com/Drullkus) (Artist), and [minecreatr](http://github.com/minecreatr) (1.8 Port).  Forked and maintained by the GTNH team for use in the GTNH modpack.
+It was previously maintained by [tterrag](http://github.com/tterrag1098), [Drullkus](http://github.com/Drullkus) (Artist), and [minecreatr](http://github.com/minecreatr) (1.8 Port). Forked and maintained by the GTMEGA team for use in the GTMEGA modpack.
 
 Pull Requests
 ---------------
