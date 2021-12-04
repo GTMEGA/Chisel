@@ -1,3 +1,6 @@
+2.9.16-GTMEGA:
+- Fixes built in CTMLib
+
 2.9.15-GTMEGA:
 - Fixes crash with BiomesOPlenty by adding it as a proper soft dep
 
