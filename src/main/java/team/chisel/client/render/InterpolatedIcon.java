@@ -31,8 +31,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 // This is all vanilla code from 1.8, thanks to ganymedes01 porting it to 1.7 :D
 @SideOnly(Side.CLIENT)
 public class InterpolatedIcon extends TextureAtlasSprite {
-
-	protected int[][] interpolatedFrameData;
+	/**
+	 * This is really just a GpuTexture[][], but minecraft uses int[][] as gpu textures
+	 */
+	private int[][][][] interpolatedFrameData;
 	private TextureAtlasSprite wrapped;
 
 	public InterpolatedIcon(String name, TextureAtlasSprite wrapped) {
@@ -44,49 +46,111 @@ public class InterpolatedIcon extends TextureAtlasSprite {
 	public void updateAnimation() {
 		super.updateAnimation();
 		try {
-			updateAnimationInterpolated();
+			updateAnimationInterpolated(true);
 		} catch (Exception e) {
 			// NO-OP
 		}
 	}
-	
+
 	@Override
 	public void initSprite(int p_110971_1_, int p_110971_2_, int p_110971_3_, int p_110971_4_, boolean p_110971_5_) {
 		super.initSprite(p_110971_1_, p_110971_2_, p_110971_3_, p_110971_4_, p_110971_5_);
 		wrapped.copyFrom(this);
+		regenerateInterpolationBuffer();
 	}
 
-	private void updateAnimationInterpolated() throws IllegalArgumentException, IllegalAccessException {
+	/**
+	 * Generates an interpolated frame from the current tick and frame counters, and optionally uploads it to the gpu.
+	 * @param upload True if the generated texture should be uploaded. False if the method is being used just for pre-generation.
+	 */
+	private void updateAnimationInterpolated(boolean upload) throws IllegalArgumentException {
 
-		double d0 = 1.0D - tickCounter / (double) animationMetadata.getFrameTimeSingle(frameCounter);
-		int i = animationMetadata.getFrameIndex(frameCounter);
-		int j = animationMetadata.getFrameCount() == 0 ? framesTextureData.size() : animationMetadata.getFrameCount();
-		int k = animationMetadata.getFrameIndex((frameCounter + 1) % j);
+		int subFrameCount = animationMetadata.getFrameTimeSingle(frameCounter);
+		int firstFrameIndex = animationMetadata.getFrameIndex(frameCounter);
+		int totalFrameCount = animationMetadata.getFrameCount() == 0 ? framesTextureData.size() : animationMetadata.getFrameCount();
+		int secondFrameIndex = animationMetadata.getFrameIndex((frameCounter + 1) % totalFrameCount);
 
-		if (i != k && k >= 0 && k < framesTextureData.size()) {
-			int[][] aint = (int[][]) framesTextureData.get(i);
-			int[][] aint1 = (int[][]) framesTextureData.get(k);
+		double alpha = 1.0D - tickCounter / (double) subFrameCount;
 
-			if (interpolatedFrameData == null || interpolatedFrameData.length != aint.length)
-				interpolatedFrameData = new int[aint.length][];
+		if (interpolatedFrameData == null || interpolatedFrameData.length != totalFrameCount) {
+			interpolatedFrameData = new int[totalFrameCount][][][];
+		}
 
-			for (int l = 0; l < aint.length; l++) {
-				if (interpolatedFrameData[l] == null)
-					interpolatedFrameData[l] = new int[aint[l].length];
-
-				if (l < aint1.length && aint1[l].length == aint[l].length)
-					for (int i1 = 0; i1 < aint[l].length; ++i1) {
-						int j1 = aint[l][i1];
-						int k1 = aint1[l][i1];
-						int l1 = (int) (((j1 & 16711680) >> 16) * d0 + ((k1 & 16711680) >> 16) * (1.0D - d0));
-						int i2 = (int) (((j1 & 65280) >> 8) * d0 + ((k1 & 65280) >> 8) * (1.0D - d0));
-						int j2 = (int) ((j1 & 255) * d0 + (k1 & 255) * (1.0D - d0));
-						interpolatedFrameData[l][i1] = j1 & -16777216 | l1 << 16 | i2 << 8 | j2;
-					}
+		if (firstFrameIndex != secondFrameIndex && secondFrameIndex >= 0 && secondFrameIndex < framesTextureData.size()) {
+			int[][][] subFrames = interpolatedFrameData[firstFrameIndex];
+			if (subFrames == null || subFrames.length != subFrameCount) {
+				interpolatedFrameData[firstFrameIndex] = subFrames = new int[subFrameCount][][];
+			}
+			int[][] subFrame = subFrames[tickCounter];
+			if (subFrame == null) {
+				int[][] firstFrame = (int[][]) framesTextureData.get(firstFrameIndex);
+				int[][] secondFrame = (int[][]) framesTextureData.get(secondFrameIndex);
+				subFrame = subFrames[tickCounter] = interpolate(firstFrame, secondFrame, alpha, null);
 			}
 
-			TextureUtil.uploadTextureMipmap(interpolatedFrameData, width, height, originX, originY, false, false);
+			if (upload)
+				TextureUtil.uploadTextureMipmap(subFrame, width, height, originX, originY, false, false);
 		}
+	}
+
+	/**
+	 * Linearly interpolates between two animation frames, and stores the result in the output. If the output has an incorrect size, or is null, a new array is returned.
+	 */
+	private int[][] interpolate(int[][] first, int[][] second, double alpha, int[][] output) {
+		if (output == null || output.length != first.length)
+			output = new int[first.length][];
+
+		for (int mipMapIndex = 0; mipMapIndex < first.length; mipMapIndex++) {
+			int[] firstIMG;
+			int[] secondIMG;
+			int[] outputIMG;
+			int length;
+
+			firstIMG = first[mipMapIndex];
+			length = firstIMG.length;
+			if ((outputIMG = output[mipMapIndex]) == null)
+				outputIMG = output[mipMapIndex] = new int[length];
+
+			if (mipMapIndex < second.length && (secondIMG = second[mipMapIndex]).length == length) {
+				for (int pixel = 0; pixel < length; ++pixel) {
+					outputIMG[pixel] = interpolatePixel(firstIMG[pixel], secondIMG[pixel], alpha);
+				}
+			} else {
+				//Fallback if something weird happened
+				System.arraycopy(firstIMG, 0, outputIMG, 0, length);
+			}
+		}
+		return output;
+	}
+
+	/**
+	 * Linearly interpolates between RGB colors.
+	 */
+	private int interpolatePixel(int first, int second, double alpha) {
+		int r = (int) (((first & 16711680) >> 16) * alpha + ((second & 16711680) >> 16) * (1.0D - alpha));
+		int g = (int) (((first & 65280) >> 8) * alpha + ((second & 65280) >> 8) * (1.0D - alpha));
+		int b = (int) ((first & 255) * alpha + (second & 255) * (1.0D - alpha));
+		return first & -16777216 | r << 16 | g << 8 | b;
+	}
+
+	/**
+	 * Nukes the frame cache and regenerates it from scratch.
+	 */
+	private void regenerateInterpolationBuffer() {
+		interpolatedFrameData = null;
+		int tickCounterBak = tickCounter;
+		int frameCounterBak = frameCounter;
+
+		int frameCount = animationMetadata.getFrameCount() == 0 ? framesTextureData.size() : animationMetadata.getFrameCount();
+		for (frameCounter = 0; frameCounter < frameCount; frameCounter++) {
+			int subFrameCount = animationMetadata.getFrameTimeSingle(frameCounter);
+			for (tickCounter = 0; tickCounter < subFrameCount; tickCounter++) {
+				updateAnimationInterpolated(false);
+			}
+		}
+
+		tickCounter = tickCounterBak;
+		frameCounter = frameCounterBak;
 	}
 
 	public static class RegistrationHandler {
