@@ -100,17 +100,25 @@ public class InterpolatedIcon extends TextureAtlasSprite {
 		if (output == null || output.length != first.length)
 			output = new int[first.length][];
 
-		for (int y = 0; y < first.length; y++) {
-			if (output[y] == null)
-				output[y] = new int[first[y].length];
+		for (int mipMapIndex = 0; mipMapIndex < first.length; mipMapIndex++) {
+			int[] firstIMG;
+			int[] secondIMG;
+			int[] outputIMG;
+			int length;
 
-			if (y < second.length && second[y].length == first[y].length)
-				for (int x = 0; x < first[y].length; ++x) {
-					int firstPixel = first[y][x];
-					int secondPixel = second[y][x];
-					int interpolated = interpolatePixel(firstPixel, secondPixel, alpha);
-					output[y][x] = interpolated;
+			firstIMG = first[mipMapIndex];
+			length = firstIMG.length;
+			if ((outputIMG = output[mipMapIndex]) == null)
+				outputIMG = output[mipMapIndex] = new int[length];
+
+			if (mipMapIndex < second.length && (secondIMG = second[mipMapIndex]).length == length) {
+				for (int pixel = 0; pixel < length; ++pixel) {
+					outputIMG[pixel] = interpolatePixel(firstIMG[pixel], secondIMG[pixel], alpha);
 				}
+			} else {
+				//Fallback if something weird happened
+				System.arraycopy(firstIMG, 0, outputIMG, 0, length);
+			}
 		}
 		return output;
 	}
