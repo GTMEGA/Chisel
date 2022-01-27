@@ -127,10 +127,10 @@ public class InterpolatedIcon extends TextureAtlasSprite {
 	 * Linearly interpolates between RGB colors.
 	 */
 	private int interpolatePixel(int first, int second, double alpha) {
-		int r = (int) (((first & 16711680) >> 16) * alpha + ((second & 16711680) >> 16) * (1.0D - alpha));
-		int g = (int) (((first & 65280) >> 8) * alpha + ((second & 65280) >> 8) * (1.0D - alpha));
-		int b = (int) ((first & 255) * alpha + (second & 255) * (1.0D - alpha));
-		return first & -16777216 | r << 16 | g << 8 | b;
+		int r = (int) (((first & 0x00FF0000) >>> 16) * alpha + ((second & 0x00FF0000) >>> 16) * (1.0D - alpha));
+		int g = (int) (((first & 0x0000FF00) >>> 8 ) * alpha + ((second & 0x0000FF00) >>> 8 ) * (1.0D - alpha));
+		int b = (int) (( first & 0x000000FF        ) * alpha + ( second & 0x000000FF        ) * (1.0D - alpha));
+		return first & 0xFF000000 | r << 16 | g << 8 | b;
 	}
 
 	/**
