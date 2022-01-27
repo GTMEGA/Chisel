@@ -123,14 +123,21 @@ public class InterpolatedIcon extends TextureAtlasSprite {
 		return output;
 	}
 
+	private static final double GAMMA = 2.2;
+
 	/**
 	 * Linearly interpolates between RGB colors.
 	 */
 	private int interpolatePixel(int first, int second, double alpha) {
-		int r = (int) (((first & 0x00FF0000) >>> 16) * alpha + ((second & 0x00FF0000) >>> 16) * (1.0D - alpha));
-		int g = (int) (((first & 0x0000FF00) >>> 8 ) * alpha + ((second & 0x0000FF00) >>> 8 ) * (1.0D - alpha));
-		int b = (int) (( first & 0x000000FF        ) * alpha + ( second & 0x000000FF        ) * (1.0D - alpha));
+		int r = interpolate((first & 0x00FF0000) >>> 16, (second & 0x00FF0000) >>> 16, alpha);
+		int g = interpolate((first & 0x0000FF00) >>> 8, (second & 0x0000FF00) >>> 8, alpha);
+		int b = interpolate(first & 0x000000FF, second & 0x000000FF, alpha);
 		return first & 0xFF000000 | r << 16 | g << 8 | b;
+	}
+
+
+	private int interpolate(int a, int b, double alpha) {
+		return (int) Math.round(255d * Math.pow(Math.pow(a / 255d, GAMMA) * alpha + Math.pow(b / 255d, GAMMA) * (1d - alpha), 1d / GAMMA));
 	}
 
 	/**
