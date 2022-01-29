@@ -1,3 +1,9 @@
+2.9.19-mega:
+- Fixed gamma blending on interpolated textures
+
+2.9.18-beta-mega:
+- Optimised Interpolated Animated Textures
+
 2.9.17-GTMEGA:
 - Chisel rick
 
