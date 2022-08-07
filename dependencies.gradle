@@ -5,8 +5,9 @@ dependencies {
         transitive = false
     }
 
-    compile("com.github.GTNewHorizons:NotEnoughItems:master-SNAPSHOT:dev")
-
+    compile("com.github.GTNewHorizons:NotEnoughItems:2.2.6-GTNH:dev") {
+        transitive = true
+    }
     compileOnly("com.github.GTNewHorizons:waila:master-SNAPSHOT:dev") {
         transitive = false
     }
