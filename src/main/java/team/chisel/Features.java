@@ -1160,7 +1160,24 @@ public enum Features {
 				GameRegistry.addRecipe(new ShapelessOreRecipe(granite, diorite, "gemQuartz"));
 			}
 		}
+	},	GREATWOOD {
+		@Override
+		void addBlocks() {
+			BlockCarvable greatwoodplanks = (BlockCarvable) new BlockCarvable(Material.wood).setHardness(2.0F).setResistance(5.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+
+			greatwoodplanks.carverHelper.addVariation("tile.greatwoodplanks.0.desc", 0, "greatwood/greatwoodplanks");
+//			greatwoodplanks.carverHelper.addVariation("tile.greatwoodplanks.1.desc", 1, "greatwood/greatwoodgilded");
+//			greatwoodplanks.carverHelper.addVariation("tile.greatwoodplanks.2.desc", 2, "greatwood/greatwood3");
+//			greatwoodplanks.carverHelper.addVariation("tile.greatwoodplanks.3.desc", 3, "greatwood/greatwood4");
+//			greatwoodplanks.carverHelper.addVariation("tile.greatwoodplanks.4.desc", 4, "greatwood/greatwood5");
+//			greatwoodplanks.carverHelper.addVariation("tile.greatwoodplanks.5.desc", 5, "greatwood/greatwood6");
+//			greatwoodplanks.carverHelper.addVariation("tile.greatwoodplanks.6.desc", 6, "greatwood/greatwood7");
+//			greatwoodplanks.carverHelper.addVariation("tile.greatwoodplanks.7.desc", 7, "greatwood/greatwood8");
+			greatwoodplanks.carverHelper.registerAll(greatwoodplanks, "greatwoodplanks");
+			Carving.chisel.registerOre("greatwoodplanks", "greatwoodplanks");
+		}
 	},
+
 
 	GRIMSTONE {
 		@Override
@@ -1430,7 +1447,7 @@ public enum Features {
 
 			laboratoryblock.carverHelper.addVariation("tile.laboratory.0.desc", 0, "laboratory/wallpanel");
 			laboratoryblock.carverHelper.addVariation("tile.laboratory.1.desc", 1, "laboratory/dottedpanel");
-			laboratoryblock.carverHelper.addVariation("tile.laboratory.2.desc", 2, "laboratory/largewall");
+			laboratoryblock.carverHelper.addVariation("tile.laboratorgy.2.desc", 2, "laboratory/largewall");
 			laboratoryblock.carverHelper.addVariation("tile.laboratory.3.desc", 3, "laboratory/roundel");
 			laboratoryblock.carverHelper.addVariation("tile.laboratory.4.desc", 4, "laboratory/wallvents");
 			laboratoryblock.carverHelper.addVariation("tile.laboratory.5.desc", 5, "laboratory/largetile");
@@ -2802,6 +2819,23 @@ public enum Features {
 			Carving.chisel.registerOre("tinblock", "blockTin");
 		}
 	},
+
+	TREATEDWOOD {
+		@Override
+		void addBlocks() {
+			BlockCarvable treatedwood = (BlockCarvable) new BlockCarvable(Material.wood).setHardness(2.0F).setResistance(15.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+				treatedwood.carverHelper.addVariation("tile.treatedwood.0.desc", 0, "treatedwood/treatedwood");
+				treatedwood.carverHelper.addVariation("tile.treatedwood.1.desc", 1, "treatedwood/worntreatedwood");
+//			treatedwood.carverHelper.addVariation("tile.treatedwood.2.desc", 2, "treatedwood/greatwood3");
+//			treatedwood.carverHelper.addVariation("tile.treatedwood.3.desc", 3, "treatedwood/greatwood4");
+//			treatedwood.carverHelper.addVariation("tile.treatedwood.4.desc", 4, "treatedwood/greatwood5");
+//			treatedwood.carverHelper.addVariation("tile.treatedwood.5.desc", 5, "treatedwood/greatwood6");
+//			treatedwood.carverHelper.addVariation("tile.treatedwood.6.desc", 6, "treatedwood/greatwood7");
+//			treatedwood.carverHelper.addVariation("tile.treatedwood.7.desc", 7, "treatedwood/greatwood8");
+				treatedwood.carverHelper.registerAll(treatedwood, "treatedwood");
+				Carving.chisel.registerOre("treatedwood", "treatedwood");
+				}
+				},
 
 	/**
 	 * Dummy feature for all TF subsets

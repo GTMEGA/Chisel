@@ -123,6 +123,11 @@ tile.granite.5.desc=Prismatic Granite
 tile.granite.6.desc=Small Tiles
 tile.granite.7.desc=Diagonal Bricks
 
+#Greatwood Planks
+tile.chisel.greatwoodplanks.name=Greatwood
+tile.greatwoodplanks.0.desc=Smooth Greatwood Planks
+tile.greatwoodplanks.1.desc=Gilded Greatwood Planks
+
 #Auto Chisel
 tile.chisel.autoChisel.name=Auto Chisel
 autochisel.slot.chisel.tooltip=Chisel Slot
@@ -722,6 +727,12 @@ tile.factory2.0.desc=Neon Blue Plating
 tile.factory2.1.desc=Vertical Venting
 tile.factory2.2.desc=Metallic Blue Circuit Plating
 tile.factory2.3.desc=Blue Wireframing
+
+#Treated Wood
+tile.chisel.treatedwood.name=Treated Wood
+tile.treatedwood.0.desc=Smooth Treated Planks
+tile.treatedwood.1.desc=Worn Treated Planks
+
 
 #Diamond blocks
 tile.chisel.diamond_block.name=Diamond Block
