@@ -2812,7 +2812,6 @@ public enum Features {
 			tin.carverHelper.addVariation("tile.metalOre.2.desc", 2, "metals/tin/thermal", 22);
 			tin.carverHelper.addVariation("tile.metalOre.3.desc", 3, "metals/tin/machine", 23);
 			tin.carverHelper.addVariation("tile.metalOre.4.desc", 4, "metals/tin/badGreggy", 24);
-			;
 			tin.carverHelper.addVariation("tile.metalOre.5.desc", 5, "metals/tin/bolted", 25);
 			tin.carverHelper.addVariation("tile.metalOre.6.desc", 6, "metals/tin/scaffold", 26);
 			tin.carverHelper.registerAll(tin, "tinblock");
@@ -2826,12 +2825,6 @@ public enum Features {
 			BlockCarvable treatedwood = (BlockCarvable) new BlockCarvable(Material.wood).setHardness(2.0F).setResistance(15.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
 				treatedwood.carverHelper.addVariation("tile.treatedwood.0.desc", 0, "treatedwood/treatedwood");
 				treatedwood.carverHelper.addVariation("tile.treatedwood.1.desc", 1, "treatedwood/worntreatedwood");
-//			treatedwood.carverHelper.addVariation("tile.treatedwood.2.desc", 2, "treatedwood/greatwood3");
-//			treatedwood.carverHelper.addVariation("tile.treatedwood.3.desc", 3, "treatedwood/greatwood4");
-//			treatedwood.carverHelper.addVariation("tile.treatedwood.4.desc", 4, "treatedwood/greatwood5");
-//			treatedwood.carverHelper.addVariation("tile.treatedwood.5.desc", 5, "treatedwood/greatwood6");
-//			treatedwood.carverHelper.addVariation("tile.treatedwood.6.desc", 6, "treatedwood/greatwood7");
-//			treatedwood.carverHelper.addVariation("tile.treatedwood.7.desc", 7, "treatedwood/greatwood8");
 				treatedwood.carverHelper.registerAll(treatedwood, "treatedwood");
 				Carving.chisel.registerOre("treatedwood", "treatedwood");
 				}
@@ -3186,12 +3179,87 @@ public enum Features {
 		boolean needsMetaRecipes() {
 			return true;
 		}
+	},
+	////////////////
+	//Ztone Clones//
+	////////////////
+	AZUL {
+		@Override
+		void addBlocks() {
+			BlockCarvable azul = (BlockCarvable) new BlockCarvable(Material.rock).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+			azul.carverHelper.addVariation("tile.azul.0.desc", 0, "zc/azul/azul_0");
+			azul.carverHelper.addVariation("tile.azul.1.desc", 1, "zc/azul/azul_1");
+			azul.carverHelper.addVariation("tile.azul.2.desc", 2, "zc/azul/azul_2");
+			azul.carverHelper.addVariation("tile.azul.3.desc", 3, "zc/azul/azul_3");
+			azul.carverHelper.addVariation("tile.azul.4.desc", 4, "zc/azul/azul_4");
+			azul.carverHelper.addVariation("tile.azul.5.desc", 5, "zc/azul/azul_5");
+			azul.carverHelper.addVariation("tile.azul.6.desc", 6, "zc/azul/azul_6");
+			azul.carverHelper.addVariation("tile.azul.7.desc", 7, "zc/azul/azul_7");
+			azul.carverHelper.addVariation("tile.azul.8.desc", 8, "zc/azul/azul_8");
+			azul.carverHelper.addVariation("tile.azul.9.desc", 9, "zc/azul/azul_9");
+			azul.carverHelper.addVariation("tile.azul.10.desc", 10, "zc/azul/azul_10");
+			azul.carverHelper.addVariation("tile.azul.11.desc", 11, "zc/azul/azul_11");
+			azul.carverHelper.addVariation("tile.azul.12.desc", 12, "zc/azul/azul_12");
+			azul.carverHelper.addVariation("tile.azul.13.desc", 13, "zc/azul/azul_13");
+			azul.carverHelper.addVariation("tile.azul.14.desc", 14, "zc/azul/azul_14");
+			azul.carverHelper.addVariation("tile.azul.15.desc", 15, "zc/azul/azul_15");
+			azul.carverHelper.registerAll(azul, "azul");
+			Carving.chisel.registerOre("azul","blockAzul");
+		}
+	},
+	NIBBLE {
+		@Override
+		void addBlocks() {
+			BlockCarvable nibble = (BlockCarvable) new BlockCarvable(Material.rock).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+			nibble.carverHelper.addVariation("tile.nibble.0.desc", 0, "zc/nibble/nibble_0");
+			nibble.carverHelper.addVariation("tile.nibble.1.desc", 1, "zc/nibble/nibble_1");
+			nibble.carverHelper.addVariation("tile.nibble.2.desc", 2, "zc/nibble/nibble_2");
+			nibble.carverHelper.addVariation("tile.nibble.3.desc", 3, "zc/nibble/nibble_3");
+			nibble.carverHelper.addVariation("tile.nibble.4.desc", 4, "zc/nibble/nibble_4");
+			nibble.carverHelper.addVariation("tile.nibble.5.desc", 5, "zc/nibble/nibble_5");
+			nibble.carverHelper.addVariation("tile.nibble.6.desc", 6, "zc/nibble/nibble_6");
+			nibble.carverHelper.addVariation("tile.nibble.7.desc", 7, "zc/nibble/nibble_7");
+			nibble.carverHelper.addVariation("tile.nibble.8.desc", 8, "zc/nibble/nibble_8");
+			nibble.carverHelper.addVariation("tile.nibble.9.desc", 9, "zc/nibble/nibble_9");
+			nibble.carverHelper.addVariation("tile.nibble.10.desc", 10, "zc/nibble/nibble_10");
+			nibble.carverHelper.addVariation("tile.nibble.11.desc", 11, "zc/nibble/nibble_11");
+			nibble.carverHelper.addVariation("tile.nibble.12.desc", 12, "zc/nibble/nibble_12");
+			nibble.carverHelper.addVariation("tile.nibble.13.desc", 13, "zc/nibble/nibble_13");
+			nibble.carverHelper.addVariation("tile.nibble.14.desc", 14, "zc/nibble/nibble_14");
+			nibble.carverHelper.addVariation("tile.nibble.15.desc", 15, "zc/nibble/nibble_15");
+			nibble.carverHelper.registerAll(nibble, "nibble");
+			Carving.chisel.registerOre("nibble","blockNibble");
+		}
+	},
+	PIXEL {
+		@Override
+		void addBlocks() {
+			BlockCarvable pixel = (BlockCarvable) new BlockCarvable(Material.rock).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+			pixel.carverHelper.addVariation("tile.pixel.0.desc", 0, "pixel/white_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.1.desc", 1, "pixel/orange_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.2.desc", 2, "pixel/magenta_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.3.desc", 3, "pixel/lightblue_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.4.desc", 4, "pixel/yellow_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.5.desc", 5, "pixel/lightgreen_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.6.desc", 6, "pixel/pink_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.7.desc", 7, "pixel/gray_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.8.desc", 8, "pixel/lightgray_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.9.desc", 9, "pixel/cyan_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.10.desc", 10, "pixel/purple_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.11.desc", 11, "pixel/blue_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.12.desc", 12, "pixel/brown_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.13.desc", 13, "pixel/green_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.14.desc", 14, "pixel/red_pixel");
+			pixel.carverHelper.addVariation("tile.pixel.15.desc", 15, "pixel/black_pixel");
+			pixel.carverHelper.registerAll(pixel, "pixel");
+			Carving.chisel.registerOre("pixel","blockPixel");
+		}
 	};
-
 	private static final String[] dyeOres = { "dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime", "dyeYellow",
 		"dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite" };
 
 	private static int meta = 0;
+
 
 	static void init() {
 		Chisel.logger.info("Starting init...");

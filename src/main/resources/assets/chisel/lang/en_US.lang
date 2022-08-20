@@ -1570,6 +1570,62 @@ tile.dark-oak.planks.12.desc=Dark Oak Wood Scaffold
 tile.dark-oak.planks.14.desc=Dark Oak Wood Planks in Disarray
 tile.dark-oak.planks.15.desc=Vertical Dark Oak Wood Planks in Disarray
 
+#ZtoneClones
+
+tile.chisel.azul.name=Azul
+tile.azul.0.desc=Light Blue Shingled Tiles
+tile.azul.1.desc=Light Blue Large Tile
+tile.azul.2.desc=Light Blue Snake Patterned Tile
+tile.azul.3.desc=Light Blue Scale Patterned Tiles
+tile.azul.4.desc=Light Blue Lines Intersection
+tile.azul.5.desc=Light Blue Horizontal Curved Lines
+tile.azul.6.desc=Light Blue Vertical Curved Lines
+tile.azul.7.desc=Light Blue Horizontal Lines
+tile.azul.8.desc=Light Blue Vertical Lines
+tile.azul.9.desc=Light Blue Traces
+tile.azul.10.desc=Light Blue S Tile
+tile.azul.11.desc=Light Blue Fritted Tiles
+tile.azul.12.desc=Light Blue Sequins
+tile.azul.13.desc=Light Blue Small Disordered Tiles
+tile.azul.14.desc=Dark Blue Fritted Tile
+tile.azul.15.desc=Dark Cyan Geometric Tiles
+
+tile.chisel.nibble.name=Nibble
+tile.nibble.0.desc=Dark checkerboard pattern with a dark-gray border.
+tile.nibble.1.desc=Dark checkerboard pattern with a white border.
+tile.nibble.2.desc=Dark checkerboard pattern with a yellow border.
+tile.nibble.3.desc=Dark checkerboard pattern with a green border.
+tile.nibble.4.desc=Dark checkerboard pattern with a light-green border.
+tile.nibble.5.desc=Dark checkerboard pattern with a sea-green border.
+tile.nibble.6.desc=Dark checkerboard pattern with a cyan border.
+tile.nibble.7.desc=Dark checkerboard pattern with a blue border.
+tile.nibble.8.desc=Dark checkerboard pattern with a dark-blue border.
+tile.nibble.9.desc=Dark checkerboard pattern with a dark-purple border.
+tile.nibble.10.desc=Dark checkerboard pattern with a purple border.
+tile.nibble.11.desc=Dark checkerboard pattern with a magenta border.
+tile.nibble.12.desc=Dark checkerboard pattern with a maroon border.
+tile.nibble.13.desc=Dark checkerboard pattern with a red border.
+tile.nibble.14.desc=Dark checkerboard pattern with an orange border.
+tile.nibble.15.desc=Dark checkerboard pattern with a dark-yellow border.
+
+tile.chisel.pixel.name=Pixel
+tile.pixel.0.desc= Solid White Colored Block
+tile.pixel.1.desc= Solid Orange Colored Block
+tile.pixel.2.desc= Solid Magenta Colored Block
+tile.pixel.3.desc= Solid Light Blue Colored Block
+tile.pixel.4.desc= Solid Yellow Colored Block
+tile.pixel.5.desc= Solid Light Green Colored Block
+tile.pixel.6.desc= Solid Pink Green Colored Block
+tile.pixel.7.desc= Solid Gray Green Colored Block
+tile.pixel.8.desc= Solid Light Gray Colored Block
+tile.pixel.9.desc= Solid Cyan Colored Block
+tile.pixel.10.desc= Solid Purple Colored Block
+tile.pixel.11.desc= Solid Blue Colored Block
+tile.pixel.12.desc= Solid Brown Colored Block
+tile.pixel.13.desc= Solid Green Colored Block
+tile.pixel.14.desc= Solid Red Colored Block
+tile.pixel.15.desc= Solid Black Colored Block
+
 #Stained Glass
 white.bubble.desc=White Bubble Glass
 white.glass.desc=White Glass Panel
