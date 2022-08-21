@@ -3217,6 +3217,31 @@ public enum Features {
 			Carving.chisel.registerOre("azul","blockAzul");
 		}
 	},
+	DARKCORE {
+		@Override
+		void addBlocks() {
+			BlockCarvable darkcore = (BlockCarvable) new BlockCarvable(Material.rock).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+//			BlockCarvable darkcore = (BlockCarvable) new BlockQuickcrete().setSpeedup(0.15f).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+			darkcore.carverHelper.addVariation("tile.darkcore.0.desc", 0, "zc/darkcore/darkcore_0");
+			darkcore.carverHelper.addVariation("tile.darkcore.1.desc", 1, "zc/darkcore/darkcore_1");
+			darkcore.carverHelper.addVariation("tile.darkcore.2.desc", 2, "zc/darkcore/darkcore_2");
+			darkcore.carverHelper.addVariation("tile.darkcore.3.desc", 3, "zc/darkcore/darkcore_3");
+			darkcore.carverHelper.addVariation("tile.darkcore.4.desc", 4, "zc/darkcore/darkcore_4");
+			darkcore.carverHelper.addVariation("tile.darkcore.5.desc", 5, "zc/darkcore/darkcore_5");
+			darkcore.carverHelper.addVariation("tile.darkcore.6.desc", 6, "zc/darkcore/darkcore_6");
+			darkcore.carverHelper.addVariation("tile.darkcore.7.desc", 7, "zc/darkcore/darkcore_7");
+			darkcore.carverHelper.addVariation("tile.darkcore.8.desc", 8, "zc/darkcore/darkcore_8");
+			darkcore.carverHelper.addVariation("tile.darkcore.9.desc", 9, "zc/darkcore/darkcore_9");
+			darkcore.carverHelper.addVariation("tile.darkcore.10.desc", 10, "zc/darkcore/darkcore_10");
+			darkcore.carverHelper.addVariation("tile.darkcore.11.desc", 11, "zc/darkcore/darkcore_11");
+			darkcore.carverHelper.addVariation("tile.darkcore.12.desc", 12, "zc/darkcore/darkcore_12");
+			darkcore.carverHelper.addVariation("tile.darkcore.13.desc", 13, "zc/darkcore/darkcore_13");
+			darkcore.carverHelper.addVariation("tile.darkcore.14.desc", 14, "zc/darkcore/darkcore_14");
+			darkcore.carverHelper.addVariation("tile.darkcore.15.desc", 15, "zc/darkcore/darkcore_15");
+			darkcore.carverHelper.registerAll(darkcore, "darkcore");
+			Carving.chisel.registerOre("darkcore","blockdarkcore");
+		}
+	},
 	NIBBLE {
 		@Override
 		void addBlocks() {

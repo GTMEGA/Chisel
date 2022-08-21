@@ -1590,6 +1590,24 @@ tile.azul.13.desc=Light Blue Small Disordered Tiles
 tile.azul.14.desc=Dark Blue Fritted Tile
 tile.azul.15.desc=Dark Cyan Geometric Tiles
 
+tile.chisel.darkcore.name=Dark Core
+tile.darkcore.0.desc=Light-Gray Panel with a Black Border
+tile.darkcore.1.desc=Dark-Gray Panel with a Black Border
+tile.darkcore.2.desc=Black Striations with a Black Border and Sea-Green Accents
+tile.darkcore.3.desc=Black Striations with a Vents
+tile.darkcore.4.desc=Black Vertical Vents
+tile.darkcore.5.desc=Black Horizontal Vents
+tile.darkcore.6.desc=Black Mesh Vents
+tile.darkcore.7.desc=Dark-Gray and Black Tiles with an X Pattern
+tile.darkcore.8.desc=Black Acoustic Panels
+tile.darkcore.9.desc=Black Striations with Studs
+tile.darkcore.10.desc=Black Bricks with Gray Mortar
+tile.darkcore.11.desc=Gray Tiles with an H Pattern
+tile.darkcore.12.desc=Black Vents with Vertical Tritium Highlights
+tile.darkcore.13.desc=Black Vents with Horizontal Tritium Highlights
+tile.darkcore.14.desc=Black Mesh with Tritium Highlights
+tile.darkcore.15.desc=Black Striations with Accent Lines
+
 tile.chisel.nibble.name=Nibble
 tile.nibble.0.desc=Dark checkerboard pattern with a dark-gray border.
 tile.nibble.1.desc=Dark checkerboard pattern with a white border.
