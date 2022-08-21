@@ -2,17 +2,27 @@ package team.chisel;
 
 import java.util.List;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
 import net.minecraft.block.BlockNewLog;
 import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovementInput;
+import net.minecraft.util.MovementInputFromOptions;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.oredict.OreDictionary;
@@ -3210,7 +3220,7 @@ public enum Features {
 	NIBBLE {
 		@Override
 		void addBlocks() {
-			BlockCarvable nibble = (BlockCarvable) new BlockCarvable(Material.rock).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+			BlockCarvable nibble = (BlockCarvable) new BlockQuickcrete().setSpeedup(0.15f).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
 			nibble.carverHelper.addVariation("tile.nibble.0.desc", 0, "zc/nibble/nibble_0");
 			nibble.carverHelper.addVariation("tile.nibble.1.desc", 1, "zc/nibble/nibble_1");
 			nibble.carverHelper.addVariation("tile.nibble.2.desc", 2, "zc/nibble/nibble_2");
