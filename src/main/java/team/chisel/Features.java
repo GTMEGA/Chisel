@@ -3220,7 +3220,8 @@ public enum Features {
 	NIBBLE {
 		@Override
 		void addBlocks() {
-			BlockCarvable nibble = (BlockCarvable) new BlockQuickcrete().setSpeedup(0.15f).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+			BlockCarvable nibble = (BlockCarvable) new BlockCarvable(Material.rock).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+//			BlockCarvable nibble = (BlockCarvable) new BlockQuickcrete().setSpeedup(0.15f).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
 			nibble.carverHelper.addVariation("tile.nibble.0.desc", 0, "zc/nibble/nibble_0");
 			nibble.carverHelper.addVariation("tile.nibble.1.desc", 1, "zc/nibble/nibble_1");
 			nibble.carverHelper.addVariation("tile.nibble.2.desc", 2, "zc/nibble/nibble_2");
