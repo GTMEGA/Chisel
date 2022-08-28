@@ -1590,6 +1590,47 @@ tile.azul.13.desc=Light Blue Small Disordered Tiles
 tile.azul.14.desc=Dark Blue Fritted Tile
 tile.azul.15.desc=Dark Cyan Geometric Tiles
 
+tile.chisel.slate.name=Slate
+tile.chisel.slate2.name=Slate
+tile.chisel.slate3.name=Slate
+tile.chisel.slate4.name=Slate
+
+tile.slate.0.desc=Black Stone panel with thin border
+tile.slate.1.desc=Dark Gray Stone panel with thin border
+tile.slate.2.desc=Gray Stone panel with thin border
+tile.slate.3.desc=Light Gray Stone panel with thin border
+tile.slate.4.desc=White Stone panel with thin border
+tile.slate.5.desc=Bright Red Stone panel with thin border
+tile.slate.6.desc=Red Stone panel with thin border
+tile.slate.7.desc=Maroon Stone panel with thin border
+tile.slate.8.desc=Dark Purple Stone panel with thin border
+tile.slate.9.desc=Blue-Gray Stone panel with thin border
+tile.slate.10.desc=Dark Blue Stone panel with thin border
+tile.slate.11.desc=Blue Stone panel with thin border
+tile.slate.12.desc=Light Blue Stone panel with thin border
+tile.slate.13.desc=Pale Blue Stone panel with thin border
+tile.slate.14.desc=Pink Stone panel with thin border
+tile.slate.15.desc=Magenta Stone panel with thin border
+
+tile.slate2.0.desc=Purple Stone panel with thin border
+tile.slate2.1.desc=Sea-Green Stone panel with thin border
+tile.slate2.2.desc=Green Stone panel with thin border
+tile.slate2.3.desc=Bright Green Stone panel with thin border
+tile.slate2.4.desc=Yellow Stone panel with thin border
+tile.slate2.5.desc=Golden Stone panel with thin border
+tile.slate2.6.desc=Dark Yellow Stone panel with thin border
+tile.slate2.7.desc=Orange Stone panel with thin border
+tile.slate2.8.desc=Bright Orange Stone panel with thin border
+tile.slate2.9.desc=Red-Orange Stone panel with thin border
+tile.slate2.10.desc=Pale Green Stone panel with thin border
+tile.slate2.11.desc=Light Green Stone panel with thin border
+tile.slate2.12.desc=Yellow-Green Stone panel with thin border
+tile.slate2.13.desc=Light Purple Stone panel with thin border
+tile.slate2.14.desc=[Uncolored] Stone panel with thin border
+tile.slate2.15.desc=[Uncolored] Stone panel with thin border
+
+
+
 tile.chisel.darkcore.name=Dark Core
 tile.darkcore.0.desc=Light-Gray Panel with a Black Border
 tile.darkcore.1.desc=Dark-Gray Panel with a Black Border
