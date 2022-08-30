@@ -1170,7 +1170,7 @@ public enum Features {
                 GameRegistry.addRecipe(new ShapelessOreRecipe(granite, diorite, "gemQuartz"));
             }
         }
-    }, GREATWOOD {
+    }, GREATWOOD("Thaumcraft") {
         @Override
         void addBlocks() {
             BlockCarvable greatwoodplanks = (BlockCarvable) new BlockCarvable(Material.wood).setHardness(2.0F).setResistance(5.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
@@ -3277,23 +3277,17 @@ public enum Features {
         void addBlocks() {
             BlockCarvable nibble = (BlockCarvable) new BlockCarvable(Material.rock).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
 //			BlockCarvable nibble = (BlockCarvable) new BlockQuickcrete().setSpeedup(0.15f).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
-            nibble.carverHelper.addVariation("tile.nibble.0.desc", 0, "zc/nibble/nibble_0");
-            nibble.carverHelper.addVariation("tile.nibble.1.desc", 1, "zc/nibble/nibble_1");
-            nibble.carverHelper.addVariation("tile.nibble.2.desc", 2, "zc/nibble/nibble_2");
-            nibble.carverHelper.addVariation("tile.nibble.3.desc", 3, "zc/nibble/nibble_3");
-            nibble.carverHelper.addVariation("tile.nibble.4.desc", 4, "zc/nibble/nibble_4");
-            nibble.carverHelper.addVariation("tile.nibble.5.desc", 5, "zc/nibble/nibble_5");
-            nibble.carverHelper.addVariation("tile.nibble.6.desc", 6, "zc/nibble/nibble_6");
-            nibble.carverHelper.addVariation("tile.nibble.7.desc", 7, "zc/nibble/nibble_7");
-            nibble.carverHelper.addVariation("tile.nibble.8.desc", 8, "zc/nibble/nibble_8");
-            nibble.carverHelper.addVariation("tile.nibble.9.desc", 9, "zc/nibble/nibble_9");
-            nibble.carverHelper.addVariation("tile.nibble.10.desc", 10, "zc/nibble/nibble_10");
-            nibble.carverHelper.addVariation("tile.nibble.11.desc", 11, "zc/nibble/nibble_11");
-            nibble.carverHelper.addVariation("tile.nibble.12.desc", 12, "zc/nibble/nibble_12");
-            nibble.carverHelper.addVariation("tile.nibble.13.desc", 13, "zc/nibble/nibble_13");
-            nibble.carverHelper.addVariation("tile.nibble.14.desc", 14, "zc/nibble/nibble_14");
-            nibble.carverHelper.addVariation("tile.nibble.15.desc", 15, "zc/nibble/nibble_15");
+            for (int i = 0; i < 16; i++) {
+                nibble.carverHelper.addVariation("tile.nibble." + i + ".desc", i, "zc/nibble/nibble_" + i);
+            }
             nibble.carverHelper.registerAll(nibble, "nibble");
+            BlockCarvable nibble2 = (BlockCarvable) new BlockCarvable(Material.rock).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+//			BlockCarvable nibble = (BlockCarvable) new BlockQuickcrete().setSpeedup(0.15f).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+            for (int i = 0; i < 14; i++) {
+                nibble2.carverHelper.addVariation("tile.nibble2." + i + ".desc", i, "zc/nibble/nibble2_" + i);
+            }
+            nibble2.carverHelper.registerBlock(nibble2, "nibble2");
+            nibble2.carverHelper.registerVariations("nibble");
             Carving.chisel.registerOre("nibble", "blockNibble");
         }
     },
