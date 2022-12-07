@@ -1,17 +1,19 @@
 // Add your dependencies here
 
 dependencies {
-    shadowImplementation("com.github.GTMEGA:CTMLib:17cd6ebc23:deobf") {   // Fix versioning
+    compileOnly("org.projectlombok:lombok:1.18.24") {
         transitive = false
     }
+    annotationProcessor("org.projectlombok:lombok:1.18.24")
 
-    compile("com.github.GTNewHorizons:NotEnoughItems:2.2.6-GTNH:dev") {
-        transitive = true
-    }
-    compileOnly("com.github.GTNewHorizons:waila:master-SNAPSHOT:dev") {
+    implementation("codechicken:notenoughitems-mc1.7.10:2.1.6-gtmega:dev")
+    implementation("codechicken:codechickencore-mc1.7.10:1.0.10-mega:dev")
+    implementation("codechicken:codechickenlib-mc1.7.10:1.1.4-gtmega:dev")
+
+    compileOnly("com.github.GTNewHorizons:waila:1.5.22:dev") {
         transitive = false
     }
-    compileOnly("com.github.GTNewHorizons:ForgeMultipart:master-SNAPSHOT:dev") {
+    compileOnly("com.github.GTNewHorizons:ForgeMultipart:1.3.0:dev") {
         transitive = false
     }
 
