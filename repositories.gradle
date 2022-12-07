@@ -2,13 +2,29 @@
 
 repositories {
     maven {
-        name 'Chisel Repo'
-        url "http://maven.tterrag.com/"
+        name = 'Chisel Repo'
+        url = "http://maven.tterrag.com/"
     }
     maven {
-        url "https://cursemaven.com"
+        name = "CurseMaven"
+        url = "https://mvn.falsepattern.com/cursemaven"
+        content {
+            includeGroup "curse.maven"
+        }
     }
     maven {
-        url = "https://jitpack.io"
+        name = "USRV"
+        url = "https://mvn.falsepattern.com/usrv"
+    }
+    maven {
+        name = "GTMEGA"
+        url = "https://mvn.falsepattern.com/gtmega_releases"
+    }
+    maven {
+        name = "JitPack"
+        url = "https://mvn.falsepattern.com/jitpack"
+        content {
+            includeGroup "com.github.GTMEGA"
+        }
     }
 }
