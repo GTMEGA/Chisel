@@ -53,13 +53,17 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.GameRegistry.Type;
 
-@Mod(modid = Chisel.MOD_ID, name = Chisel.MOD_NAME, version = Chisel.VERSION, guiFactory = "team.chisel.client.gui.GuiFactory", dependencies = "after:EE3;after:ForgeMultipart;after:Thaumcraft;after:appliedenergistics2;after:Railcraft;after:AWWayofTime;after:TwilightForest;after:BiomesOPlenty")
+@Mod(modid = Chisel.MOD_ID,
+	 name = Chisel.MOD_NAME,
+	 version = Chisel.VERSION,
+	 guiFactory = "team.chisel.client.gui.GuiFactory",
+	 dependencies = "after:EE3;after:ForgeMultipart;after:Thaumcraft;after:appliedenergistics2;after:Railcraft;after:AWWayofTime;after:TwilightForest;after:BiomesOPlenty")
 public class Chisel {
 
-	public static final String MOD_ID = "chisel";
+	public static final String MOD_ID = Tags.MODID;
 	public static final BlockCarvable.SoundType soundTempleFootstep = new BlockCarvable.SoundType("dig.stone", MOD_ID + ":step.templeblock", 1.0f, 1.0f);
-	public static final String MOD_NAME = "Chisel";
-	public static final String VERSION = "GRADLETOKEN_VERSION";
+	public static final String MOD_NAME = Tags.MODNAME;
+	public static final String VERSION = Tags.VERSION;
 	public static final BlockCarvable.SoundType soundHolystoneFootstep = new BlockCarvable.SoundType("holystone", 1.0f, 1.0f);
 	public static final BlockCarvable.SoundType soundMetalFootstep = new BlockCarvable.SoundType("metal", 1.0f, 1.0f);
 	public static boolean multipartLoaded = false;
