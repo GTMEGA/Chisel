@@ -14,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 import team.chisel.api.carving.CarvingUtils;
 import team.chisel.api.carving.ICarvingGroup;
 import team.chisel.api.carving.ICarvingVariation;
-import team.chisel.carving.Carving;
+import team.chisel.block.carving.Carving;
 import team.chisel.client.gui.GuiChisel;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;

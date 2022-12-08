@@ -1,7 +1,7 @@
 package team.chisel.inventory;
 
 import team.chisel.api.carving.ICarvingRegistry;
-import team.chisel.carving.Carving;
+import team.chisel.block.carving.Carving;
 import team.chisel.item.chisel.ItemChisel;
 import team.chisel.utils.General;
 import net.minecraft.entity.player.EntityPlayer;

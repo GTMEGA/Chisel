@@ -19,7 +19,7 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.util.FakePlayer;
 import team.chisel.Features;
 import team.chisel.api.IChiselItem;
-import team.chisel.carving.Carving;
+import team.chisel.block.carving.Carving;
 import team.chisel.client.GeneralChiselClient;
 import team.chisel.init.ChiselItems;
 import team.chisel.network.PacketHandler;

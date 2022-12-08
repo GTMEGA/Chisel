@@ -11,7 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import team.chisel.api.carving.ICarvingGroup;
 import team.chisel.api.carving.ICarvingVariation;
-import team.chisel.carving.Carving;
+import team.chisel.block.carving.Carving;
 import team.chisel.client.gui.GuiChisel;
 import team.chisel.utils.RecipeUtil;
 

@@ -1,4 +1,4 @@
-package team.chisel.carving;
+package team.chisel.block.carving;
 
 import java.util.Collection;
 import java.util.HashMap;

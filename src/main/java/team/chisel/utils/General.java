@@ -6,7 +6,7 @@ import team.chisel.api.IAdvancedChisel;
 import team.chisel.api.carving.CarvingUtils;
 import team.chisel.api.carving.ICarvingVariation;
 import team.chisel.api.carving.IChiselMode;
-import team.chisel.carving.Carving;
+import team.chisel.block.carving.Carving;
 import team.chisel.item.chisel.ChiselMode;
 import joptsimple.internal.Strings;
 import net.minecraft.block.Block;

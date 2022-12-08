@@ -18,6 +18,7 @@ public class Configurations {
 	public static boolean configExists;
 
 	public static double concreteVelocityMult;
+	public static double negativeconcreteVelocityMult;
 	public static boolean ghostCloud;
 	public static int factoryBlockAmount;
 	public static boolean allowMossy;
@@ -68,6 +69,7 @@ public class Configurations {
 		/* general */
 		category = "general";
 		concreteVelocityMult = config.get(category, "concreteVelocityMult", 1.35, "The factor that concrete increases your velocity. Default is 1.35, set to 1 for no change.").getDouble();
+		negativeconcreteVelocityMult = config.get(category, "negativeconcreteVelocityMult", 0.95, "The factor that blocks decrease your velocity. Default is -0.05, set to 1 for no change.").getDouble();
 		fullBlockConcrete = config.get(category, "fullBlockConcrete", false, "Should concrete be a full block. This will also unavoidably disable speed increase if set to true.").getBoolean(false);
 		ghostCloud = config.get(category, "doesCloudRenderLikeGhost", true).getBoolean(true);
 		factoryBlockAmount = config.get(category, "amountYouGetFromFactoryBlockCrafting", 32).getInt(32);

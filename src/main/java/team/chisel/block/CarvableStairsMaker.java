@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import team.chisel.api.ChiselTabs;
 import team.chisel.api.carving.CarvableHelper;
 import team.chisel.api.carving.CarvingUtils;
-import team.chisel.carving.Carving;
+import team.chisel.block.carving.Carving;
 import team.chisel.item.ItemCarvable;
 import cpw.mods.fml.common.registry.GameRegistry;
 

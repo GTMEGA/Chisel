@@ -14,7 +14,7 @@ import team.chisel.api.ChiselAPIProps;
 import team.chisel.api.Statistics;
 import team.chisel.api.carving.CarvableHelper;
 import team.chisel.block.BlockCarvable;
-import team.chisel.carving.Carving;
+import team.chisel.block.carving.Carving;
 import team.chisel.compat.Compatibility;
 import team.chisel.compat.IMCHandler;
 import team.chisel.compat.fmp.FMPCompat;

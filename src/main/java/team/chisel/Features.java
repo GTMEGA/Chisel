@@ -2,27 +2,16 @@ package team.chisel;
 
 import java.util.List;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFire;
 import net.minecraft.block.BlockNewLog;
 import net.minecraft.block.BlockOldLog;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovementInput;
-import net.minecraft.util.MovementInputFromOptions;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.oredict.OreDictionary;
@@ -35,7 +24,7 @@ import team.chisel.api.carving.ICarvingVariation;
 import team.chisel.api.carving.IVariationInfo;
 import team.chisel.api.rendering.TextureType;
 import team.chisel.block.*;
-import team.chisel.carving.Carving;
+import team.chisel.block.carving.Carving;
 import team.chisel.client.render.SubmapManagerAntiblock;
 import team.chisel.client.render.SubmapManagerAnyV;
 import team.chisel.client.render.SubmapManagerCarpetFloor;
@@ -520,8 +509,7 @@ public enum Features {
     COBBLESTONE {
         @Override
         void addBlocks() {
-            BlockCarvable cobblestone = (BlockCarvable) new BlockCarvable(Material.rock).setCreativeTab(ChiselTabs.tabStoneChiselBlocks).setHardness(2.0F).setResistance(10F)
-                    .setStepSound(Block.soundTypeStone);
+            BlockCarvable cobblestone = (BlockCarvable) new BlockSlowcrete().setSlowdown(1.8f).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabStoneChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabStoneChiselBlocks);
             Carving.chisel.addVariation("cobblestone", Blocks.cobblestone, 0, 0);
             cobblestone.carverHelper.addVariation("tile.cobblestone.0.desc", 1, "cobblestone/terrain-cobb-brickaligned");
             cobblestone.carverHelper.addVariation("tile.cobblestone.1.desc", 2, "cobblestone/terrain-cob-detailedbrick");
@@ -3275,8 +3263,8 @@ public enum Features {
     NIBBLE {
         @Override
         void addBlocks() {
-            BlockCarvable nibble = (BlockCarvable) new BlockCarvable(Material.rock).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
-//			BlockCarvable nibble = (BlockCarvable) new BlockQuickcrete().setSpeedup(0.15f).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+//            BlockCarvable nibble = (BlockCarvable) new BlockCarvable(Material.rock).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+			BlockCarvable nibble = (BlockCarvable) new BlockQuickcrete().setSpeedup(0.15f).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
             for (int i = 0; i < 16; i++) {
                 nibble.carverHelper.addVariation("tile.nibble." + i + ".desc", i, "zc/nibble/nibble_" + i);
             }

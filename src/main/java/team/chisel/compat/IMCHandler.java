@@ -3,7 +3,7 @@ package team.chisel.compat;
 import team.chisel.Chisel;
 import team.chisel.api.IMC;
 import team.chisel.api.carving.ICarvingRegistry;
-import team.chisel.carving.Carving;
+import team.chisel.block.carving.Carving;
 import net.minecraft.block.Block;
 import cpw.mods.fml.common.event.FMLInterModComms.IMCMessage;
 

@@ -14,7 +14,7 @@ import team.chisel.block.BlockHolystone;
 import team.chisel.block.BlockLavastone;
 import team.chisel.block.BlockSnakestoneObsidian;
 import team.chisel.block.tileentity.TileEntityAutoChisel;
-import team.chisel.carving.Carving;
+import team.chisel.block.carving.Carving;
 import team.chisel.config.Configurations;
 import team.chisel.entity.fx.EntityBallOMossFX;
 import team.chisel.entity.fx.EntityGrimstoneFX;

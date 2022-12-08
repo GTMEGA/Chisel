@@ -17,7 +17,7 @@ import team.chisel.api.IChiselItem;
 import team.chisel.api.carving.ICarvingGroup;
 import team.chisel.api.carving.ICarvingVariation;
 import team.chisel.api.carving.IChiselMode;
-import team.chisel.carving.Carving;
+import team.chisel.block.carving.Carving;
 import team.chisel.utils.General;
 
 import com.google.common.collect.Queues;

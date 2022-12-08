@@ -2,7 +2,7 @@ package team.chisel.inventory;
 
 import team.chisel.api.IChiselItem;
 import team.chisel.api.Statistics;
-import team.chisel.carving.Carving;
+import team.chisel.block.carving.Carving;
 import team.chisel.utils.General;
 import team.chisel.utils.GeneralClient;
 import net.minecraft.entity.player.EntityPlayer;
