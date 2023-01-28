@@ -7,17 +7,21 @@ import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovementInput;
 import net.minecraft.util.MovementInputFromOptions;
+import team.chisel.api.carving.CarvableHelper;
 import team.chisel.config.Configurations;
 
 public class BlockSlowcrete extends BlockCarvable {
-	float slowdown=0;
 	public BlockSlowcrete() {
-		super();
+		super(Material.ice);
+		carverHelper = new CarvableHelper(this);
+		this.slipperiness = 1f;
 		FMLCommonHandler.instance().bus().register(this);
 	}
 
@@ -36,14 +40,10 @@ public class BlockSlowcrete extends BlockCarvable {
 			if (below == this) {
 				manualInputCheck.updatePlayerMoveState();
 				if (manualInputCheck.moveForward != 0 || manualInputCheck.moveStrafe != 0) {
-					player.motionX *= Configurations.negativeconcreteVelocityMult + slowdown;
-					player.motionZ *= Configurations.negativeconcreteVelocityMult + slowdown;
+					player.motionX *= 0.95f ;
+					player.motionZ *= 0.95f ;
 				}
 			}
 		}
-	}
-	public Block setSlowdown(float value){
-		slowdown=value;
-		return this;
 	}
 }
