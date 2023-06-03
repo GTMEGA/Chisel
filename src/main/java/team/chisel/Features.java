@@ -3199,6 +3199,26 @@ public enum Features {
             Carving.chisel.registerOre("azul", "blockAzul");
         }
     },
+
+    GLASS_BORDERLESS {
+        @Override
+        void addBlocks() {
+            BlockCarvableGlass glass_borderless = (BlockCarvableGlass) new BlockCarvableGlass().setStained(true).setHardness(0.2F).setStepSound(Block.soundTypeGlass).setResistance(5.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+            for (int i = 0; i < 16; i++) {
+                glass_borderless.carverHelper.addVariation("tile.glassborderless." + i + ".desc", i, "zc/glass_borderless/glass_borderless1_" + i);
+            }
+            glass_borderless.carverHelper.registerAll(glass_borderless, "glassborderless");
+
+            BlockCarvableGlass glass_borderless2 = (BlockCarvableGlass) new BlockCarvableGlass().setStained(true).setHardness(0.2F).setStepSound(Block.soundTypeGlass).setResistance(5.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+            for (int i = 0; i < 14; i++) {
+                glass_borderless2.carverHelper.addVariation("tile.glassborderless2." + i + ".desc", i, "zc/glass_borderless/glass_borderless2_" + i);
+            }
+            glass_borderless2.carverHelper.registerBlock(glass_borderless2, "glassborderless2");
+            glass_borderless2.carverHelper.registerVariations("glassborderless");
+
+            //Carving.chisel.registerOre("glass_borderless", "blockGlassBorderless");
+        }
+    },
     SLATE {
         @Override
         void addBlocks() {

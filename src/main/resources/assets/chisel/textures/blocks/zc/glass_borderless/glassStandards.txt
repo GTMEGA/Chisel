@@ -1,0 +1,8 @@
+50% opacity for light colors
+70% for darker colors
+
+black 95
+dark gray 90
+gray 80
+light gray 70
+white 50%
