@@ -509,7 +509,7 @@ public enum Features {
     COBBLESTONE {
         @Override
         void addBlocks() {
-            BlockCarvable cobblestone = (BlockCarvable) new BlockSlowcrete().setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabStoneChiselBlocks).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabStoneChiselBlocks);
+            BlockCarvable cobblestone = (BlockCarvable) new BlockSlowcrete().setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabStoneChiselBlocks).setHardness(0.25F).setResistance(2.0F).setCreativeTab(ChiselTabs.tabStoneChiselBlocks);
             Carving.chisel.addVariation("cobblestone", Blocks.cobblestone, 0, 0);
             cobblestone.carverHelper.addVariation("tile.cobblestone.0.desc", 1, "cobblestone/terrain-cobb-brickaligned");
             cobblestone.carverHelper.addVariation("tile.cobblestone.1.desc", 2, "cobblestone/terrain-cob-detailedbrick");
@@ -3215,8 +3215,24 @@ public enum Features {
             }
             glass_borderless2.carverHelper.registerBlock(glass_borderless2, "glassborderless2");
             glass_borderless2.carverHelper.registerVariations("glassborderless");
+        }
+    },
 
-            //Carving.chisel.registerOre("glass_borderless", "blockGlassBorderless");
+    GLASS_BUBBLE {
+        @Override
+        void addBlocks() {
+            BlockCarvableGlass glass_bubble = (BlockCarvableGlass) new BlockCarvableGlass().setStained(true).setHardness(0.2F).setStepSound(Block.soundTypeGlass).setResistance(5.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+            for (int i = 0; i < 16; i++) {
+                glass_bubble.carverHelper.addVariation("tile.glass_bubble." + i + ".desc", i, "zc/glass_bubble/glass_bubble1_" + i);
+            }
+            glass_bubble.carverHelper.registerAll(glass_bubble, "glass_bubble");
+
+            BlockCarvableGlass glass_bubble2 = (BlockCarvableGlass) new BlockCarvableGlass().setStained(true).setHardness(0.2F).setStepSound(Block.soundTypeGlass).setResistance(5.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+            for (int i = 0; i < 14; i++) {
+                glass_bubble2.carverHelper.addVariation("tile.glass_bubble2." + i + ".desc", i, "zc/glass_bubble/glass_bubble2_" + i);
+            }
+            glass_bubble2.carverHelper.registerBlock(glass_bubble2, "glass_bubble2");
+            glass_bubble.carverHelper.registerVariations("glassborderless");
         }
     },
     SLATE {

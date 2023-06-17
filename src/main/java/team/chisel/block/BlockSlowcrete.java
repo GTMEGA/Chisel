@@ -7,6 +7,7 @@ import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -19,9 +20,9 @@ import team.chisel.config.Configurations;
 
 public class BlockSlowcrete extends BlockCarvable {
 	public BlockSlowcrete() {
-		super(Material.ice);
+		super(Material.circuits);
 		carverHelper = new CarvableHelper(this);
-		this.slipperiness = 1f;
+//		this.slipperiness = 1f;
 		FMLCommonHandler.instance().bus().register(this);
 	}
 
