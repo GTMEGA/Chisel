@@ -169,32 +169,17 @@ public enum Features {
     ANTIBLOCK {
         @Override
         void addBlocks() {
-            BlockCarvable antiBlock = (BlockCarvable) new BlockCarvableAntiBlock().setCreativeTab(ChiselTabs.tabOtherChiselBlocks);
-
-            if (!Configurations.allowChiselCrossColors) {
-                antiBlock.carverHelper.forbidChiseling = true;
-            }
-
+            BlockCarvable antiBlock1 = (BlockCarvable) new BlockCarvableAntiBlock().setCreativeTab(ChiselTabs.tabOtherChiselBlocks);
+            BlockCarvable antiBlock2 = (BlockCarvable) new BlockCarvableAntiBlock().setCreativeTab(ChiselTabs.tabOtherChiselBlocks);
             for (int i = 0; i < 16; i++) {
-                antiBlock.carverHelper.addVariation("tile.antiBlock." + ItemDye.field_150921_b[i] + ".desc", i, new SubmapManagerAntiblock(ItemDye.field_150921_b[i]));
+                //TODO Refactor naming here and in SubmapManagerAntiblock
+                antiBlock1.carverHelper.addVariation("tile.antiBlock1." + i +".desc", i, new SubmapManagerAntiblock(1,i));
+                antiBlock2.carverHelper.addVariation("tile.antiBlock2." + i + ".desc", i, new SubmapManagerAntiblock(2,i));
             }
-
-            antiBlock.carverHelper.registerAll(antiBlock, "antiBlock");
-            OreDictionary.registerOre("antiBlock", antiBlock);
-        }
-
-        @Override
-        void addRecipes() {
-            if (meta == 0) {
-                GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.antiBlock, 8, 15), "SSS", "SGS", "SSS", 'S', "stone", 'G', "dustGlowstone"));
-            }
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.antiBlock, 8, meta), "BBB", "BdB", "BBB", 'd', dyeOres[meta], 'B',
-                    new ItemStack(ChiselBlocks.antiBlock, 1, OreDictionary.WILDCARD_VALUE)));
-        }
-
-        @Override
-        boolean needsMetaRecipes() {
-            return true;
+            antiBlock1.carverHelper.registerBlock(antiBlock1, "antiBlock1");
+            antiBlock2.carverHelper.registerBlock(antiBlock2, "antiBlock2");
+            antiBlock2.carverHelper.registerVariations("antiBlock");
+//            OreDictionary.registerOre("antiBlock", antiBlock);
         }
     },
 

@@ -73,11 +73,13 @@ public class SubmapManagerAntiblock extends SubmapManagerBase {
 	@SideOnly(Side.CLIENT)
 	private static RenderBlocksCTMFullbright rb;
 
-	private String color;
+	private int type ;
+	private int blockMeta ;
 	private TextureSubmap submap, submapSmall;
 
-	public SubmapManagerAntiblock(String color) {
-		this.color = color;
+	public SubmapManagerAntiblock(int type, int blockMeta) {
+		this.type = type ;
+		this.blockMeta = blockMeta ;
 	}
 
 	@Override
@@ -88,8 +90,8 @@ public class SubmapManagerAntiblock extends SubmapManagerBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(String modName, Block block, IIconRegister register) {
-		submap = new TextureSubmap(register.registerIcon(modName + ":antiblock/" + color + "-antiBlock-ctm"), 4, 4);
-		submapSmall = new TextureSubmap(register.registerIcon(modName + ":antiblock/" + color + "-antiBlock"), 2, 2);
+			submap = new TextureSubmap(register.registerIcon(modName + ":antiblock/" + "antiBlock" + type + "_" + blockMeta + "-ctm"), 4, 4);
+			submapSmall = new TextureSubmap(register.registerIcon(modName + ":antiblock/" + "antiBlock" + type + "_" + blockMeta), 2, 2);
 	}
 
 	@Override
