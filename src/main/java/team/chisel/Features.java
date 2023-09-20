@@ -1,7 +1,9 @@
 package team.chisel;
 
-import java.util.List;
-
+import com.google.common.collect.Lists;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockNewLog;
 import net.minecraft.block.BlockOldLog;
@@ -25,13 +27,7 @@ import team.chisel.api.carving.IVariationInfo;
 import team.chisel.api.rendering.TextureType;
 import team.chisel.block.*;
 import team.chisel.block.carving.Carving;
-import team.chisel.client.render.SubmapManagerAntiblock;
-import team.chisel.client.render.SubmapManagerAnyV;
-import team.chisel.client.render.SubmapManagerCarpetFloor;
-import team.chisel.client.render.SubmapManagerCombinedCTM;
-import team.chisel.client.render.SubmapManagerLeaves;
-import team.chisel.client.render.SubmapManagerSlab;
-import team.chisel.client.render.SubmapManagerVoidstone;
+import team.chisel.client.render.*;
 import team.chisel.compat.fmp.ItemBlockChiselTorchPart;
 import team.chisel.config.Configurations;
 import team.chisel.entity.EntityBallOMoss;
@@ -39,26 +35,14 @@ import team.chisel.entity.EntityCloudInABottle;
 import team.chisel.entity.EntitySmashingRock;
 import team.chisel.init.ChiselBlocks;
 import team.chisel.init.ChiselItems;
-import team.chisel.item.ItemBallOMoss;
-import team.chisel.item.ItemBlockPresent;
-import team.chisel.item.ItemCarvable;
-import team.chisel.item.ItemCarvablePumpkin;
-import team.chisel.item.ItemCarvableSlab;
-import team.chisel.item.ItemCloudInABottle;
-import team.chisel.item.ItemOffsetTool;
-import team.chisel.item.ItemSmashingRock;
-import team.chisel.item.ItemUpgrade;
+import team.chisel.item.*;
 import team.chisel.item.chisel.ItemChisel;
 
-import com.google.common.collect.Lists;
-
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import team.chisel.client.render.SubmapMultiManager;
+import java.util.List;
 
 import static team.chisel.init.ChiselBlocks.*;
-import static team.chisel.utils.General.*;
+import static team.chisel.utils.General.featureColors;
+import static team.chisel.utils.General.sGNames;
 
 public enum Features {
 
@@ -178,6 +162,7 @@ public enum Features {
             }
             antiBlock1.carverHelper.registerBlock(antiBlock1, "antiBlock1");
             antiBlock2.carverHelper.registerBlock(antiBlock2, "antiBlock2");
+            antiBlock1.carverHelper.registerVariations("antiBlock");
             antiBlock2.carverHelper.registerVariations("antiBlock");
 //            OreDictionary.registerOre("antiBlock", antiBlock);
         }
