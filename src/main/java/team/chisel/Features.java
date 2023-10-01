@@ -300,7 +300,9 @@ public enum Features {
         @Override
         void addBlocks() {
             BlockCarvable brickCustom = (BlockCarvable) new BlockCarvable(Material.rock).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabStoneChiselBlocks);
-            Carving.chisel.addVariation("brickCustom", Blocks.brick_block, 0, 0);
+            //Disabled for balance reasons
+//            Carving.chisel.addVariation("brickCustom", Blocks.brick_block, 0, 0);
+            brickCustom.carverHelper.addVariation("tile.brickCustom.0.desc", 0, "brickCustom/classic");
             brickCustom.carverHelper.addVariation("tile.brickCustom.1.desc", 1, "brickCustom/large");
             brickCustom.carverHelper.addVariation("tile.brickCustom.2.desc", 2, "brickCustom/mortarless");
             brickCustom.carverHelper.addVariation("tile.brickCustom.3.desc", 3, "brickCustom/varied");
