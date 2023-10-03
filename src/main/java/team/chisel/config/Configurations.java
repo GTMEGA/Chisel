@@ -1,15 +1,13 @@
 package team.chisel.config;
 
-import java.util.Locale;
-
 import net.minecraft.item.ItemDye;
 import net.minecraftforge.common.config.Configuration;
-
 import org.apache.commons.lang3.StringUtils;
-
 import team.chisel.Chisel;
 import team.chisel.Features;
 import team.chisel.ctmlib.CTM;
+
+import java.util.Locale;
 
 public class Configurations {
 
@@ -71,7 +69,7 @@ public class Configurations {
 		concreteVelocityMult = config.get(category, "concreteVelocityMult", 1.35, "The factor that concrete increases your velocity. Default is 1.35, set to 1 for no change.").getDouble();
 		fullBlockConcrete = config.get(category, "fullBlockConcrete", false, "Should concrete be a full block. This will also unavoidably disable speed increase if set to true.").getBoolean(false);
 		ghostCloud = config.get(category, "doesCloudRenderLikeGhost", true).getBoolean(true);
-		factoryBlockAmount = config.get(category, "amountYouGetFromFactoryBlockCrafting", 32).getInt(32);
+		factoryBlockAmount = config.get(category, "amountYouGetFromFactoryBlockCrafting", 64).getInt(64);
 		allowMossy = config.get(category, "allowBrickToMossyInChisel", true, "If true, you can chisel stone brick to mossy stone brick.").getBoolean(true);
 		allowSmoothStone = config.get(category, "allowSmoothStoneToStoneBricksAndBack", true).getBoolean(true);
 		chiselRecipe = config.get(category, "chiselAlternateRecipe", false, "Use alternative crafting recipe for the chisel").getBoolean(false);

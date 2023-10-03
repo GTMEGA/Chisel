@@ -890,8 +890,8 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.fantasyblock, 8, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.gold_nugget, 1));
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.fantasyblock2, 8, 0), "***", "*X*", "***", '*', new ItemStack(ChiselBlocks.fantasyblock, 1), 'X', "dyeWhite"));
+            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.fantasyblock, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.gold_nugget, 1));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.fantasyblock2, 64, 0), "***", "*X*", "***", '*', new ItemStack(ChiselBlocks.fantasyblock, 1), 'X', "dyeWhite"));
         }
     },
 
@@ -919,7 +919,7 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.futura, 8, 0), "SBS", "BGB", "SBS", 'S', "stone", 'G', "dustRedstone", 'B', new ItemStack(Blocks.stonebrick, 1)));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.futura, 64, 0), "SBS", "BGB", "SBS", 'S', "stone", 'G', "dustRedstone", 'B', new ItemStack(Blocks.stonebrick, 1)));
         }
     },
 
@@ -1174,7 +1174,7 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.grimstone, 8, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.coal, 1));
+            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.grimstone, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.coal, 1));
         }
     },
 
@@ -1200,7 +1200,7 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.hexPlating, 8, 0), "XXX", "XYX", "XXX", 'X', "stone", 'Y', "blockCoal"));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.hexPlating, 64, 0), "XXX", "XYX", "XXX", 'X', "stone", 'Y', "blockCoal"));
         }
     },
 
@@ -1230,7 +1230,7 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.holystone, 8, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.feather, 1));
+            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.holystone, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.feather, 1));
         }
     },
 
@@ -1437,7 +1437,7 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.laboratoryblock, 8, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.quartz, 1));
+            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.laboratoryblock, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.quartz, 1));
         }
     },
 
@@ -1481,7 +1481,7 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.lavastone, 8, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.lava_bucket, 1));
+            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.lavastone, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.lava_bucket, 1));
         }
     },
 
@@ -1861,7 +1861,7 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.rebel, 32, 0), "xyx", "yzy", "xyx", 'x', "stone", 'y', Items.iron_ingot, 'z', Items.gold_nugget));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.rebel, 64, 0), "xyx", "yzy", "xyx", 'x', "stone", 'y', Items.iron_ingot, 'z', Items.gold_nugget));
         }
     },
 
@@ -2100,7 +2100,7 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.paperwall, 8), "ppp", "psp", "ppp", ('p'), Items.paper, ('s'), "stickWood"));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.paperwall, 64), "ppp", "psp", "ppp", ('p'), Items.paper, ('s'), "stickWood"));
             GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.paperwall_block, 4), "pp", "pp", ('p'), ChiselBlocks.paperwall));
         }
     },
@@ -2916,7 +2916,7 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.tyrian, 8, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.iron_ingot, 1));
+            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.tyrian, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.iron_ingot, 1));
         }
     },
 
@@ -2958,7 +2958,7 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.valentines, 8, 0), "***", "*X*", "***", '*', "stone", 'X', new ItemStack(Items.dye, 1, 9)));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.valentines, 64, 0), "***", "*X*", "***", '*', "stone", 'X', new ItemStack(Items.dye, 1, 9)));
         }
     },
 
@@ -3004,9 +3004,9 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.voidstone, 8, 0), "oxo", "xyx", "oxo", 'x', new ItemStack(Blocks.stone, 1), 'y', new ItemStack(Items.ender_pearl, 1), 'o',
+            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.voidstone, 64, 0), "oxo", "xyx", "oxo", 'x', new ItemStack(Blocks.stone, 1), 'y', new ItemStack(Items.ender_pearl, 1), 'o',
                     new ItemStack(Blocks.obsidian, 1));
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.voidstone2, 8, 0), "oxo", "xyx", "oxo", 'x', new ItemStack(Blocks.stone, 1), 'y', new ItemStack(Items.ender_eye, 1), 'o',
+            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.voidstone2, 64, 0), "oxo", "xyx", "oxo", 'x', new ItemStack(Blocks.stone, 1), 'y', new ItemStack(Items.ender_eye, 1), 'o',
                     new ItemStack(Blocks.obsidian, 1));
         }
     },
@@ -3080,7 +3080,7 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.waterstone, 8, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.water_bucket, 1));
+            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.waterstone, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.water_bucket, 1));
         }
     },
 
