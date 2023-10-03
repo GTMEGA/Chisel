@@ -2734,7 +2734,7 @@ public enum Features {
 
         @Override
         void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.templeblock, 8, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', dyeOres[4]));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.templeblock, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', dyeOres[4]));
         }
     },
 
