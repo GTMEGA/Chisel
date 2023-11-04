@@ -1612,8 +1612,6 @@ tile.azul.15.desc=Dark Cyan Geometric Tiles
 
 tile.chisel.slate.name=Slate
 tile.chisel.slate2.name=Slate
-tile.chisel.slate3.name=Slate
-tile.chisel.slate4.name=Slate
 
 tile.slate.0.desc=Black Stone panel with thin border
 tile.slate.1.desc=Dark Gray Stone panel with thin border
@@ -1646,8 +1644,8 @@ tile.slate2.10.desc=Pale Green Stone panel with thin border
 tile.slate2.11.desc=Light Green Stone panel with thin border
 tile.slate2.12.desc=Yellow-Green Stone panel with thin border
 tile.slate2.13.desc=Light Purple Stone panel with thin border
-tile.slate2.14.desc=[Uncolored] Stone panel with thin border
-tile.slate2.15.desc=[Uncolored] Stone panel with thin border
+tile.slate2.14.desc=Cyan Stone panel with thin border
+tile.slate2.15.desc=Bright Pink Stone panel with thin border
 
 
 

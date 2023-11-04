@@ -3182,7 +3182,7 @@ public enum Features {
             glass_borderless.carverHelper.registerAll(glass_borderless, "glassborderless");
 
             BlockCarvableGlass glass_borderless2 = (BlockCarvableGlass) new BlockCarvableGlass().setStained(true).setHardness(0.2F).setStepSound(Block.soundTypeGlass).setResistance(5.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
-            for (int i = 0; i < 14; i++) {
+            for (int i = 0; i < 16; i++) {
                 glass_borderless2.carverHelper.addVariation("tile.glassborderless2." + i + ".desc", i, "zc/glass_borderless/glass_borderless2_" + i);
             }
             glass_borderless2.carverHelper.registerBlock(glass_borderless2, "glassborderless2");
@@ -3200,7 +3200,7 @@ public enum Features {
             glass_bubble.carverHelper.registerAll(glass_bubble, "glass_bubble");
 
             BlockCarvableGlass glass_bubble2 = (BlockCarvableGlass) new BlockCarvableGlass().setStained(true).setHardness(0.2F).setStepSound(Block.soundTypeGlass).setResistance(5.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
-            for (int i = 0; i < 14; i++) {
+            for (int i = 0; i < 16; i++) {
                 glass_bubble2.carverHelper.addVariation("tile.glass_bubble2." + i + ".desc", i, "zc/glass_bubble/glass_bubble2_" + i);
             }
             glass_bubble2.carverHelper.registerBlock(glass_bubble2, "glass_bubble2");
@@ -3217,7 +3217,7 @@ public enum Features {
             slate.carverHelper.registerAll(slate, "slate");
 
             BlockCarvable slate2 = (BlockCarvable) new BlockCarvable(Material.rock).setHardness(2.0F).setResistance(10.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
-            for (int i = 0; i < 14; i++) {
+            for (int i = 0; i < 16; i++) {
                 slate2.carverHelper.addVariation("tile.slate2." + i + ".desc", i, "zc/slate/slate2_" + i);
             }
             slate2.carverHelper.registerBlock(slate2, "slate2");
