@@ -2887,6 +2887,22 @@ public enum Features {
         }
     },
 
+    TORCH2 {
+        @Override
+        void addBlocks() {
+            Carving.chisel.addVariation("torch2", Blocks.torch, 0, 0);
+            for (int i = 0; i < 16; i++) {
+                BlockCarvableTorch torch2 = new BlockCarvableTorch(i, "torch2_" + i);
+
+                String name = "torch2" + i;
+                if (Loader.isModLoaded("ForgeMultipart")) {
+                    GameRegistry.registerBlock(torch2, ItemBlockChiselTorchPart.class, name, torch2);
+                } else {
+                    GameRegistry.registerBlock(torch2, name);
+                }
+            }
+        }
+    },
     TYRIAN {
         @Override
         void addBlocks() {
