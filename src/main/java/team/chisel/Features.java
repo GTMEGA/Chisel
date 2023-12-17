@@ -2894,6 +2894,7 @@ public enum Features {
             for (int i = 0; i < 16; i++) {
                 BlockCarvableTorch torch2 = new BlockCarvableTorch(i, "torch2_" + i);
                 String name = "torch2" + i;
+                //TODO: colored spark particles for new torches, as the default particles look wrong.
                 torch2.disableParticles();
                 if (Loader.isModLoaded("ForgeMultipart")) {
                     GameRegistry.registerBlock(torch2, ItemBlockChiselTorchPart.class, name, torch2);
