@@ -66,13 +66,16 @@ public class StarFieldRendererHelper {
         int mx = (coord % 65536) / 16;
         int my = (coord / 65536) / 16;
 
-        int lightcolour = map[my*16+mx];
+        //todo update to work properly with RPLE
+//        int lightcolour = map[my*16+mx];
 
-        setLightLevel(
-                ((lightcolour >> 16) & 0xFF) / 256.0f,
-                ((lightcolour >> 8) & 0xFF) / 256.0f,
-                ((lightcolour) & 0xFF) / 256.0f
-        );
+//        setLightLevel(
+//                ((lightcolour >> 16) & 0xFF) / 256.0f,
+//                ((lightcolour >> 8) & 0xFF) / 256.0f,
+//                ((lightcolour) & 0xFF) / 256.0f
+//        );
+
+        setLightLevel(1F, 1F, 1F);
     }
 
     public static void setLightLevel(float level) {
