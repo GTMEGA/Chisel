@@ -8,7 +8,8 @@ import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
-import team.chisel.Features;
+
+import team.chisel.ClientCompat;
 import team.chisel.Features;
 import team.chisel.block.BlockCarvableBeacon;
 import team.chisel.block.tileentity.TileEntityAutoChisel;
@@ -40,6 +41,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void init() {
+		ClientCompat.init();
 		RenderingRegistry.registerBlockHandler(new RendererCTM());
 		RenderingRegistry.registerBlockHandler(new RendererStairs());
 		RenderingRegistry.registerBlockHandler(new RendererCTMPane());

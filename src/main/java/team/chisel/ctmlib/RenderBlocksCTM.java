@@ -1,11 +1,12 @@
 package team.chisel.ctmlib;
 
 import lombok.Getter;
+import lombok.val;
+import team.chisel.ClientCompat;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -108,20 +109,20 @@ public class RenderBlocksCTM extends RenderBlocks {
 			this.z = z;
 		}
 
-		private static double u, v, xDiff, yDiff, zDiff, uDiff, vDiff;
-
 		void render(RenderBlocksCTM inst, ForgeDirection normal, int cacheID) {
+			val tess = ClientCompat.getTessellator();
 			if (inst.enableAO) {
-				inst.tessellator.setColorOpaque_F(inst.redCache[cacheID], inst.grnCache[cacheID], inst.bluCache[cacheID]);
-				inst.tessellator.setBrightness(inst.lightingCache[cacheID]);
+				tess.setColorOpaque_F(inst.redCache[cacheID], inst.grnCache[cacheID], inst.bluCache[cacheID]);
+				tess.setBrightness(inst.lightingCache[cacheID]);
 			}
 
-			u = cacheID == 1 || cacheID == 2 ? inst.maxU : inst.minU;
-			v = cacheID < 2 ? inst.maxV : inst.minV;
+			double u = cacheID == 1 || cacheID == 2 ? inst.maxU : inst.minU;
+			double v = cacheID < 2 ? inst.maxV : inst.minV;
 
-			uDiff = inst.maxU - inst.minU;
-			vDiff = inst.maxV - inst.minV;
+			double uDiff = inst.maxU - inst.minU;
+			double vDiff = inst.maxV - inst.minV;
 
+			double xDiff, yDiff, zDiff;
 			if (inst.renderMinX + inst.renderMinY + inst.renderMinZ != 0 || inst.renderMaxX + inst.renderMaxY + inst.renderMaxZ != 3) {
 				boolean uMin = u == inst.minU;
 				boolean vMin = v == inst.minV;
@@ -147,7 +148,7 @@ public class RenderBlocksCTM extends RenderBlocks {
 				xDiff = yDiff = zDiff = 1;
 			}
 
-			inst.tessellator.addVertexWithUV(inst.renderMinX + (x * xDiff), inst.renderMinY + (y * yDiff), inst.renderMinZ + (z * zDiff), u, v);
+			tess.addVertexWithUV(inst.renderMinX + (x * xDiff), inst.renderMinY + (y * yDiff), inst.renderMinZ + (z * zDiff), u, v);
 		}
 	}
 
@@ -215,7 +216,6 @@ public class RenderBlocksCTM extends RenderBlocks {
 		renderMaxX = renderMaxY = renderMaxZ = 1;
 	}
 
-	protected Tessellator tessellator = Tessellator.instance;
 	protected double minU, maxU;
 	protected double minV, maxV;
 	protected int[] lightingCache = new int[4];
@@ -244,6 +244,7 @@ public class RenderBlocksCTM extends RenderBlocks {
 		bz = z;
 		meta = Minecraft.getMinecraft().theWorld.getBlockMetadata(x, y, z);
 
+		val tessellator = ClientCompat.getTessellator();
 		tessellator.setColorOpaque_F(1.0F, 1.0F, 1.0F);
 		tessellator.addTranslation(x, y, z);
 		if (rendererOld != null && rendererOld.hasOverrideBlockTexture()) {

@@ -1,5 +1,8 @@
 package team.chisel.ctmlib;
 
+import lombok.val;
+import team.chisel.ClientCompat;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
@@ -8,7 +11,7 @@ import net.minecraft.util.IIcon;
 public class Drawing {
 
 	public static void drawBlock(Block block, IIcon icon, RenderBlocks renderer) {
-		Tessellator tessellator = Tessellator.instance;
+		val tessellator = ClientCompat.getTessellator();
 
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, -1.0F, 0.0F);
@@ -37,7 +40,7 @@ public class Drawing {
 	}
 
 	public static void drawBlock(Block block, int meta, RenderBlocks renderer) {
-		Tessellator tessellator = Tessellator.instance;
+		val tessellator = ClientCompat.getTessellator();
 
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, -1.0F, 0.0F);

@@ -8,7 +8,10 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+
+import lombok.val;
 import team.chisel.Chisel;
+import team.chisel.ClientCompat;
 import team.chisel.ctmlib.Drawing;
 import team.chisel.utils.RoofingUtil;
 
@@ -36,7 +39,7 @@ public class RenderRoofing implements ISimpleBlockRenderingHandler {
         //south west, south east, north east, north west
         boolean[] cornersSloping = RoofingUtil.getCornersSloping(world, x, y, z, block);
         //boolean[] cullDirs = getCullDirs(world, x, y, z, block);
-        Tessellator tess = Tessellator.instance;
+        val tess = ClientCompat.getTessellator();
         tess.addTranslation(x, y, z);
         if (world.getBlock(x, y, z).shouldSideBeRendered(world, x, y, z, 0)){
             renderer.renderFaceYNeg(block, 0, 0, 0, block.getIcon(0, world.getBlockMetadata(x, y, z)));

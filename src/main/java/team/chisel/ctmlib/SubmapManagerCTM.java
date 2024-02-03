@@ -17,7 +17,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class SubmapManagerCTM implements ISubmapManager {
 
 	@SideOnly(Side.CLIENT)
-	private static RenderBlocksCTM rb;
+	private static final ThreadLocal<RenderBlocksCTM> threadLocalRB = new ThreadLocal<>();
 
 	@Getter
 	private TextureSubmap submap, submapSmall;
@@ -54,9 +54,11 @@ public class SubmapManagerCTM implements ISubmapManager {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public RenderBlocks createRenderContext(RenderBlocks rendererOld, Block block, IBlockAccess world) {
-		if (rb == null) {
-			rb = new RenderBlocksCTM();
+		RenderBlocksCTM rb;
+		if ((rb = threadLocalRB.get()) == null) {
+			threadLocalRB.set(rb = new RenderBlocksCTM());
 		}
+
 		rb.setRenderBoundsFromBlock(block);
 		rb.submap = submap;
 		rb.submapSmall = submapSmall;

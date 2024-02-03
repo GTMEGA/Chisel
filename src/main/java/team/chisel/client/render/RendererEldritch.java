@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.world.IBlockAccess;
 
+import lombok.val;
 import org.lwjgl.opengl.GL11;
 
 import team.chisel.Chisel;
@@ -24,7 +25,7 @@ public class RendererEldritch implements ISimpleBlockRenderingHandler {
 		GL11.glTranslatef(0.5F, 0.5F, 0.5F);
 	}
 
-	RenderBlocksEldritch renderer = new RenderBlocksEldritch();
+	ThreadLocal<RenderBlocksEldritch> renderer = ThreadLocal.withInitial(RenderBlocksEldritch::new);
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks rendererOld) {
@@ -60,11 +61,12 @@ public class RendererEldritch implements ISimpleBlockRenderingHandler {
 		 * icon = block.getIcon(1, meta); u0 = icon.getMinU(); v0 = icon.getMinV(); u1 = icon.getMaxU(); v1 = icon.getMaxV(); vertex(0,u0,v0); vertex(3,u0,v1); vertex(7,u1,v1); vertex(4,u1,v0);
 		 */
 
-		renderer.blockAccess = world;
-		renderer.renderMaxX = 1.0;
-		renderer.renderMaxY = 1.0;
-		renderer.renderMaxZ = 1.0;
-		renderer.renderStandardBlock(block, x, y, z);
+		val rend = renderer.get();
+		rend.blockAccess = world;
+		rend.renderMaxX = 1.0;
+		rend.renderMaxY = 1.0;
+		rend.renderMaxZ = 1.0;
+		rend.renderStandardBlock(block, x, y, z);
 
 		return true;
 		/*

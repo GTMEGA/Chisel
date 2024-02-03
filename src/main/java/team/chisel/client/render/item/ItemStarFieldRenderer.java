@@ -15,8 +15,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 
+import lombok.val;
 import org.lwjgl.opengl.GL11;
 
+import team.chisel.ClientCompat;
 import team.chisel.api.rendering.IShaderRenderItem;
 
 public class ItemStarFieldRenderer implements IItemRenderer {
@@ -76,7 +78,7 @@ public class ItemStarFieldRenderer implements IItemRenderer {
 
 				GL11.glColor4d(1, 1, 1, 1);
 
-				Tessellator t = Tessellator.instance;
+				val t = ClientCompat.getTessellator();
 				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("textures/entity/end_portal.png"));
 
 				t.startDrawingQuads();

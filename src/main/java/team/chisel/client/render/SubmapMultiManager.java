@@ -19,7 +19,7 @@ import java.util.List;
 public class SubmapMultiManager implements ISubmapManager, IOffsetRendered {
     protected final List<ISubmapManager> managers;
     @SideOnly(Side.CLIENT)
-    protected RenderBlocksCTM rendererWrapper;
+    protected ThreadLocal<RenderBlocksCTM> rendererWrapper = ThreadLocal.withInitial(RenderBlocksWrapper::new);
 
     public SubmapMultiManager(ISubmapManager... managers) {
         this.managers = Arrays.asList(managers);
@@ -56,15 +56,7 @@ public class SubmapMultiManager implements ISubmapManager, IOffsetRendered {
     @Override
     @SideOnly(Side.CLIENT)
     public RenderBlocks createRenderContext(RenderBlocks rendererOld, Block block, IBlockAccess world) {
-        initRenderContext();
-        return rendererWrapper;
-    }
-
-    @SideOnly(Side.CLIENT)
-    protected void initRenderContext() {
-        if (rendererWrapper == null) {
-            rendererWrapper = new RenderBlocksWrapper();
-        }
+        return rendererWrapper.get();
     }
 
     @Override

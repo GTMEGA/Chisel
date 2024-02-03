@@ -1,6 +1,8 @@
 package team.chisel.client.render;
 
+import lombok.val;
 import team.chisel.Chisel;
+import team.chisel.ClientCompat;
 import team.chisel.block.BlockRoadLine;
 import team.chisel.ctmlib.Drawing;
 import net.minecraft.block.Block;
@@ -25,7 +27,7 @@ public class RendererRoadLine implements ISimpleBlockRenderingHandler {
 	}
 
 	public void renderTopFace(double y, IIcon icon) {
-		Tessellator tessellator = Tessellator.instance;
+		val tessellator = ClientCompat.getTessellator();
 
 		tessellator.addVertexWithUV(1, y, 0, icon.getMaxU(), icon.getMinV());
 		tessellator.addVertexWithUV(0, y, 0, icon.getMinU(), icon.getMinV());
@@ -37,7 +39,7 @@ public class RendererRoadLine implements ISimpleBlockRenderingHandler {
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block b, int modelId, RenderBlocks renderer) {
 		int meta = world.getBlockMetadata(x, y, z);
 		BlockRoadLine block = (BlockRoadLine) b;
-		Tessellator tessellator = Tessellator.instance;
+		val tessellator = ClientCompat.getTessellator();
 
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
 

@@ -102,7 +102,7 @@ public enum TextureType {
 		@Override
 		@SideOnly(Side.CLIENT)
 		protected RenderBlocks createRenderContext(RenderBlocks rendererOld, IBlockAccess world, Object cachedObject) {
-			RenderBlocksColumn ret = theRenderBlocksColumn;
+			RenderBlocksColumn ret = theRenderBlocksColumn.get();
 			Pair<TextureSubmap, IIcon> data = (Pair<TextureSubmap, IIcon>) cachedObject;
 			
 			ret.blockAccess = world;
@@ -207,7 +207,7 @@ public enum TextureType {
 		@Override
 		@SideOnly(Side.CLIENT)
 		protected RenderBlocks createRenderContext(RenderBlocks rendererOld, IBlockAccess world, Object cachedObject) {
-			RenderBlocksCTM ret = theRenderBlocksCTM;
+			RenderBlocksCTM ret = theRenderBlocksCTM.get();
 			Triple<?, TextureSubmap, TextureSubmap> data = (Triple<?, TextureSubmap, TextureSubmap>) cachedObject;
 			ret.blockAccess = world;
 
@@ -343,9 +343,9 @@ public enum TextureType {
 	private static final CTM ctm = CTM.getInstance();
 	private static final Random rand = new Random();
 	@SideOnly(Side.CLIENT)
-	private static RenderBlocksCTM theRenderBlocksCTM;
+	private static final ThreadLocal<RenderBlocksCTM> theRenderBlocksCTM = ThreadLocal.withInitial(RenderBlocksCTM::new);
 	@SideOnly(Side.CLIENT)
-	private static RenderBlocksColumn theRenderBlocksColumn;
+	private static final ThreadLocal<RenderBlocksColumn> theRenderBlocksColumn = ThreadLocal.withInitial(RenderBlocksColumn::new);
 
 	private String[] suffixes;
 	static {
@@ -354,14 +354,6 @@ public enum TextureType {
 
 	TextureType(String... suffixes) {
 		this.suffixes = suffixes.length == 0 ? new String[] { "" } : suffixes;
-	}
-
-	@SideOnly(Side.CLIENT)
-	private static void initStatics() {
-		if (theRenderBlocksCTM == null) {
-			theRenderBlocksCTM = new RenderBlocksCTM();
-			theRenderBlocksColumn = new RenderBlocksColumn();
-		}
 	}
 	
 	public ISubmapManager createManagerFor(ICarvingVariation variation, String texturePath) {
@@ -443,7 +435,6 @@ public enum TextureType {
 		
 		@Override
 		public RenderBlocks createRenderContext(RenderBlocks rendererOld, Block block, IBlockAccess world) {
-			initStatics();
 			RenderBlocks rb = type.createRenderContext(rendererOld, world, cachedObject);
 			rb.setRenderBoundsFromBlock(block);
 			return rb;

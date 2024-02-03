@@ -16,8 +16,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import lombok.val;
 import org.lwjgl.opengl.GL11;
 
+import team.chisel.ClientCompat;
 import team.chisel.block.tileentity.TileEntityCarvableBeacon;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -49,7 +51,7 @@ public class RenderCarvableBeacon extends TileEntityBeaconRenderer implements IS
 			color = new Color(Color.HSBtoRGB(hue + (partialTicks / 256), 1, 1));
 		}
 		
-		Tessellator tessellator = Tessellator.instance;
+		val tessellator = ClientCompat.getTessellator();
 		this.bindTexture(texture);
 		GL11.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, 10497.0F);
 		GL11.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, 10497.0F);

@@ -19,9 +19,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.event.DrawBlockHighlightEvent;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import lombok.val;
 import org.lwjgl.opengl.GL11;
 
 import team.chisel.Chisel;
+import team.chisel.ClientCompat;
 import team.chisel.api.ChiselTabs;
 import team.chisel.api.ICarvable;
 import team.chisel.api.carving.IVariationInfo;
@@ -152,7 +154,7 @@ public class ItemOffsetTool extends Item implements IShaderRenderItem {
 		if (canOffset(player, player.worldObj, mop.blockX, mop.blockY, mop.blockZ, mop.sideHit)) {
 
 			ForgeDirection face = ForgeDirection.getOrientation(mop.sideHit);
-			Tessellator tess = Tessellator.instance;
+			val tess = ClientCompat.getTessellator();
 			GL11.glPushMatrix();
 			GL11.glPushAttrib(GL11.GL_ENABLE_BIT);
 			GL11.glDisable(GL11.GL_LIGHTING);

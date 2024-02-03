@@ -1,5 +1,8 @@
 package team.chisel.client.render;
 
+import lombok.val;
+import team.chisel.ClientCompat;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
@@ -32,7 +35,6 @@ public class RenderBlocksEldritch extends RenderBlocks {
 	static int dmap5 = displacementMap.length * 5 / 6;
 	static int dmap = displacementMap.length;
 
-	Tessellator tessellator;
 	double[] X = new double[14];
 	double[] Y = new double[14];
 	double[] Z = new double[14];
@@ -105,8 +107,7 @@ public class RenderBlocksEldritch extends RenderBlocks {
 		Z[13] = z + 0.5 + displacementMap[(index + 10 + dmap5) % dmap];
 		Y[13] = y + 0;// +displacementMap[(index+20+dmap5)%dmap];
 
-		tessellator = Tessellator.instance;
-		tessellator.setColorOpaque_F(1.0F, 1.0F, 1.0F);
+		ClientCompat.getTessellator().setColorOpaque_F(1.0F, 1.0F, 1.0F);
 
 		return super.renderStandardBlock(block, x, y, z);
 	}
@@ -155,6 +156,7 @@ public class RenderBlocksEldritch extends RenderBlocks {
 	}
 
 	void vert(int index) {
+		val tessellator = ClientCompat.getTessellator();
 		if (enableAO) {
 			tessellator.setColorOpaque_F(R[index], G[index], B[index]);
 			tessellator.setBrightness(L[index]);

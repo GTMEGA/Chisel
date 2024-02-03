@@ -8,6 +8,8 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import lombok.val;
 import team.chisel.ctmlib.CTM;
 import team.chisel.ctmlib.ISubmapManager;
 import team.chisel.ctmlib.RenderBlocksCTM;
@@ -17,7 +19,7 @@ import team.chisel.ctmlib.TextureSubmap;
 public class SubmapManagerBaseExtra implements ISubmapManager {
     protected final String texturePath;
     @SideOnly(Side.CLIENT)
-    protected RenderBlocksCTM renderBlocks;
+    protected ThreadLocal<RenderBlocksCTM> renderBlocks = ThreadLocal.withInitial(this::getRenderBlocks);
     @SideOnly(Side.CLIENT)
     protected TextureSubmap submapSmall;
 
@@ -46,18 +48,11 @@ public class SubmapManagerBaseExtra implements ISubmapManager {
     @Override
     @SideOnly(Side.CLIENT)
     public RenderBlocks createRenderContext(RenderBlocks rendererOld, Block block, IBlockAccess world) {
-        initRenderContext();
+        val renderBlocks = this.renderBlocks.get();
         renderBlocks.setRenderBoundsFromBlock(block);
         renderBlocks.submapSmall = submapSmall;
         renderBlocks.submap = submapSmall;// hacky work around to use the renderer i want
         return renderBlocks;
-    }
-
-    @SideOnly(Side.CLIENT)
-    protected void initRenderContext() {
-        if (renderBlocks == null) {
-            renderBlocks = getRenderBlocks();
-        }
     }
 
     @SideOnly(Side.CLIENT)

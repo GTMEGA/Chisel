@@ -2,12 +2,13 @@ package team.chisel.client.render;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
 
+import lombok.val;
 import org.lwjgl.opengl.GL11;
 
 import team.chisel.Chisel;
+import team.chisel.ClientCompat;
 import team.chisel.block.BlockCarvableGlow;
 import team.chisel.config.Configurations;
 import team.chisel.ctmlib.Drawing;
@@ -35,8 +36,9 @@ public class RendererLayeredGlow implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-		Tessellator.instance.setColorOpaque_I(Configurations.configColors[world.getBlockMetadata(x, y, z)]);
-		Tessellator.instance.setBrightness(0xF000F0);
+		val tess = ClientCompat.getTessellator();
+		tess.setColorOpaque_I(Configurations.configColors[world.getBlockMetadata(x, y, z)]);
+		tess.setBrightness(0xF000F0);
 		Drawing.renderAllFaces(renderer, block, x, y, z, ((BlockCarvableGlow) block).getGlowTexture());
 		renderer.renderStandardBlock(block, x, y, z);
 		return true;

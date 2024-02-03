@@ -2,7 +2,9 @@ package team.chisel.client.render.tile;
 
 import java.util.Random;
 
+import lombok.val;
 import team.chisel.Chisel;
+import team.chisel.ClientCompat;
 import team.chisel.block.tileentity.TileEntityAutoChisel;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -79,7 +81,7 @@ public class RenderAutoChisel extends TileEntitySpecialRenderer implements ISimp
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-		Tessellator tes = Tessellator.instance;
+		val tes = ClientCompat.getTessellator();
 		IIcon icon = renderer.hasOverrideBlockTexture() ? renderer.overrideBlockTexture : block.getIcon(0, 0);
 		tes.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
 		tes.setColorOpaque_F(1, 1, 1);

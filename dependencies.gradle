@@ -17,6 +17,8 @@ dependencies {
         transitive = false
     }
 
+    compileOnly("com.falsepattern:falsetweaks-mc1.7.10:2.8.1:api")
+
     compileOnly("curse.maven:ee3-65509:2305023") {  // https://www.curseforge.com/minecraft/mc-mods/ee3/files/2305023
         transitive = false
     }
