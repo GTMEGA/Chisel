@@ -3257,6 +3257,17 @@ public enum Features {
             Carving.chisel.registerOre("slate", "blockSlate");
         }
     },
+    CRYOLITE {
+        @Override
+        void addBlocks() {
+            BlockCarvableGlass cryolite = (BlockCarvableGlass) new BlockCarvableGlass().setStained(true).setStepSound(Block.soundTypeStone).setHardness(1.5F).setResistance(5.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+            for (int i = 0; i < 16; i++) {
+                cryolite.carverHelper.addVariation("tile.cryolite." + i + ".desc", i, "cryolite/cryolite_" + i);
+            }
+            cryolite.carverHelper.registerAll(cryolite, "cryolite");
+        }
+    },
+
     DARKCORE {
         @Override
         void addBlocks() {

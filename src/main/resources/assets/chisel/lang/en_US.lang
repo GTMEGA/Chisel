@@ -1648,6 +1648,23 @@ tile.slate2.14.desc=Cyan Stone panel with thin border
 tile.slate2.15.desc=Bright Pink Stone panel with thin border
 
 
+tile.chisel.cryolite.name=Cryolite
+tile.cryolite.0.desc=[Raw Cryolite]
+tile.cryolite.1.desc=Raw Cryolite with Cracks
+tile.cryolite.2.desc=Raw Weathered Cryolite
+tile.cryolite.3.desc=Pearly, Translucent
+tile.cryolite.4.desc=Pearly, Translucent
+tile.cryolite.5.desc=Pearly, Translucent
+tile.cryolite.6.desc=Pearly, Translucent
+tile.cryolite.7.desc=Pearly, Translucent
+tile.cryolite.8.desc=Pearly, Translucent
+tile.cryolite.9.desc=Pearly, Translucent
+tile.cryolite.10.desc=Pearly, Translucent
+tile.cryolite.11.desc=Pearly, Translucent
+tile.cryolite.12.desc=Pearly, Translucent
+tile.cryolite.13.desc=Pearly, Translucent
+tile.cryolite.14.desc=Pearly, Translucent
+tile.cryolite.15.desc=Pearly, Translucent
 
 tile.chisel.darkcore.name=Dark Core
 tile.darkcore.0.desc=Light-Gray Panel with a Black Border

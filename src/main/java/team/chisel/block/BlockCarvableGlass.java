@@ -1,7 +1,7 @@
 package team.chisel.block;
 
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.material.Material;
@@ -17,8 +17,9 @@ import team.chisel.api.carving.CarvableHelper;
 import team.chisel.api.carving.IVariationInfo;
 import team.chisel.api.rendering.ClientUtils;
 import team.chisel.ctmlib.CTM;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
+import java.util.Random;
 
 public class BlockCarvableGlass extends BlockGlass implements ICarvable {
 
@@ -38,6 +39,10 @@ public class BlockCarvableGlass extends BlockGlass implements ICarvable {
 		return this;
 	}
 
+	@Override
+	public int quantityDropped(Random p_quantityDropped_1_) {
+		return 1;
+	}
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
