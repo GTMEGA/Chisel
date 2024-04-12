@@ -5,10 +5,13 @@ import io.netty.buffer.ByteBuf;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.event.world.ChunkDataEvent;
+
+import lombok.val;
 import team.chisel.Chisel;
 import team.chisel.api.chunkdata.ChunkData;
 import team.chisel.api.chunkdata.IChunkData;
@@ -18,6 +21,7 @@ import team.chisel.network.PacketHandler;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
+import team.chisel.proxy.ClientProxy;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.ByteBufUtils;
@@ -61,14 +65,28 @@ public enum PerChunkData implements IChunkDataRegistry {
 
 	public static class MessageChunkDataHandler implements IMessageHandler<MessageChunkData, IMessage> {
 
-		@Override
-		public IMessage onMessage(MessageChunkData message, MessageContext ctx) {
-			Chunk chunk = Chisel.proxy.getClientWorld().getChunkFromChunkCoords(message.chunk.chunkXPos, message.chunk.chunkZPos);
+		private static void handle(WorldClient world, MessageChunkData message) {
+			if (world == null)
+				return;
+			Chunk chunk = world.getChunkFromChunkCoords(message.chunk.chunkXPos, message.chunk.chunkZPos);
+			if (chunk == null)
+				return;
 			IChunkData<?> data = INSTANCE.data.get(message.key);
+			if (data == null)
+				return;
 			data.readFromNBT(chunk, message.tag);
 			int x = chunk.xPosition << 4;
 			int z = chunk.zPosition << 4;
-			Chisel.proxy.getClientWorld().markBlockRangeForRenderUpdate(x, 0, z, x, 255, z);
+			world.markBlockRangeForRenderUpdate(x, 0, z, x, 255, z);
+		}
+		@Override
+		public IMessage onMessage(MessageChunkData message, MessageContext ctx) {
+			val world = Chisel.proxy.getClientWorld();
+			if (world == null) {
+				((ClientProxy)Chisel.proxy).addDeferredTask((w) -> handle(w, message));
+			} else {
+				handle((WorldClient) world, message);
+			}
 			return null;
 		}
 	}

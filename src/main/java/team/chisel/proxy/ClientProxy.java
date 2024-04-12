@@ -2,13 +2,16 @@ package team.chisel.proxy;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.WorldEvent;
 
+import lombok.val;
 import team.chisel.ClientCompat;
 import team.chisel.Features;
 import team.chisel.block.BlockCarvableBeacon;
@@ -30,6 +33,11 @@ import team.chisel.init.ChiselBlocks;
 import team.chisel.init.ChiselItems;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
 
 public class ClientProxy extends CommonProxy {
 
@@ -104,8 +112,26 @@ public class ClientProxy extends CommonProxy {
         MinecraftForge.EVENT_BUS.register(new InterpolatedIcon.RegistrationHandler());
 
         FMLCommonHandler.instance().bus().register(new ClientTickHandler());
+		MinecraftForge.EVENT_BUS.register(this);
 
 		ShaderHelper.initShaders();
+	}
+
+	private final List<Consumer<WorldClient>> deferredTasks = new ArrayList<>();
+
+	public void addDeferredTask(Consumer<WorldClient> task) {
+		this.deferredTasks.add(task);
+	}
+
+	@SubscribeEvent
+	public void onWorldLoad(WorldEvent.Load event) {
+		if (deferredTasks.isEmpty() || !(event.world instanceof WorldClient))
+			return;
+		val world = (WorldClient) event.world;
+		for (val task: deferredTasks) {
+			task.accept(world);
+		}
+		deferredTasks.clear();
 	}
 
 	@Override
