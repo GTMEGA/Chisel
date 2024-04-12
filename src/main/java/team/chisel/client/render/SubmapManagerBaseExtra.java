@@ -1,5 +1,6 @@
 package team.chisel.client.render;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -19,7 +20,30 @@ import team.chisel.ctmlib.TextureSubmap;
 public class SubmapManagerBaseExtra implements ISubmapManager {
     protected final String texturePath;
     @SideOnly(Side.CLIENT)
-    protected ThreadLocal<RenderBlocksCTM> renderBlocks = ThreadLocal.withInitial(this::getRenderBlocks);
+    private ThreadLocal<Object> renderBlocks;
+
+    @SideOnly(Side.CLIENT)
+    protected RenderBlocksCTM renderBlocks() {
+        return (RenderBlocksCTM) renderBlocks.get();
+    }
+
+    @SideOnly(Side.CLIENT)
+    protected void renderBlocks(RenderBlocksCTM rb) {
+        renderBlocks.set(rb);
+    }
+
+    @SideOnly(Side.CLIENT)
+    private void createThreadLocals() {
+        renderBlocks = ThreadLocal.withInitial(this::getRenderBlocks);
+    }
+
+    {
+        if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+            createThreadLocals();
+        }
+    }
+
+
     @SideOnly(Side.CLIENT)
     protected TextureSubmap submapSmall;
 
@@ -48,7 +72,7 @@ public class SubmapManagerBaseExtra implements ISubmapManager {
     @Override
     @SideOnly(Side.CLIENT)
     public RenderBlocks createRenderContext(RenderBlocks rendererOld, Block block, IBlockAccess world) {
-        val renderBlocks = this.renderBlocks.get();
+        val renderBlocks = this.renderBlocks();
         renderBlocks.setRenderBoundsFromBlock(block);
         renderBlocks.submapSmall = submapSmall;
         renderBlocks.submap = submapSmall;// hacky work around to use the renderer i want

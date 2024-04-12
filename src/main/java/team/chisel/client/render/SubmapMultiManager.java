@@ -1,5 +1,6 @@
 package team.chisel.client.render;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -18,8 +19,29 @@ import java.util.List;
 
 public class SubmapMultiManager implements ISubmapManager, IOffsetRendered {
     protected final List<ISubmapManager> managers;
+
     @SideOnly(Side.CLIENT)
-    protected ThreadLocal<RenderBlocksCTM> rendererWrapper = ThreadLocal.withInitial(RenderBlocksWrapper::new);
+    private ThreadLocal<Object> rendererWrapper;
+
+    @SideOnly(Side.CLIENT)
+    protected RenderBlocksCTM rendererWrapper() {
+        return (RenderBlocksCTM) rendererWrapper.get();
+    }
+
+    @SideOnly(Side.CLIENT)
+    protected void rendererWrapper(RenderBlocksCTM value) {
+        rendererWrapper.set(value);
+    }
+
+    @SideOnly(Side.CLIENT)
+    private void createThreadLocals() {
+        rendererWrapper = ThreadLocal.withInitial(RenderBlocksWrapper::new);
+    }
+    {
+        if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+            createThreadLocals();
+        }
+    }
 
     public SubmapMultiManager(ISubmapManager... managers) {
         this.managers = Arrays.asList(managers);
@@ -56,7 +78,7 @@ public class SubmapMultiManager implements ISubmapManager, IOffsetRendered {
     @Override
     @SideOnly(Side.CLIENT)
     public RenderBlocks createRenderContext(RenderBlocks rendererOld, Block block, IBlockAccess world) {
-        return rendererWrapper.get();
+        return rendererWrapper();
     }
 
     @Override

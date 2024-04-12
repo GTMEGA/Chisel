@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -17,7 +18,18 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class SubmapManagerCTM implements ISubmapManager {
 
 	@SideOnly(Side.CLIENT)
-	private static final ThreadLocal<RenderBlocksCTM> threadLocalRB = new ThreadLocal<>();
+	private static ThreadLocal<Object> threadLocalRB;
+
+	@SideOnly(Side.CLIENT)
+	private static void initThreadLocals() {
+		threadLocalRB = new ThreadLocal<>();
+	}
+
+	static {
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			initThreadLocals();
+		}
+	}
 
 	@Getter
 	private TextureSubmap submap, submapSmall;
@@ -55,7 +67,7 @@ public class SubmapManagerCTM implements ISubmapManager {
 	@SideOnly(Side.CLIENT)
 	public RenderBlocks createRenderContext(RenderBlocks rendererOld, Block block, IBlockAccess world) {
 		RenderBlocksCTM rb;
-		if ((rb = threadLocalRB.get()) == null) {
+		if ((rb = (RenderBlocksCTM) threadLocalRB.get()) == null) {
 			threadLocalRB.set(rb = new RenderBlocksCTM());
 		}
 

@@ -25,6 +25,8 @@ import team.chisel.ctmlib.ISubmapManager;
 import team.chisel.ctmlib.RenderBlocksCTM;
 import team.chisel.ctmlib.RenderBlocksColumn;
 import team.chisel.ctmlib.TextureSubmap;
+
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -102,7 +104,7 @@ public enum TextureType {
 		@Override
 		@SideOnly(Side.CLIENT)
 		protected RenderBlocks createRenderContext(RenderBlocks rendererOld, IBlockAccess world, Object cachedObject) {
-			RenderBlocksColumn ret = theRenderBlocksColumn.get();
+			RenderBlocksColumn ret = (RenderBlocksColumn) theRenderBlocksColumn.get();
 			Pair<TextureSubmap, IIcon> data = (Pair<TextureSubmap, IIcon>) cachedObject;
 			
 			ret.blockAccess = world;
@@ -207,7 +209,7 @@ public enum TextureType {
 		@Override
 		@SideOnly(Side.CLIENT)
 		protected RenderBlocks createRenderContext(RenderBlocks rendererOld, IBlockAccess world, Object cachedObject) {
-			RenderBlocksCTM ret = theRenderBlocksCTM.get();
+			RenderBlocksCTM ret = (RenderBlocksCTM) theRenderBlocksCTM.get();
 			Triple<?, TextureSubmap, TextureSubmap> data = (Triple<?, TextureSubmap, TextureSubmap>) cachedObject;
 			ret.blockAccess = world;
 
@@ -343,9 +345,21 @@ public enum TextureType {
 	private static final CTM ctm = CTM.getInstance();
 	private static final Random rand = new Random();
 	@SideOnly(Side.CLIENT)
-	private static final ThreadLocal<RenderBlocksCTM> theRenderBlocksCTM = ThreadLocal.withInitial(RenderBlocksCTM::new);
+	private static ThreadLocal<Object> theRenderBlocksCTM;
 	@SideOnly(Side.CLIENT)
-	private static final ThreadLocal<RenderBlocksColumn> theRenderBlocksColumn = ThreadLocal.withInitial(RenderBlocksColumn::new);
+	private static ThreadLocal<Object> theRenderBlocksColumn;
+
+	@SideOnly(Side.CLIENT)
+	private static void createThreadLocals() {
+		theRenderBlocksCTM = ThreadLocal.withInitial(RenderBlocksCTM::new);
+		theRenderBlocksColumn = ThreadLocal.withInitial(RenderBlocksColumn::new);
+	}
+
+	static {
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			createThreadLocals();
+		}
+	}
 
 	private String[] suffixes;
 	static {
