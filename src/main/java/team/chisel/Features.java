@@ -2787,7 +2787,7 @@ public enum Features {
     TREATEDWOOD {
         @Override
         void addBlocks() {
-            BlockCarvable treatedwood = (BlockCarvable) new BlockCarvable(Material.wood).setHardness(2.0F).setResistance(15.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+            BlockCarvable treatedwood = (BlockCarvable) new BlockCarvable(Material.wood).setStepSound(Block.soundTypeWood).setHardness(2.0F).setResistance(15.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
             treatedwood.carverHelper.addVariation("tile.treatedwood.0.desc", 0, "treatedwood/treatedwood");
             treatedwood.carverHelper.addVariation("tile.treatedwood.1.desc", 1, "treatedwood/worntreatedwood");
             treatedwood.carverHelper.registerAll(treatedwood, "treatedwood");
