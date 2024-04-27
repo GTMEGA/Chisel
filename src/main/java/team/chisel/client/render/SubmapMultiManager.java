@@ -16,6 +16,7 @@ import team.chisel.ctmlib.RenderBlocksCTM;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class SubmapMultiManager implements ISubmapManager, IOffsetRendered {
     protected final List<ISubmapManager> managers;
@@ -31,6 +32,10 @@ public class SubmapMultiManager implements ISubmapManager, IOffsetRendered {
     @SideOnly(Side.CLIENT)
     protected void rendererWrapper(RenderBlocksCTM value) {
         rendererWrapper.set(value);
+    }
+    @SideOnly(Side.CLIENT)
+    protected void rendererWrapperWithInitial(Supplier<RenderBlocksCTM> supp) {
+        rendererWrapper = ThreadLocal.withInitial(supp);
     }
 
     @SideOnly(Side.CLIENT)
