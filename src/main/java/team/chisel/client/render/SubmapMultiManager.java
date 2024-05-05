@@ -34,7 +34,7 @@ public class SubmapMultiManager implements ISubmapManager, IOffsetRendered {
         rendererWrapper.set(value);
     }
     @SideOnly(Side.CLIENT)
-    protected void rendererWrapperWithInitial(Supplier<RenderBlocksCTM> supp) {
+    protected void rendererWrapperWithInitial(Supplier<Object> supp) {
         rendererWrapper = ThreadLocal.withInitial(supp);
     }
 

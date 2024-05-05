@@ -10,6 +10,9 @@ import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import static team.chisel.ctmlib.RenderBlocksCTM.SubSide.XNEG_LB;
 import static team.chisel.ctmlib.RenderBlocksCTM.SubSide.XNEG_LT;
 import static team.chisel.ctmlib.RenderBlocksCTM.SubSide.XNEG_RB;
@@ -61,6 +64,7 @@ import static team.chisel.ctmlib.RenderBlocksCTM.Vert.Z_HALF_X;
 import static team.chisel.ctmlib.RenderBlocksCTM.Vert.Z_HALF_XY;
 import static team.chisel.ctmlib.RenderBlocksCTM.Vert.Z_HALF_Y;
 
+@SideOnly(Side.CLIENT)
 public class RenderBlocksCTM extends RenderBlocks {
 
 	/**
