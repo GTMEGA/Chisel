@@ -27,6 +27,7 @@ import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import team.chisel.init.ChiselItems;
 
+// This stuff is slow. Measurable perf impact. Disabled unless someone cares.
 public class DevPlayer {
 
     private float renderTick;
@@ -70,7 +71,7 @@ public class DevPlayer {
         }
     }
 
-    public static final DevPlayer INSTANCE = new DevPlayer();
+//    public static final DevPlayer INSTANCE = new DevPlayer();
 
     private Multimap<UUID, IDevRenderer> renderMap = ArrayListMultimap.create();
 
@@ -86,9 +87,9 @@ public class DevPlayer {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    public static void init() {
-        //Blank method to just run the class
-    }
+//    public static void init() {
+//        //Blank method to just run the class
+//    }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onPlayerRenderPre(RenderLivingEvent.Pre event) {

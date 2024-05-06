@@ -105,7 +105,7 @@ public class ClientProxy extends CommonProxy {
 			MinecraftForgeClient.registerItemRenderer(ChiselItems.offsettool, enderStarField);
 		}
 
-        DevPlayer.init();
+//        DevPlayer.init();
 
 //		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChiselBlocks.antiBlock), new SubmapManagerAntiblock.AntiblockItemRenderer());
 
