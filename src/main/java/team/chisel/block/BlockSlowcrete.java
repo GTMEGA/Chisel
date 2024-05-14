@@ -1,50 +1,82 @@
 package team.chisel.block;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.Phase;
-import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
+import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovementInput;
-import net.minecraft.util.MovementInputFromOptions;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityFallingBlock;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.world.World;
+
 import team.chisel.api.carving.CarvableHelper;
-import team.chisel.config.Configurations;
+
+import java.util.Random;
 
 public class BlockSlowcrete extends BlockCarvable {
 	public BlockSlowcrete() {
-		super(Material.circuits);
+		super(Material.rock);
 		carverHelper = new CarvableHelper(this);
-//		this.slipperiness = 1f;
 		FMLCommonHandler.instance().bus().register(this);
+		needsRandomTick = true;
 	}
 
-	@SideOnly(Side.CLIENT)
-	private static MovementInput manualInputCheck;
+	@Override
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+		float f = 0.01f;
+		return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1 - f, z + 1);
+	}
 
-	@SubscribeEvent
-	@SideOnly(Side.CLIENT)
-	public void speedupPlayer(PlayerTickEvent event) {
-		if (event.phase == Phase.START && event.side.isClient() && event.player.onGround && event.player instanceof EntityPlayerSP) {
-			if (manualInputCheck == null) {
-				manualInputCheck = new MovementInputFromOptions(Minecraft.getMinecraft().gameSettings);
-			}
-			EntityPlayerSP player = (EntityPlayerSP) event.player;
-			Block below = player.worldObj.getBlock(MathHelper.floor_double(player.posX), MathHelper.floor_double(player.posY) - 2, MathHelper.floor_double(player.posZ));
-			if (below == this) {
-				manualInputCheck.updatePlayerMoveState();
-				if (manualInputCheck.moveForward != 0 || manualInputCheck.moveStrafe != 0) {
-					player.motionX *= 0.95f ;
-					player.motionZ *= 0.95f ;
+	/**
+	 * Ticks the block if it's been scheduled
+	 */
+	public void updateTick(World world, int x, int y, int z, Random rng) {
+		if (!world.isRemote) {
+			float chance = world.isRaining() ? 0.01f : 0.005f;
+			if (rng.nextFloat() > chance)
+				return;
+			if (this.tryToFall(world, x, y, z, x, y, z))
+				return;
+			if (this.tryToFall(world, x, y, z, x-1, y, z))
+				return;
+			if (this.tryToFall(world, x, y, z, x+1, y, z))
+				return;
+			if (this.tryToFall(world, x, y, z, x, y, z-1))
+				return;
+			if (this.tryToFall(world, x, y, z, x, y, z+1))
+				return;
+		}
+	}
+
+	private boolean tryToFall(World world, int sourceX, int sourceY, int sourceZ, int testX, int testY, int testZ) {
+		boolean matching = sourceX == testX && sourceY == testY && sourceZ == testZ;
+		if ((matching || BlockFalling.func_149831_e(world, testX, testY, testZ)) && BlockFalling.func_149831_e(world, testX, testY - 1, testZ) && sourceY >= 0) {
+			if (world.checkChunksExist(sourceX - 32, sourceY - 32, sourceZ - 32, sourceX + 32, sourceY + 32, sourceZ + 32)) {
+				if (!world.isRemote) {
+					EntityFallingBlock entityfallingblock = new EntityFallingBlock(world, testX + 0.5F, testY + 0.5F, testZ + 0.5F,
+																				   this,
+																				   world.getBlockMetadata(sourceX, sourceY, sourceZ));
+
+					if (!matching) {
+						world.setBlockToAir(sourceX, sourceY, sourceZ);
+						entityfallingblock.field_145812_b++;
+					}
+					world.spawnEntityInWorld(entityfallingblock);
+					return true;
 				}
 			}
 		}
+		return false;
+	}
+
+	/**
+	 * How many world ticks before ticking
+	 */
+	public int tickRate(World world) {
+		return 2;
+	}
+
+	public void onEntityCollidedWithBlock(World p_149670_1_, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity p_149670_5_) {
+		p_149670_5_.motionX *= 0.85D;
+		p_149670_5_.motionZ *= 0.85D;
 	}
 }
