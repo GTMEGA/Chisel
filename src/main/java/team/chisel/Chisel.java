@@ -136,7 +136,7 @@ public class Chisel {
 
 		TabsInit.preInit();
 		BlockPackRegistry.INSTANCE.preInit(event);
-		MinecraftForge.EVENT_BUS.register(PerChunkData.INSTANCE);
+//		MinecraftForge.EVENT_BUS.register(PerChunkData.INSTANCE);
 		Features.preInit();
 		Statistics.init();
 		PacketHandler.init();
