@@ -29,7 +29,6 @@ import team.chisel.network.ChiselGuiHandler;
 import team.chisel.network.PacketHandler;
 import team.chisel.proxy.CommonProxy;
 import team.chisel.utils.General;
-import team.chisel.utils.PerChunkData;
 import team.chisel.world.GeneratorChisel;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -60,10 +59,10 @@ import cpw.mods.fml.common.registry.GameRegistry.Type;
 	 dependencies = "after:EE3;after:ForgeMultipart;after:Thaumcraft;after:appliedenergistics2;after:Railcraft;after:AWWayofTime;after:TwilightForest;after:BiomesOPlenty")
 public class Chisel {
 
-	public static final String MOD_ID = Tags.MODID;
+	public static final String MOD_ID = Tags.MOD_ID;
 	public static final BlockCarvable.SoundType soundTempleFootstep = new BlockCarvable.SoundType("dig.stone", MOD_ID + ":step.templeblock", 1.0f, 1.0f);
-	public static final String MOD_NAME = Tags.MODNAME;
-	public static final String VERSION = Tags.VERSION;
+	public static final String MOD_NAME = Tags.MOD_NAME;
+	public static final String VERSION = Tags.MOD_VERSION;
 	public static final BlockCarvable.SoundType soundHolystoneFootstep = new BlockCarvable.SoundType("holystone", 1.0f, 1.0f);
 	public static final BlockCarvable.SoundType soundMetalFootstep = new BlockCarvable.SoundType("metal", 1.0f, 1.0f);
 	public static boolean multipartLoaded = false;

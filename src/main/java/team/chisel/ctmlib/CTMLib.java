@@ -6,7 +6,7 @@ import cpw.mods.fml.common.ModAPIManager;
 
 public class CTMLib {
 	
-	public static final String VERSION = Tags.VERSION;
+	public static final String VERSION = Tags.MOD_VERSION;
 
 	private static boolean chiselPresent, chiselInitialized;
 
