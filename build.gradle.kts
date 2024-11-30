@@ -10,12 +10,18 @@ minecraft_fp {
         name = "Chisel"
         rootPkg = "$group"
     }
-    tokens {
-        tokenClass = "Tags"
+
+    api {
+        packages = listOf("api")
     }
 
     core {
         accessTransformerFile = "chisel_compile_at.cfg"
+        coreModClass = "asm.CoreLoadingPlugin"
+    }
+
+    tokens {
+        tokenClass = "Tags"
     }
 
     publish {
