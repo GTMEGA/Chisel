@@ -26,6 +26,12 @@ public interface ICarvingVariation {
 	 */
 	int getBlockMeta();
 
+    // Legacy compat
+	@Deprecated
+	default int getItemMeta() {
+		return getBlockMeta();
+	}
+
 	/**
 	 * The {@link ItemStack} of this variation. This can be customized to allow for variations that differ on NBT alone.
 	 * <p>
