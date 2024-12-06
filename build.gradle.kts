@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    devOnlyNonPublishable("codechicken:notenoughitems-mc1.7.10:2.4.0-mega:dev-preshadow")
+    devOnlyNonPublishable("codechicken:notenoughitems-mc1.7.10:2.4.1-mega:dev")
     implementation("codechicken:codechickencore-mc1.7.10:1.4.0-mega:dev")
 
     compileOnly("com.falsepattern:falsetweaks-mc1.7.10:3.5.0:dev")
