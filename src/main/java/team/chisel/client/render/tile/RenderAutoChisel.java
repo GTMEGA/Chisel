@@ -2,6 +2,8 @@ package team.chisel.client.render.tile;
 
 import java.util.Random;
 
+import com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer;
+import cpw.mods.fml.common.Optional;
 import lombok.val;
 import team.chisel.Chisel;
 import team.chisel.ClientCompat;
@@ -30,7 +32,8 @@ import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import static org.lwjgl.opengl.GL11.*;
 
-public class RenderAutoChisel extends TileEntitySpecialRenderer implements ISimpleBlockRenderingHandler, IItemRenderer {
+@Optional.Interface(modid = "falsetweaks", iface = "com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer")
+public class RenderAutoChisel extends TileEntitySpecialRenderer implements ISimpleBlockRenderingHandler, IItemRenderer, ThreadSafeBlockRenderer {
 
 	private static final WavefrontObject model = new WavefrontObject(new ResourceLocation(Chisel.MOD_ID, "models/autoChisel/autoChisel.obj"));
 	private static final ResourceLocation texture = new ResourceLocation(Chisel.MOD_ID, "textures/blocks/autoChisel/autoChisel.png");
@@ -190,5 +193,11 @@ public class RenderAutoChisel extends TileEntitySpecialRenderer implements ISimp
 			settings.fancyGraphics = was;
 			glPopMatrix();
 		}
+	}
+
+	@Optional.Method(modid = "falsetweaks")
+	@Override
+	public ISimpleBlockRenderingHandler forCurrentThread() {
+		return this;
 	}
 }

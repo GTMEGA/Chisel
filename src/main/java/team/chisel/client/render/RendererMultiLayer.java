@@ -1,5 +1,7 @@
 package team.chisel.client.render;
 
+import com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer;
+import cpw.mods.fml.common.Optional;
 import team.chisel.block.BlockMultiLayerBase;
 import team.chisel.ctmlib.Drawing;
 import net.minecraft.block.Block;
@@ -11,7 +13,8 @@ import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import static org.lwjgl.opengl.GL11.*;
 
-public class RendererMultiLayer implements ISimpleBlockRenderingHandler {
+@Optional.Interface(modid = "falsetweaks", iface = "com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer")
+public class RendererMultiLayer implements ISimpleBlockRenderingHandler, ThreadSafeBlockRenderer {
 
 	float bot = -0.001f, top = 1.0f - bot;
 	public static int id;
@@ -77,5 +80,11 @@ public class RendererMultiLayer implements ISimpleBlockRenderingHandler {
 	@Override
 	public int getRenderId() {
 		return id;
+	}
+
+	@Optional.Method(modid = "falsetweaks")
+	@Override
+	public ISimpleBlockRenderingHandler forCurrentThread() {
+		return this;
 	}
 }

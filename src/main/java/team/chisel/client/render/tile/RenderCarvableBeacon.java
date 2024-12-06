@@ -2,6 +2,8 @@ package team.chisel.client.render.tile;
 
 import java.awt.Color;
 
+import com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer;
+import cpw.mods.fml.common.Optional;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -24,7 +26,8 @@ import team.chisel.block.tileentity.TileEntityCarvableBeacon;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
-public class RenderCarvableBeacon extends TileEntityBeaconRenderer implements ISimpleBlockRenderingHandler {
+@Optional.Interface(modid = "falsetweaks", iface = "com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer")
+public class RenderCarvableBeacon extends TileEntityBeaconRenderer implements ISimpleBlockRenderingHandler, ThreadSafeBlockRenderer {
 
 	private static final ResourceLocation texture = new ResourceLocation("textures/entity/beacon_beam.png");
 
@@ -183,5 +186,11 @@ public class RenderCarvableBeacon extends TileEntityBeaconRenderer implements IS
 	@Override
 	public int getRenderId() {
 		return renderId;
+	}
+
+	@Optional.Method(modid = "falsetweaks")
+	@Override
+	public ISimpleBlockRenderingHandler forCurrentThread() {
+		return this;
 	}
 }

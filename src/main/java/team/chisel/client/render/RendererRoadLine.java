@@ -1,5 +1,7 @@
 package team.chisel.client.render;
 
+import com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer;
+import cpw.mods.fml.common.Optional;
 import lombok.val;
 import team.chisel.Chisel;
 import team.chisel.ClientCompat;
@@ -14,7 +16,8 @@ import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
-public class RendererRoadLine implements ISimpleBlockRenderingHandler {
+@Optional.Interface(modid = "falsetweaks", iface = "com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer")
+public class RendererRoadLine implements ISimpleBlockRenderingHandler, ThreadSafeBlockRenderer {
 
 	public RendererRoadLine() {
 		Chisel.roadLineId = RenderingRegistry.getNextAvailableRenderId();
@@ -118,5 +121,11 @@ public class RendererRoadLine implements ISimpleBlockRenderingHandler {
 	@Override
 	public int getRenderId() {
 		return Chisel.roadLineId;
+	}
+
+	@Optional.Method(modid = "falsetweaks")
+	@Override
+	public ISimpleBlockRenderingHandler forCurrentThread() {
+		return this;
 	}
 }

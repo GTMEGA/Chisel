@@ -1,5 +1,7 @@
 package team.chisel.client.render;
 
+import com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer;
+import cpw.mods.fml.common.Optional;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPane;
 import net.minecraft.client.renderer.EntityRenderer;
@@ -16,7 +18,8 @@ import team.chisel.ctmlib.Drawing;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
-public class RendererCTMPane implements ISimpleBlockRenderingHandler {
+@Optional.Interface(modid = "falsetweaks", iface = "com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer")
+public class RendererCTMPane implements ISimpleBlockRenderingHandler, ThreadSafeBlockRenderer {
 
 	public static int id;
 
@@ -30,6 +33,12 @@ public class RendererCTMPane implements ISimpleBlockRenderingHandler {
 		GL11.glScalef(1.25f, 1.25f, 1.25f);
 		renderer.setRenderBounds(0.0f, 0.0f, 0.5f - 0.0625f, 1.0f, 1.0f, 0.5f + 0.0625f);
 		Drawing.drawBlock(block, meta, renderer);
+	}
+
+	@Optional.Method(modid = "falsetweaks")
+	@Override
+	public ISimpleBlockRenderingHandler forCurrentThread() {
+		return this;
 	}
 
 	class PaneRenderer {

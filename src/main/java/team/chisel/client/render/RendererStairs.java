@@ -1,5 +1,7 @@
 package team.chisel.client.render;
 
+import com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer;
+import cpw.mods.fml.common.Optional;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.world.IBlockAccess;
@@ -11,7 +13,8 @@ import team.chisel.ctmlib.Drawing;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
-public class RendererStairs implements ISimpleBlockRenderingHandler {
+@Optional.Interface(modid = "falsetweaks", iface = "com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer")
+public class RendererStairs implements ISimpleBlockRenderingHandler, ThreadSafeBlockRenderer {
 
 	public static int id;
 
@@ -53,4 +56,9 @@ public class RendererStairs implements ISimpleBlockRenderingHandler {
 		return 1;
 	}
 
+	@Optional.Method(modid = "falsetweaks")
+	@Override
+	public ISimpleBlockRenderingHandler forCurrentThread() {
+		return this;
+	}
 }

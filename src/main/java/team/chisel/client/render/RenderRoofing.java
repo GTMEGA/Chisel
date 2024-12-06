@@ -1,11 +1,12 @@
 package team.chisel.client.render;
 
+import com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.Optional;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
@@ -18,7 +19,8 @@ import team.chisel.utils.RoofingUtil;
 /**
  * Rendering Roofing blocks
  */
-public class RenderRoofing implements ISimpleBlockRenderingHandler {
+@Optional.Interface(modid = "falsetweaks", iface = "com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer")
+public class RenderRoofing implements ISimpleBlockRenderingHandler, ThreadSafeBlockRenderer {
 
 
     public static int renderID;
@@ -210,5 +212,11 @@ public class RenderRoofing implements ISimpleBlockRenderingHandler {
     @Override
     public int getRenderId(){
         return renderID;
+    }
+
+    @Optional.Method(modid = "falsetweaks")
+    @Override
+    public ISimpleBlockRenderingHandler forCurrentThread() {
+        return this;
     }
 }

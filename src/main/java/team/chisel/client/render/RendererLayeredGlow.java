@@ -1,5 +1,7 @@
 package team.chisel.client.render;
 
+import com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer;
+import cpw.mods.fml.common.Optional;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.world.IBlockAccess;
@@ -16,7 +18,8 @@ import team.chisel.utils.GeneralClient;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
-public class RendererLayeredGlow implements ISimpleBlockRenderingHandler {
+@Optional.Interface(modid = "falsetweaks", iface = "com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer")
+public class RendererLayeredGlow implements ISimpleBlockRenderingHandler, ThreadSafeBlockRenderer {
 
 	public RendererLayeredGlow() {
 		Chisel.renderGlowId = RenderingRegistry.getNextAvailableRenderId();
@@ -52,5 +55,11 @@ public class RendererLayeredGlow implements ISimpleBlockRenderingHandler {
 	@Override
 	public int getRenderId() {
 		return Chisel.renderGlowId;
+	}
+
+	@Optional.Method(modid = "falsetweaks")
+	@Override
+	public ISimpleBlockRenderingHandler forCurrentThread() {
+		return this;
 	}
 }
