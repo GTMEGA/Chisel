@@ -2,8 +2,10 @@ package team.chisel.item;
 
 import java.util.List;
 
+import net.minecraft.util.StatCollector;
 import team.chisel.api.ICarvable;
 import team.chisel.api.carving.IVariationInfo;
+import team.chisel.block.BlockCarvable;
 import team.chisel.config.Configurations;
 import team.chisel.utils.General;
 import net.minecraft.block.Block;
@@ -51,5 +53,9 @@ public class ItemCarvable extends ItemBlock {
 			return;
 
 		lines.add(var.getDescription());
+
+		if (carvable instanceof BlockCarvable) {
+			lines.add(StatCollector.translateToLocal("chisel.non-mineable-block.desc"));
+		}
 	}
 }

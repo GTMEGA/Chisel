@@ -2,6 +2,7 @@ package team.chisel.compat;
 
 import java.util.List;
 
+import net.minecraft.util.StatCollector;
 import team.chisel.api.ICarvable;
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
@@ -13,6 +14,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import team.chisel.block.BlockCarvable;
 
 public class WailaCompat implements IWailaDataProvider {
 
@@ -35,6 +37,9 @@ public class WailaCompat implements IWailaDataProvider {
 			ICarvable block = (ICarvable) accessor.getBlock();
 			MovingObjectPosition pos = accessor.getPosition();
 			strings.add(block.getManager(accessor.getWorld(), pos.blockX, pos.blockY, pos.blockZ, accessor.getMetadata()).getDescription());
+			if (block instanceof BlockCarvable) {
+				strings.add(StatCollector.translateToLocal("chisel.non-mineable-block.desc"));
+			}
 		}
 		return strings;
 	}

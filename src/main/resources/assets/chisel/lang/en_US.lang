@@ -2055,3 +2055,6 @@ container.chisel.mode.single=Single
 container.chisel.mode.panel=Panel
 container.chisel.mode.column=Column
 container.chisel.mode.row=Row
+
+
+chisel.non-mineable-block.desc=§8Mobs will not spawn on this block.
