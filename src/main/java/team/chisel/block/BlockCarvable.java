@@ -1,22 +1,23 @@
 package team.chisel.block;
 
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.item.Item;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import team.chisel.Chisel;
 import team.chisel.api.ChiselTabs;
 import team.chisel.api.ICarvable;
 import team.chisel.api.carving.CarvableHelper;
 import team.chisel.api.carving.IVariationInfo;
 import team.chisel.api.rendering.ClientUtils;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class BlockCarvable extends Block implements ICarvable {
 
@@ -189,5 +190,10 @@ public class BlockCarvable extends Block implements ICarvable {
 			else
 				return this.soundNamePlace;
 		}
+	}
+
+	@Override
+	public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
+		return false;
 	}
 }
