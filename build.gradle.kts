@@ -1,5 +1,5 @@
 plugins {
-    id("fpgradle-minecraft") version "0.8.3"
+    id("fpgradle-minecraft") version "0.11.0"
 }
 
 group = "team.chisel"
@@ -42,11 +42,11 @@ repositories {
 }
 
 dependencies {
-    devOnlyNonPublishable("codechicken:notenoughitems-mc1.7.10:2.4.1-mega:dev")
+    devOnlyNonPublishable("codechicken:notenoughitems-mc1.7.10:2.4.3-mega:dev")
     implementation("codechicken:codechickencore-mc1.7.10:1.4.0-mega:dev")
 
-    compileOnly("com.falsepattern:falsetweaks-mc1.7.10:3.5.0:dev")
-    compileOnly("codechicken:forgemultipart-mc1.7.10:1.6.2-mega:dev")
+    compileOnly("com.falsepattern:falsetweaks-mc1.7.10:3.9.0:dev")
+    compileOnly("codechicken:forgemultipart-mc1.7.10:1.6.3-mega:dev")
 
     compileOnly("curse.maven:ee3-65509:2305023")
 
