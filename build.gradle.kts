@@ -1,5 +1,5 @@
 plugins {
-    id("fpgradle-minecraft") version "0.11.0"
+    id("com.falsepattern.fpgradle-mc") version "0.18.0"
 }
 
 group = "team.chisel"
