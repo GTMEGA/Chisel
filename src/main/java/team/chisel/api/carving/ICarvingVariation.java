@@ -40,7 +40,9 @@ public interface ICarvingVariation {
 	 * @return An {@link ItemStack} that represents this variation.
 	 */
 	@Nonnull
-	ItemStack getStack();
+	default ItemStack getStack() {
+		return new ItemStack(getBlock(), 1, getItemMeta()); //Legacy compat
+	}
 
 	/**
 	 * The "order" of this variation. Represents its position in the list of variations held by a group.
