@@ -3298,6 +3298,31 @@ public enum Features {
             Carving.chisel.registerOre("nibble", "blockNibble");
         }
     },
+    RUBBER {
+        @Override
+        void addBlocks() {
+            BlockCarvable rubber = (BlockCarvable) new BlockSlowcrete().setStepSound(Block.soundTypeWood).setCreativeTab(ChiselTabs.tabWoodChiselBlocks).setHardness(2.0F).setResistance(3.0F).setCreativeTab(ChiselTabs.tabWoodChiselBlocks);
+            rubber.carverHelper.addVariation("tile.rubber.0.desc", 0, "zc/rubber/rubber_0");
+            rubber.carverHelper.addVariation("tile.rubber.1.desc", 1, "zc/rubber/rubber_1");
+            rubber.carverHelper.addVariation("tile.rubber.2.desc", 2, "zc/rubber/rubber_2");
+            rubber.carverHelper.addVariation("tile.rubber.3.desc", 3, "zc/rubber/rubber_3");
+            rubber.carverHelper.addVariation("tile.rubber.4.desc", 4, "zc/rubber/rubber_4");
+            rubber.carverHelper.addVariation("tile.rubber.5.desc", 5, "zc/rubber/rubber_5");
+            rubber.carverHelper.addVariation("tile.rubber.6.desc", 6, "zc/rubber/rubber_6");
+            rubber.carverHelper.addVariation("tile.rubber.7.desc", 7, "zc/rubber/rubber_7");
+            rubber.carverHelper.addVariation("tile.rubber.8.desc", 8, "zc/rubber/rubber_8");
+            rubber.carverHelper.addVariation("tile.rubber.9.desc", 9, "zc/rubber/rubber_9");
+            rubber.carverHelper.addVariation("tile.rubber.10.desc", 10, "zc/rubber/rubber_10");
+            rubber.carverHelper.addVariation("tile.rubber.11.desc", 11, "zc/rubber/rubber_11");
+            rubber.carverHelper.addVariation("tile.rubber.12.desc", 12, "zc/rubber/rubber_12");
+            rubber.carverHelper.addVariation("tile.rubber.13.desc", 13, "zc/rubber/rubber_13");
+            rubber.carverHelper.addVariation("tile.rubber.14.desc", 14, "zc/rubber/rubber_14");
+            rubber.carverHelper.addVariation("tile.rubber.15.desc", 15, "zc/rubber/rubber_15");
+            rubber.carverHelper.registerAll(rubber, "rubber");
+            Carving.chisel.registerOre("rubber", "blockRubberPlanks");
+        }
+    },
+
     PIXEL {
         @Override
         void addBlocks() {

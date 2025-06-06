@@ -1827,6 +1827,25 @@ tile.glass_bubble2.12.desc=Yellow-Green Colored Stained Bubble Glass Block
 tile.glass_bubble2.13.desc=Light Purple Colored Stained Bubble Glass Block
 tile.glass_bubble2.14.desc=Cyan Colored Stained Bubble Glass Block
 tile.glass_bubble2.15.desc=Bright Pink Colored Stained Bubble Glass Block
+
+tile.chisel.rubber.name=Rubber Wood Planks
+
+tile.rubber.0.desc=Rubber Wood Blinds
+tile.rubber.1.desc=Rubber Wood Horizontal Panels
+tile.rubber.2.desc=Rubber Wood Vertical Panels
+tile.rubber.3.desc=Long Rubber Wood Planks
+tile.rubber.4.desc=Rubber Wood Scaffold
+tile.rubber.5.desc=Fancy Rubber Wood Crate
+tile.rubber.6.desc=Rubber Wood Crate
+tile.rubber.7.desc=Fancy Rubber Wood Planks
+tile.rubber.8.desc=Large Rubber Wood Planks
+tile.rubber.9.desc=Exotic Rubber Wood Planks
+tile.rubber.10.desc=Vertical Rubber Wood Planks
+tile.rubber.11.desc=Short Rubber Wood Planks
+tile.rubber.12.desc=Rubber Wood Parquet
+tile.rubber.13.desc=Rubber Wood Slabs
+tile.rubber.14.desc=Rubber Wood Top Panel
+tile.rubber.15.desc=Rubber Wood Panel
 #Stained Glass
 white.bubble.desc=White Bubble Glass
 white.glass.desc=White Glass Panel
