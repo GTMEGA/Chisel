@@ -1,5 +1,7 @@
 package team.chisel.client.render;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import lombok.val;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -95,7 +97,22 @@ public class SubmapManagerCombinedCTM extends SubmapManagerBase implements IOffs
 	}
 
 	@SideOnly(Side.CLIENT)
-	private RenderBlocksCTM rb;
+	private static ThreadLocal<Object> threadLocalRB;
+
+	@SideOnly(Side.CLIENT)
+	private static void initThreadLocals() {
+		threadLocalRB = ThreadLocal.withInitial(RenderBlocksCTM::new);
+	}
+
+	static {
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			initThreadLocals();
+		}
+	}
+
+	private static RenderBlocksCTM getRenderBlocks() {
+		return (RenderBlocksCTM) threadLocalRB.get();
+	}
 
 	private TextureSubmap submap, smallSubmap;
 	private int size;
@@ -121,9 +138,7 @@ public class SubmapManagerCombinedCTM extends SubmapManagerBase implements IOffs
 	@Override
 	@SideOnly(Side.CLIENT)
 	public RenderBlocks createRenderContext(RenderBlocks rendererOld, Block block, IBlockAccess world) {
-		if (rb == null) {
-			rb = new RenderBlocksCombinedCTM();
-		}
+		val rb = getRenderBlocks();
 		rb.setRenderBoundsFromBlock(block);
 		return rb;
 	}

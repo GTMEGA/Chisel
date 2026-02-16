@@ -1,5 +1,7 @@
 package team.chisel.client.render;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import lombok.val;
 import team.chisel.ctmlib.RenderBlocksCTM;
 import team.chisel.ctmlib.TextureSubmap;
 import net.minecraft.block.Block;
@@ -13,7 +15,22 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class SubmapManagerCarpetFloor extends SubmapManagerBase {
 
 	@SideOnly(Side.CLIENT)
-	private static RenderBlocksCTM rb;
+	private static ThreadLocal<Object> threadLocalRB;
+
+	@SideOnly(Side.CLIENT)
+	private static void initThreadLocals() {
+		threadLocalRB = ThreadLocal.withInitial(RenderBlocksCTM::new);
+	}
+
+	static {
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			initThreadLocals();
+		}
+	}
+
+	private static RenderBlocksCTM getRenderBlocks() {
+		return (RenderBlocksCTM) threadLocalRB.get();
+	}
 
 	private TextureSubmap submap;
 	private TextureSubmap submapSmall;
@@ -44,9 +61,7 @@ public class SubmapManagerCarpetFloor extends SubmapManagerBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public RenderBlocks createRenderContext(RenderBlocks rendererOld, Block block, IBlockAccess world) {
-		if (rb == null) {
-			rb = new RenderBlocksCTM();
-		}
+		val rb = getRenderBlocks();
 		rb.setRenderBoundsFromBlock(block);
 		rb.submap = submap;
 		rb.submapSmall = submapSmall;

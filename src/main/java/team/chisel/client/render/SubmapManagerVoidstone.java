@@ -1,5 +1,8 @@
 package team.chisel.client.render;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import lombok.NoArgsConstructor;
+import lombok.val;
 import team.chisel.api.carving.CarvingUtils;
 import team.chisel.api.rendering.TextureType;
 import team.chisel.ctmlib.ISubmapManager;
@@ -14,6 +17,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.function.Supplier;
 
 public class SubmapManagerVoidstone extends SubmapManagerBase {
 
@@ -77,7 +82,22 @@ public class SubmapManagerVoidstone extends SubmapManagerBase {
 	}
 
 	@SideOnly(Side.CLIENT)
-	private RenderBlocksVoidstone rb;
+	private ThreadLocal<Object> threadLocalRB;
+
+	@SideOnly(Side.CLIENT)
+	private void initThreadLocals() {
+		threadLocalRB = ThreadLocal.withInitial(RenderBlocksVoidstone::new);
+	}
+
+	{
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			initThreadLocals();
+		}
+	}
+
+	private RenderBlocksVoidstone getRenderBlocks() {
+		return (RenderBlocksVoidstone) threadLocalRB.get();
+	}
 
 	private ISubmapManager overlay;
 	private TextureSubmap base;
@@ -114,9 +134,7 @@ public class SubmapManagerVoidstone extends SubmapManagerBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public RenderBlocks createRenderContext(RenderBlocks rendererOld, Block block, IBlockAccess world) {
-		if (rb == null) {
-			rb = new RenderBlocksVoidstone();
-		}
+		val rb = getRenderBlocks();
 		RenderBlocks ctx = overlay.createRenderContext(rendererOld, block, world);
 		rb.setRenderBoundsFromBlock(block);
 		if (ctx instanceof RenderBlocksCTM) {
