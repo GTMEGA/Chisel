@@ -2212,11 +2212,6 @@ public enum Features {
             purpur.carverHelper.registerAll(purpur, "purpur");
             Carving.chisel.registerOre("purpur", "purpur");
         }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addShapelessRecipe(new ItemStack(ChiselBlocks.purpur), new ItemStack(Item.getItemFromBlock(Blocks.end_stone), 1), new ItemStack(Items.dye, 1, 5));
-        }
     },
 
     QUARTZ {

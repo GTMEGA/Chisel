@@ -1483,8 +1483,8 @@ tile.laboratory.9.desc=Clear Panel
 tile.laboratory.10.desc=Fuzzy Panel
 tile.laboratory.11.desc=Large Steel Tile
 tile.laboratory.12.desc=Small Steel Tiles
-tile.laboratory.13.desc=Direction Console (Right)
-tile.laboratory.14.desc=Direction Console (Left)
+tile.laboratory.13.desc=Direction Console (Right / Up)
+tile.laboratory.14.desc=Direction Console (Left / Down)
 tile.laboratory.15.desc=Information Console
 
 #Planks (They go in order of creative tab appearance if that helps)
