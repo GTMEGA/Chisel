@@ -36,8 +36,8 @@ public class BlockQuickcrete extends BlockCarvable {
 			if (below == this) {
 				manualInputCheck.updatePlayerMoveState();
 				if (manualInputCheck.moveForward != 0 || manualInputCheck.moveStrafe != 0) {
-					player.motionX *= Configurations.concreteVelocityMult + speedup;
-					player.motionZ *= Configurations.concreteVelocityMult + speedup;
+					player.motionX = Math.min(1.3f, player.motionX * (Configurations.concreteVelocityMult + speedup));
+					player.motionZ = Math.min(1.3f, player.motionZ * (Configurations.concreteVelocityMult + speedup));
 				}
 			}
 		}
