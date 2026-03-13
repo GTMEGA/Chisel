@@ -3334,7 +3334,20 @@ public enum Features {
                 pixel2.carverHelper.registerVariations("pixel");
                 Carving.chisel.registerOre("pixel", "blockPixel");
         }
+    },
+
+    PRIMITIVE {
+        @Override
+        void addBlocks() {
+            BlockCarvable primitive = (BlockCarvable) new BlockQuickcrete().setSpeedup(0.05f).setStepSound(Block.soundTypeStone).setCreativeTab(ChiselTabs.tabModdedChiselBlocks).setHardness(1.0F).setResistance(5.0F).setCreativeTab(ChiselTabs.tabModdedChiselBlocks);
+            for (int i = 0; i < 16; i++) {
+                primitive.carverHelper.addVariation("tile.primitive." + i + ".desc", i, "mega/primitive/primitive_" + i);
+            }
+            primitive.carverHelper.registerAll(primitive, "primitive");
+            Carving.chisel.registerOre("primitive", "blockprimitive");
+        }
     };
+
     private static final String[] dyeOres = {"dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime", "dyeYellow",
             "dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite"};
 

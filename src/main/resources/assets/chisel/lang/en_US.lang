@@ -1756,6 +1756,24 @@ tile.pixel2.13.desc= Solid Light Purple Colored Block
 tile.pixel2.14.desc= Solid Cyan Colored Block
 tile.pixel2.15.desc= Solid Bright Pink Colored Block
 
+tile.chisel.primitive.name=Lonbass
+tile.primitive.0.desc=A primitive block made with abundant resources
+tile.primitive.1.desc=A primitive block made with abundant resources
+tile.primitive.2.desc=A primitive block made with abundant resources
+tile.primitive.3.desc=A primitive block made with abundant resources
+tile.primitive.4.desc=A primitive block made with abundant resources
+tile.primitive.5.desc=A primitive block made with abundant resources
+tile.primitive.6.desc=A primitive block made with abundant resources
+tile.primitive.7.desc=A primitive block made with abundant resources
+tile.primitive.8.desc=A primitive block made with abundant resources
+tile.primitive.9.desc=A primitive block made with abundant resources
+tile.primitive.10.desc=A primitive block made with abundant resources
+tile.primitive.11.desc=A primitive block made with abundant resources
+tile.primitive.12.desc=A primitive block made with abundant resources
+tile.primitive.13.desc=A primitive block made with abundant resources
+tile.primitive.14.desc=A primitive block made with abundant resources
+tile.primitive.15.desc=A primitive block made with abundant resources
+
 tile.chisel.glassborderless.name=Tinted Glass
 tile.chisel.glassborderless2.name=Tinted Glass
 tile.glassborderless.0.desc= Solid Black Colored Stained Glass Block
