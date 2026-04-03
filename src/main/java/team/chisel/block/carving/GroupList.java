@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import lombok.val;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -43,7 +44,9 @@ public class GroupList implements Set<ICarvingGroup> {
 
 		@Override
 		public int hashCode() {
-			return v.getStack().getItem().hashCode() ^ v.getStack().getItemDamage();
+			val itemStack = v.getStack();
+			val item = itemStack.getItem();
+			return ((item != null) ? item.hashCode() : 0) ^ itemStack.getItemDamage();
 		}
 	}
 
