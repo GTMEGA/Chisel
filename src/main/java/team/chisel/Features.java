@@ -141,13 +141,6 @@ public enum Features {
             andesite.carverHelper.registerOre("blockAndesite");
             andesite.carverHelper.registerOre("stoneAndesite");
         }
-
-        @Override
-        void addRecipes() {
-            if (DIORITE.enabled()) {
-                GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(andesite, 2), diorite, "cobblestone"));
-            }
-        }
     },
 
     ANTIBLOCK {
@@ -197,12 +190,6 @@ public enum Features {
             Block autoChisel = new BlockAutoChisel().setBlockTextureName(Chisel.MOD_ID + ":autoChisel/autoChisel").setCreativeTab(ChiselTabs.tabChisel).setBlockName("chisel.autoChisel");
             GameRegistry.registerBlock(autoChisel, "autoChisel");
         }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.autoChisel, 1), "XXX", " Y ", "YYY", Character.valueOf('X'), Blocks.stone_slab, Character.valueOf('Y'),
-                    "ingotIron"));
-        }
     },
 
     AUTO_CHISEL_UPGRADES(AUTO_CHISEL) {
@@ -210,14 +197,6 @@ public enum Features {
         void addItems() {
             ItemUpgrade upgrade = (ItemUpgrade) new ItemUpgrade("upgrade").setCreativeTab(ChiselTabs.tabChisel);
             GameRegistry.registerItem(upgrade, "upgrade");
-        }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselItems.upgrade, 1, 0), "IEI", "EUE", "RRR", 'I', "ingotIron", 'E', Items.emerald, 'R', Items.redstone, 'U', Items.sugar));
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselItems.upgrade, 1, 1), "IEI", "EUE", "RRR", 'I', "ingotIron", 'E', Items.emerald, 'R', Items.redstone, 'U', Blocks.hopper));
-            GameRegistry
-                    .addRecipe(new ShapedOreRecipe(new ItemStack(ChiselItems.upgrade, 1, 2), "IEI", "EUE", "RRR", 'I', "ingotIron", 'E', Items.emerald, 'R', Items.redstone, 'U', Blocks.crafting_table));
         }
     },
 
@@ -359,11 +338,6 @@ public enum Features {
             }
             carpet_block.carverHelper.registerAll(carpet_block, "carpet_block");
             OreDictionary.registerOre("blockCarpet", carpet_block);
-        }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.carpet_block, 8, meta), "YYY", "YXY", "YYY", 'X', new ItemStack(Items.string, 1), 'Y', new ItemStack(Blocks.wool, 1, meta));
         }
 
         @Override
@@ -678,11 +652,6 @@ public enum Features {
             diorite.carverHelper.registerAll(diorite, "diorite");
             diorite.carverHelper.registerOre("blockDiorite");
             diorite.carverHelper.registerOre("stoneDiorite");
-        }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(diorite, 2), "cq", "qc", 'c', "cobblestone", 'q', "gemQuartz"));
         }
     },
 
@@ -1226,11 +1195,6 @@ public enum Features {
             holystone.carverHelper.registerAll(holystone, "holystone");
             OreDictionary.registerOre("holystone", holystone);
             Carving.chisel.registerOre("holystone", "holystone");
-        }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.holystone, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.feather, 1));
         }
     },
 

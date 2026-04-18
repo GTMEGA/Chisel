@@ -433,12 +433,50 @@ tile.purpur.9.desc=Large Tile
 tile.purpur.10.desc=Ornate Purpur
 tile.purpur.11.desc=Diagonal Bricks
 
+#Quartz
+tile.chisel.quartz.name=Decorative Quartz
+tile.quartz.0.desc=Ordered Tile
+tile.quartz.1.desc=Scale Tiles
+tile.quartz.2.desc=Small Bricks
+
+#MazeStone
+tile.chisel.TFMazestone.name=Mazestone
+tile.TFMazestone.0.desc=Ordered Tile
+tile.TFMazestone.1.desc=Scale Tiles
+tile.TFMazestone.2.desc=Intricate Grooves
+tile.TFMazestone.3.desc=Weathered Cobbles
+tile.TFMazestone.4.desc=Dim Lamp
+tile.TFMazestone.5.desc=Small Bricks
+
+#EnderPearl
+tile.chisel.blockEnderPearl.name=Block of Ender Pearl
+tile.blockEnderPearl.0.desc=Large Tile
+tile.blockEnderPearl.1.desc=Large Faceted Tile
+tile.blockEnderPearl.2.desc=Swirl Pattern
+tile.blockEnderPearl.3.desc=Pearlescent Lamp
+
+#Prismarine
+tile.chisel.prismarine.name=Prismarine
+tile.prismarine.0.desc=Barnacles
+tile.prismarine.1.desc=Scale Tiles
+tile.prismarine.2.desc=Small Weathered Tiles
+tile.prismarine.3.desc=Ordered Tile
+tile.prismarine.4.desc=Large Bricks
+tile.prismarine.5.desc=Small Disordered Bricks
+tile.prismarine.6.desc=Small Bricks
+tile.prismarine.7.desc=Prismarine Lamp
+
 #Metal Blocks
 tile.chisel.aluminumblock.name=Block of Aluminum
 tile.chisel.bronzeblock.name=Block of Bronze
+tile.chisel.cobaltblock.name=Block of Cobalt
+tile.chisel.invarblock.name=Block of Invar
 tile.chisel.copperblock.name=Block of Copper
+tile.chisel.electrumblock.name=Block of Electrum
 tile.chisel.gold2.name=Block of Gold
 tile.chisel.iron2.name=Block of Iron
+tile.chisel.nickelblock.name=Block of Nickel
+tile.chisel.platinumblock.name=Block of Platinum
 tile.chisel.leadblock.name=Block of Lead
 tile.chisel.silverblock.name=Block of Silver
 tile.chisel.steelblock.name=Block of Steel
@@ -450,6 +488,7 @@ tile.metalOre.2.desc=Thermal
 tile.metalOre.3.desc=An Old Relic from the land of Oneteufyv
 tile.metalOre.4.desc=Egregiously Bordered Block
 tile.metalOre.5.desc=Fancy Bolted Plating
+tile.metalOre.5.desc=Framed Structure
 
 #Stairs
 tile.chisel.aluminum_stairs.0.name=Aluminum Stairs
@@ -912,6 +951,7 @@ tile.lightstone.15.desc=Glowstone Bismuth Panel
 
 #Lapis blocks
 tile.chisel.lapis_block.name=Lapis Block
+tile.lapis.0.desc=Disordered Lapis Bricks
 tile.lapis.1.desc=Chunky Lapis Block
 tile.lapis.2.desc=Dark Lapis Block
 tile.lapis.3.desc=Zelda Lapis Block
@@ -2093,5 +2133,5 @@ container.chisel.mode.panel=Panel
 container.chisel.mode.column=Column
 container.chisel.mode.row=Row
 
-
-chisel.non-mineable-block.desc=§8Mobs will not spawn on this block.
+chisel.building-block.desc=§7[Building Material]
+chisel.non-spawnable-block.desc=§8Mobs will not spawn on this block.

@@ -1,19 +1,19 @@
 package team.chisel.item;
 
-import java.util.List;
-
-import net.minecraft.util.StatCollector;
-import team.chisel.api.ICarvable;
-import team.chisel.api.carving.IVariationInfo;
-import team.chisel.block.BlockCarvable;
-import team.chisel.config.Configurations;
-import team.chisel.utils.General;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
+import team.chisel.api.ICarvable;
+import team.chisel.api.carving.IVariationInfo;
+import team.chisel.block.BlockCarvable;
+import team.chisel.config.Configurations;
+import team.chisel.utils.General;
+
+import java.util.List;
 
 public class ItemCarvable extends ItemBlock {
 
@@ -55,7 +55,8 @@ public class ItemCarvable extends ItemBlock {
 		lines.add(var.getDescription());
 
 		if (carvable instanceof BlockCarvable) {
-			lines.add(StatCollector.translateToLocal("chisel.non-mineable-block.desc"));
+			lines.add(StatCollector.translateToLocal("chisel.building-block.desc"));
+			lines.add(StatCollector.translateToLocal("chisel.non-spawnable-block.desc"));
 		}
 	}
 }
