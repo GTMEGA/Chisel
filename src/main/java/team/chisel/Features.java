@@ -856,12 +856,6 @@ public enum Features {
             fantasyblock2.carverHelper.registerBlock(fantasyblock2, "fantasyblock2");
             fantasyblock2.carverHelper.registerVariations("fantasy");
         }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.fantasyblock, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.gold_nugget, 1));
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.fantasyblock2, 64, 0), "***", "*X*", "***", '*', new ItemStack(ChiselBlocks.fantasyblock, 1), 'X', "dyeWhite"));
-        }
     },
 
     FUTURA {
@@ -2690,11 +2684,6 @@ public enum Features {
             templeblock.carverHelper.registerAll(templeblock, "templeblock");
             Carving.chisel.registerOre("templeblock", "templeblock");
         }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.templeblock, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', dyeOres[4]));
-        }
     },
 
     TEMPLE_BLOCK_MOSSY {
@@ -2722,8 +2711,6 @@ public enum Features {
             mossy_templeblock.carverHelper.registerAll(mossy_templeblock, "mossy_templeblock");
             Carving.chisel.registerOre("mossy_templeblock", "mossy_templeblock");
         }
-
-        ;
     },
 
     TIN {
@@ -3090,7 +3077,7 @@ public enum Features {
                 planks[i].setHarvestLevel("axe", 0);
                 Carving.chisel.registerOre(name, "wood");
                 Carving.chisel.setVariationSound(name, Chisel.MOD_ID + ":chisel.wood");
-                Blocks.fire.setFireInfo(planks[i], 5, 20);
+                Blocks.fire.setFireInfo(planks[i], 1, 1);
             }
         }
     },
