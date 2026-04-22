@@ -3099,7 +3099,7 @@ public enum Features {
             OreDictionary.registerOre("stainedClay" + sGNames[meta].replaceAll(" ", ""), new ItemStack(Blocks.stained_hardened_clay, 1, meta));
             OreDictionary.registerOre("blockWool" + sGNames[meta].replaceAll(" ", ""), new ItemStack(Blocks.wool, 1, meta));
             GameRegistry.addRecipe(
-                    new ShapelessOreRecipe(new ItemStack(ChiselBlocks.woolen_clay, 2, meta), "blockWool" + sGNames[meta].replaceAll(" ", ""), "stainedClay" + sGNames[meta].replaceAll(" ", "")));
+                    new ShapelessOreRecipe(new ItemStack(ChiselBlocks.woolen_clay, 32, meta), "blockWool" + sGNames[meta].replaceAll(" ", ""), "stainedClay" + sGNames[meta].replaceAll(" ", "")));
         }
 
         @Override
