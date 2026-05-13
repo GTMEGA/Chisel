@@ -873,11 +873,6 @@ public enum Features {
             circuits.carverHelper.registerVariations("futura");
             Carving.chisel.registerOre("futura", "futura");
         }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.futura, 64, 0), "SBS", "BGB", "SBS", 'S', "stone", 'G', "dustRedstone", 'B', new ItemStack(Blocks.stonebrick, 1)));
-        }
     },
 
     GLASS {
@@ -1127,11 +1122,6 @@ public enum Features {
             grimstone.carverHelper.addVariation("tile.grimstone.14.desc", 14, "grimstone/flaky");
             grimstone.carverHelper.registerAll(grimstone, "grimstone");
             Carving.chisel.registerOre("grimstone", "grimstone");
-        }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.grimstone, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.coal, 1));
         }
     },
 
@@ -2912,11 +2902,6 @@ public enum Features {
             valentines.carverHelper.registerAll(valentines, "valentines");
             Carving.chisel.registerOre("valentines", "blockValentines");
         }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.valentines, 64, 0), "***", "*X*", "***", '*', "stone", 'X', new ItemStack(Items.dye, 1, 9)));
-        }
     },
 
     VOIDSTONE {
@@ -2957,14 +2942,6 @@ public enum Features {
             voidstonerunic.carverHelper.registerVariations("voidstone");
 
             Carving.chisel.registerOre("voidstoneRunic", "voidstoneRunic");
-        }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.voidstone, 64, 0), "oxo", "xyx", "oxo", 'x', new ItemStack(Blocks.stone, 1), 'y', new ItemStack(Items.ender_pearl, 1), 'o',
-                    new ItemStack(Blocks.obsidian, 1));
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.voidstone2, 64, 0), "oxo", "xyx", "oxo", 'x', new ItemStack(Blocks.stone, 1), 'y', new ItemStack(Items.ender_eye, 1), 'o',
-                    new ItemStack(Blocks.obsidian, 1));
         }
     },
 
