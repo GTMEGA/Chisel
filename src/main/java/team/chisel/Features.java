@@ -803,12 +803,6 @@ public enum Features {
             factoryblock2.carverHelper.registerAll(factoryblock2, "factoryblock2");
             factoryblock2.carverHelper.registerVariations("factoryblock");
         }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.factoryblock, Configurations.factoryBlockAmount, 0), "*X*", "X X", "*X*", '*', new ItemStack(Blocks.stone, 1), 'X',
-                    new ItemStack(Items.iron_ingot, 1));
-        }
     },
 
     FANTASY {

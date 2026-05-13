@@ -7,7 +7,7 @@ stat.blockChiseled=Blocks Chiseled
 entity.chisel.snowman.name=Snow Golem
 
 #Item localizations
-item.chisel.chisel_iron.name=Chisel
+item.chisel.chisel_iron.name=Iron Chisel
 
 item.chisel.chisel.desc.gui=Right-Click to open GUI
 item.chisel.chisel.desc.lc1=Left click to chisel blocks in world
@@ -15,7 +15,7 @@ item.chisel.chisel.desc.lc2=Can target a block by leaving it in the inventory
 item.chisel.chisel.desc.modes=Has multiple modes for chiseling.
 
 item.chisel.chisel_diamond.name=Diamond Chisel
-item.chisel.chisel_obsidian.name=Obsidian Chisel
+item.chisel.chisel_obsidian.name=Steel Chisel
 item.chisel.chisel_netherstar.name=Chisel Rick
 
 item.chisel.offsettool.name=Ender Offset Wand

@@ -80,11 +80,11 @@ public class Configurations {
 
 		/* worldgen */
 		category = "worldgen";
-		marbleAmount = config.get(category, "marbleAmount", 7, "Amount of marble to generate in the world; use 0 for none").getInt(7);
-		limestoneAmount = config.get(category, "limestoneAmount", 8, "Amount of limestone to generate in the world; use 0 for none").getInt(8);
-		graniteAmount = config.get(category, "graniteAmount", 8, "Amount of granite to generate in the world; use 0 for none.").getInt(8);
-		dioriteAmount = config.get(category, "dioriteAmount", 8, "Amount of diorite to generate in the world; use 0 for none.").getInt(8);
-		andesiteAmount = config.get(category, "andesiteAmount", 8, "Amount of andesite to generate in the world; use 0 for none.").getInt(8);
+		marbleAmount = config.get(category, "marbleAmount", 0, "Amount of marble to generate in the world; use 0 for none").getInt(0);
+		limestoneAmount = config.get(category, "limestoneAmount", 0, "Amount of limestone to generate in the world; use 0 for none").getInt(0);
+		graniteAmount = config.get(category, "graniteAmount", 0, "Amount of granite to generate in the world; use 0 for none.").getInt(0);
+		dioriteAmount = config.get(category, "dioriteAmount", 0, "Amount of diorite to generate in the world; use 0 for none.").getInt(0);
+		andesiteAmount = config.get(category, "andesiteAmount", 0, "Amount of andesite to generate in the world; use 0 for none.").getInt(0);
 
 		/* client */
 		category = "client";
@@ -100,22 +100,22 @@ public class Configurations {
 		/* chisel */
 		category = "chisel";
 		allowChiselDamage = config.get(category, "allowChiselDamage", true, "Should the chisel be damageable and take damage when it chisels something.").getBoolean();
-		ironChiselMaxDamage = config.getInt("ironChiselMaxDamage", category, 500, 1, Short.MAX_VALUE, "The max damage of the standard iron chisel.");
-		diamondChiselMaxDamage = config.getInt("diamondChiselMaxDamage", category, 5000, 1, Short.MAX_VALUE, "The max damage of the diamond chisel.");
-		obsidianChiselMaxDamage = config.getInt("obsidianChiselMaxDamage", category, 2500, 1, Short.MAX_VALUE, "The max damage of the obsidian chisel.");
-		netherStarChiselMaxDamage = config.getInt("netherStarChiselMaxDamage", category, 32767, 1, Short.MAX_VALUE, "The max damage of the nether star chisel.");
+		ironChiselMaxDamage = config.getInt("ironChiselMaxDamage", category, 512, 1, Short.MAX_VALUE, "The max damage of the standard iron chisel.");
+		diamondChiselMaxDamage = config.getInt("diamondChiselMaxDamage", category, 8192, 1, Short.MAX_VALUE, "The max damage of the diamond chisel.");
+		obsidianChiselMaxDamage = config.getInt("obsidianChiselMaxDamage", category, 1024, 1, Short.MAX_VALUE, "The max damage of the steel chisel.");
+		netherStarChiselMaxDamage = config.getInt("netherStarChiselMaxDamage", category, 32767, 1, Short.MAX_VALUE, "The max damage of the secret chisel.");
 		ironChiselCanLeftClick = config.get(category, "ironChiselCanLeftClick", true, "If this is true, the iron chisel can left click chisel blocks. If false, it cannot.").getBoolean();
-		ironChiselHasModes = config.get(category, "ironChiselHasModes", false, "If this is true, the iron chisel can change its chisel mode just as the diamond chisel can.").getBoolean();
+		ironChiselHasModes = config.get(category, "ironChiselHasModes", true, "If this is true, the iron chisel can change its chisel mode just as the diamond chisel can.").getBoolean();
 		allowChiselCrossColors = config.get(category, "allowChiselCrossColors", true, "Should someone be able to chisel something into a different color.").getBoolean();
 
 		ironChiselAttackDamage = config
 				.get(category, "ironChiselAttackDamage", 2, "The extra attack damage points (in half hearts) that the iron chisel inflicts when it is used to attack an entity.").getInt();
-		diamondChiselAttackDamage = config.get(category, "diamondChiselAttackDamage", 2,
+		diamondChiselAttackDamage = config.get(category, "diamondChiselAttackDamage", 6,
 				"The extra attack damage points (in half hearts) that the diamond chisel inflicts when it is used to attack an entity.").getInt();
 		obsidianChiselAttackDamage = config.get(category, "obsidianChiselAttackDamage", 4,
 				"The extra attack damage points (in half hearts) that the obsidian chisel inflicts when it is used to attack an entity.").getInt();
-		netherStarChiselAttackDamage = config.get(category, "netherStarChiselAttackDamage", 6,
-				"The extra attack damage points (in half hearts) that the nether star chisel inflicts when it is used to attack an entity.").getInt();
+		netherStarChiselAttackDamage = config.get(category, "netherStarChiselAttackDamage", 12,
+				"The extra attack damage points (in half hearts) that the secret chisel inflicts when it is used to attack an entity.").getInt();
 
 		/* block */
 		category = "block";
