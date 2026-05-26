@@ -1144,11 +1144,6 @@ public enum Features {
             hexLargePlating.carverHelper.registerVariations("hexPlating");
             Carving.chisel.registerOre("hexPlating", "hexPlating");
         }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChiselBlocks.hexPlating, 64, 0), "XXX", "XYX", "XXX", 'X', "stone", 'Y', "blockCoal"));
-        }
     },
 
     HOLYSTONE {
@@ -1376,11 +1371,6 @@ public enum Features {
             laboratoryblock.carverHelper.registerAll(laboratoryblock, "laboratoryblock");
             Carving.chisel.registerOre("laboratoryblock", "laboratoryblock");
         }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.laboratoryblock, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.quartz, 1));
-        }
     },
 
     LAPIS_BLOCK {
@@ -1419,11 +1409,6 @@ public enum Features {
             lavastone.carverHelper.registerAll(lavastone, "lavastone");
             OreDictionary.registerOre("lavastone", lavastone);
             Carving.chisel.registerOre("lavastone", "lavastone");
-        }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.lavastone, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.lava_bucket, 1));
         }
     },
 
@@ -3010,11 +2995,6 @@ public enum Features {
             waterstone.carverHelper.registerAll(waterstone, "waterstone");
             OreDictionary.registerOre("blockWaterstone", waterstone);
             Carving.chisel.registerOre("waterstone", "blockWaterstone");
-        }
-
-        @Override
-        void addRecipes() {
-            GameRegistry.addRecipe(new ItemStack(ChiselBlocks.waterstone, 64, 0), "***", "*X*", "***", '*', new ItemStack(Blocks.stone, 1), 'X', new ItemStack(Items.water_bucket, 1));
         }
     },
 

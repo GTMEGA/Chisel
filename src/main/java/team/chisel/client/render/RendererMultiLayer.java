@@ -1,16 +1,17 @@
 package team.chisel.client.render;
 
 import com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer;
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Optional;
-import team.chisel.block.BlockMultiLayerBase;
-import team.chisel.ctmlib.Drawing;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.MinecraftForgeClient;
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
+import team.chisel.block.BlockMultiLayerBase;
+import team.chisel.ctmlib.Drawing;
+
 import static org.lwjgl.opengl.GL11.*;
 
 @Optional.Interface(modid = "falsetweaks", iface = "com.falsepattern.falsetweaks.api.threading.ThreadSafeBlockRenderer")
@@ -65,7 +66,7 @@ public class RendererMultiLayer implements ISimpleBlockRenderingHandler, ThreadS
 				return true;
 			}
 		} else {
-			renderer.setRenderBounds(0, 0, 0, 1, 1, 1);
+			renderer.setRenderBounds(-0.002, -0.002, -0.002, 1.002, 1.002, 1.002); //Magic numbers, and at the end of the day it will still z flicker at distance.
 			return renderer.renderStandardBlock(block, x, y, z);
 		}
 
