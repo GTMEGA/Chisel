@@ -3198,7 +3198,7 @@ public enum Features {
     RUBBER {
         @Override
         void addBlocks() {
-            BlockCarvable rubber = (BlockCarvable) new BlockSlowcrete().setStepSound(Block.soundTypeWood).setCreativeTab(ChiselTabs.tabWoodChiselBlocks).setHardness(2.0F).setResistance(3.0F).setCreativeTab(ChiselTabs.tabWoodChiselBlocks);
+            BlockCarvable rubber = (BlockCarvable) new BlockCarvable().setStepSound(Block.soundTypeWood).setCreativeTab(ChiselTabs.tabWoodChiselBlocks).setHardness(2.0F).setResistance(3.0F).setCreativeTab(ChiselTabs.tabWoodChiselBlocks);
             rubber.carverHelper.addVariation("tile.rubber.0.desc", 0, "zc/rubber/rubber_0");
             rubber.carverHelper.addVariation("tile.rubber.1.desc", 1, "zc/rubber/rubber_1");
             rubber.carverHelper.addVariation("tile.rubber.2.desc", 2, "zc/rubber/rubber_2");
